@@ -1,10 +1,15 @@
 import './App.css';
-import Layout from './layout/Layout';
+import About from './components/About';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <Layout>
-    </Layout>
+    <div className='AppWrapper'>
+      <Header />
+      <About />
+      <Footer />
+    </div>
   );
 }
 
