@@ -1,4 +1,18 @@
 .SkillsBG{
+    display: flex;
     height: 900px;
+    align-items: center;
+    justify-content: center;
     background-color: aliceblue;
 }
+
+.SkillsContainer{
+    display: flex;
+    height: 800px;
+    width: 1280px;
+    justify-content: flex-start;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 1px 4px 8px #d4d4d4
+}
+
