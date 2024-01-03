@@ -9,7 +9,7 @@ export default function Header() {
               강안수's Portfolio
             </p>
             <div className="TitlesContainer">
-              <p className='HeaderAbout'>About</p>
+              <p className='HeaderAbout'>About Me</p>
               <p className='HeaderSkills'>Skills</p>
               <p className='HeaderProjects'>Projects</p>
               <p className='HeaderExp'>Exp</p>

@@ -4,6 +4,16 @@
     align-items: center;
     justify-content: center;
     background-color: aliceblue;
+    flex-direction: column;
+}
+
+.SkillsTitle{
+    display: flex;
+    right: 0;
+    color: white;
+    font-size: 35px;
+    text-shadow: 1px 1px 2px #404040;
+    margin-top: 2%;
 }
 
 .SkillsContainer{
