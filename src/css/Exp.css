@@ -1,0 +1,66 @@
+.ExpBg{
+    display: flex;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    flex-direction: column;
+    z-index: 50;
+}
+
+.ExpTitle {
+    margin-top: 3%;
+    display: flex;
+    color: black;
+    font-size: 35px;
+    text-shadow: 1px 1px 2px #d4d4d4;
+    margin-bottom: 2%;
+}
+
+.ExpContainer{
+    z-index: 50;
+    display: flex;
+    width: 1280px;
+    height: 500px;
+    flex-direction: row;
+}
+
+.ExpArrow{
+    height: 360px;
+    width: 50px;
+    margin-right: 2%;
+}
+
+.ExpColumn{
+    display: flex;
+    flex-direction: column;
+}
+
+.ExpSmallContainer{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1%;
+}
+
+.Exprow{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.ExpSmallTitle{
+    display: flex;
+    font-size: 25px;
+    color: rgb(51, 121, 182);
+}
+
+.Expperiod{
+    display: flex;
+    font-size: 18px;
+}
+
+.ExpDetail{
+    font-size: 18px;
+    border: 0;
+    margin: 0;
+}

@@ -28,7 +28,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 1px 2px 4px #a2a2a2
 }
 
 .StarContainer{
@@ -36,11 +35,14 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
 }
 
 @keyframes animStar {
+    from {
+        transform: translateY(100%);
+      }
     to {
       transform: translateY(-100vh);
     }
@@ -60,7 +62,7 @@
     height: 2px;
     background: transparent;
     box-shadow: 554vh 61vh #fff, 214vh 35vh #fff, 484vh 60vh #fff, 78vh 13vh #fff, 612vh 40vh #fff, 363vh 91vh #fff, 579vh 25vh #fff, 523vh 23vh #fff, 4vh 7vh #fff, 111vh 48vh #fff, 253vh 93vh #fff, 455vh 18vh #fff, 101vh 68vh #fff, 504vh 65vh #fff, 546vh 62vh #fff, 8vh 2vh #fff, 292vh 73vh #fff, 244vh 91vh #fff, 587vh 37vh #fff, 246vh 26vh #fff, 476vh 59vh #fff, 142vh 20vh #fff, 157vh 33vh #fff, 382vh 36vh #fff, 646vh 28vh #fff, 80vh 51vh #fff, 467vh 65vh #fff, 437vh 53vh #fff, 118vh 38vh #fff, 405vh 60vh #fff, 443vh 22vh #fff, 207vh 37vh #fff, 408vh 26vh #fff, 274vh 50vh #fff, 409vh 22vh #fff, 516vh 13vh #fff, 515vh 80vh #fff, 475vh 19vh #fff, 566vh 72vh #fff, 405vh 21vh #fff, 586vh 64vh #fff, 385vh 30vh #fff, 625vh 30vh #fff, 406vh 76vh #fff, 559vh 72vh #fff, 236vh 25vh #fff, 302vh 61vh #fff, 57vh 40vh #fff, 42vh 32vh #fff, 94vh 76vh #fff, 4vh 1vh #fff, 500vh 26vh #fff, 674vh 45vh #fff, 451vh 58vh #fff, 547vh 54vh #fff, 70vh 24vh #fff, 241vh 31vh #fff, 214vh 96vh #fff, 239vh 30vh #fff, 32vh 28vh #fff, 19vh 17vh #fff, 475vh 32vh #fff, 191vh 29vh #fff, 157vh 99vh #fff, 564vh 13vh #fff, 685vh 73vh #fff, 216vh 25vh #fff, 299vh 82vh #fff, 428vh 81vh #fff, 655vh 78vh #fff, 52vh 39vh #fff, 28vh 86vh #fff, 68vh 7vh #fff, 55vh 44vh #fff, 601vh 91vh #fff, 237vh 85vh #fff, 7vh 78vh #fff, 487vh 81vh #fff, 22vh 7vh #fff, 241vh 8vh #fff, 70vh 94vh #fff, 207vh 56vh #fff, 181vh 92vh #fff, 587vh 89vh #fff, 145vh 90vh #fff, 502vh 30vh #fff, 203vh 81vh #fff, 690vh 63vh #fff, 553vh 46vh #fff, 557vh 30vh #fff, 673vh 21vh #fff, 572vh 61vh #fff, 530vh 36vh #fff, 562vh 13vh #fff, 519vh 53vh #fff, 423vh 32vh #fff, 62vh 6vh #fff, 380vh 58vh #fff, 170vh 2vh #fff, 264vh 24vh #fff, 257vh 88vh #fff, 30vh 35vh #fff, 297vh 52vh #fff, 465vh 67vh #fff, 355vh 66vh #fff, 155vh 39vh #fff, 546vh 83vh #fff, 273vh 30vh #fff, 392vh 62vh #fff, 700vh 36vh #fff, 465vh 13vh #fff, 248vh 14vh #fff, 560vh 54vh #fff, 416vh 76vh #fff, 482vh 82vh #fff, 236vh 7vh #fff, 330vh 77vh #fff, 681vh 2vh #fff, 365vh 49vh #fff, 259vh 82vh #fff, 689vh 90vh #fff, 291vh 100vh #fff, 457vh 62vh #fff, 249vh 42vh #fff, 354vh 16vh #fff, 47vh 28vh #fff, 300vh 45vh #fff, 76vh 59vh #fff, 473vh 49vh #fff, 47vh 100vh #fff, 297vh 56vh #fff, 449vh 11vh #fff, 512vh 92vh #fff, 160vh 17vh #fff, 444vh 88vh #fff, 101vh 61vh #fff, 568vh 92vh #fff, 515vh 12vh #fff, 647vh 90vh #fff, 565vh 31vh #fff, 113vh 17vh #fff, 563vh 7vh #fff, 9vh 96vh #fff, 484vh 43vh #fff, 603vh 16vh #fff, 600vh 78vh #fff, 467vh 68vh #fff, 84vh 32vh #fff, 187vh 55vh #fff, 359vh 46vh #fff, 82vh 12vh #fff, 197vh 13vh #fff, 283vh 42vh #fff, 309vh 59vh #fff, 381vh 58vh #fff, 452vh 36vh #fff, 624vh 32vh #fff, 134vh 19vh #fff, 593vh 20vh #fff, 228vh 90vh #fff, 564vh 26vh #fff, 282vh 62vh #fff, 238vh 83vh #fff, 7vh 18vh #fff, 238vh 8vh #fff, 258vh 21vh #fff, 533vh 82vh #fff, 122vh 69vh #fff, 380vh 71vh #fff, 644vh 84vh #fff, 377vh 42vh #fff, 483vh 18vh #fff, 380vh 32vh #fff, 595vh 97vh #fff, 315vh 91vh #fff, 254vh 77vh #fff, 457vh 6vh #fff, 468vh 97vh #fff, 660vh 92vh #fff, 557vh 53vh #fff, 344vh 54vh #fff, 589vh 97vh #fff, 516vh 68vh #fff, 89vh 88vh #fff, 137vh 26vh #fff, 685vh 100vh #fff, 667vh 32vh #fff, 231vh 21vh #fff, 346vh 62vh #fff, 628vh 32vh #fff, 172vh 61vh #fff, 515vh 38vh #fff, 322vh 43vh #fff, 425vh 85vh #fff, 487vh 55vh #fff, 284vh 7vh #fff, 423vh 9vh #fff, 204vh 77vh #fff, 530vh 79vh #fff, 475vh 39vh #fff;
-    animation: animStar 65s linear infinite;
+    animation: animStar 70s linear infinite;
 }
 
 .star3, .star3:after {
@@ -69,7 +71,7 @@
     background: transparent;
     box-shadow: 337vh 99vh #fff, 305vh 51vh #fff, 376vh 59vh #fff, 517vh 60vh #fff, 518vh 12vh #fff, 110vh 81vh #fff, 626vh 95vh #fff, 443vh 59vh #fff, 110vh 34vh #fff, 345vh 78vh #fff, 468vh 96vh #fff, 411vh 13vh #fff, 352vh 59vh #fff, 603vh 78vh #fff, 292vh 60vh #fff, 149vh 19vh #fff, 699vh 69vh #fff, 191vh 60vh #fff, 306vh 40vh #fff, 625vh 56vh #fff, 566vh 46vh #fff, 268vh 4vh #fff, 100vh 17vh #fff, 508vh 61vh #fff, 260vh 84vh #fff, 286vh 18vh #fff, 340vh 93vh #fff, 506vh 30vh #fff, 321vh 43vh #fff, 572vh 96vh #fff, 235vh 66vh #fff, 129vh 83vh #fff, 241vh 3vh #fff, 242vh 14vh #fff, 633vh 96vh #fff, 619vh 65vh #fff, 339vh 12vh #fff, 644vh 55vh #fff, 696vh 98vh #fff, 577vh 88vh #fff, 69vh 64vh #fff, 652vh 53vh #fff, 425vh 50vh #fff, 401vh 86vh #fff, 401vh 86vh #fff, 40vh 26vh #fff, 288vh 21vh #fff, 299vh 25vh #fff, 423vh 6vh #fff, 119vh 89vh #fff, 650vh 11vh #fff, 233vh 14vh #fff, 163vh 68vh #fff, 673vh 98vh #fff, 390vh 84vh #fff, 432vh 98vh #fff, 668vh 11vh #fff, 323vh 25vh #fff, 442vh 14vh #fff, 450vh 81vh #fff, 283vh 38vh #fff, 194vh 78vh #fff, 122vh 72vh #fff, 672vh 3vh #fff, 459vh 47vh #fff, 441vh 16vh #fff, 462vh 18vh #fff, 404vh 64vh #fff, 682vh 46vh #fff, 319vh 14vh #fff, 669vh 79vh #fff, 94vh 9vh #fff, 527vh 80vh #fff, 57vh 35vh #fff, 585vh 85vh #fff, 371vh 12vh #fff, 690vh 59vh #fff, 241vh 17vh #fff, 441vh 75vh #fff, 533vh 90vh #fff, 184vh 98vh #fff, 358vh 44vh #fff, 11vh 5vh #fff, 679vh 22vh #fff, 252vh 71vh #fff, 585vh 61vh #fff, 416vh 55vh #fff, 456vh 18vh #fff, 638vh 5vh #fff, 305vh 65vh #fff, 536vh 48vh #fff, 227vh 31vh #fff, 236vh 47vh #fff, 203vh 23vh #fff, 384vh 3vh #fff, 133vh 92vh #fff, 352vh 1vh #fff, 219vh 69vh #fff, 417vh 2vh #fff, 346vh 47vh #fff,
     204vh 46vh #fff, 403vh 21vh #fff, 109vh 15vh #fff, 831vh 103vh #fff, 236vh 25vh #fff, 302vh 61vh #fff, 57vh 40vh #fff, 42vh 32vh #fff, 94vh 76vh #fff, 4vh 1vh #fff, 500vh 26vh #fff, 674vh 45vh #fff, 451vh 58vh #fff, 547vh 54vh #fff, 70vh 24vh #fff, 241vh 31vh #fff, 214vh 96vh #fff, 239vh 30vh #fff, 32vh 28vh #fff, 19vh 17vh #fff, 475vh 32vh #fff, 191vh 29vh #fff, 157vh 99vh #fff, 564vh 13vh #fff, 685vh 73vh #fff, 216vh 25vh #fff, 299vh 82vh #fff, 428vh 81vh #fff, 655vh 78vh #fff, 52vh 39vh #fff, 28vh 86vh #fff, 68vh 7vh #fff, 55vh 44vh #fff, 601vh 91vh #fff, 237vh 85vh #fff, 7vh 78vh #fff, 487vh 81vh #fff, 22vh 7vh #fff, 241vh 8vh #fff, 70vh 94vh #fff, 207vh 56vh #fff, 181vh 92vh #fff, 587vh 89vh #fff, 145vh 90vh #fff, 502vh 30vh #fff, 203vh 81vh #fff, 690vh 63vh #fff, 553vh 46vh #fff, 557vh 30vh #fff, 673vh 21vh #fff, 572vh 61vh #fff, 530vh 36vh #fff, 562vh 13vh #fff, 519vh 53vh #fff, 423vh 32vh #fff, 62vh 6vh #fff, 380vh 58vh #fff, 170vh 2vh #fff, 43vh 42vh #fff, 524vh 11vh #fff, 262vh 71vh #fff, 99vh 49vh #fff, 98vh 96vh #fff, 99vh 80vh #fff, 569vh 74vh #fff, 427vh 8vh #fff, 299vh 51vh #fff, 299vh 82vh #fff, 218vh 7vh #fff, 50vh 98vh #fff, 310vh 76vh #fff, 191vh 92vh #fff, 637vh 49vh #fff, 78vh 38vh #fff, 297vh 56vh #fff, 421vh 2vh #fff, 440vh 79vh #fff, 301vh 14vh #fff, 334vh 18vh #fff, 689vh 77vh #fff, 581vh 98vh #fff, 402vh 54vh #fff, 280vh 53vh #fff, 165vh 98vh #fff, 260vh 27vh #fff, 578vh 32vh #fff, 317vh 52vh #fff, 284vh 28vh #fff, 700vh 90vh #fff, 375vh 47vh #fff, 542vh 57vh #fff, 205vh 10vh #fff, 38vh 49vh #fff, 122vh 16vh #fff, 663vh 81vh #fff, 533vh 78vh #fff, 52vh 66vh #fff, 56vh 84vh #fff, 553vh 54vh #fff, 596vh 73vh #fff, 688vh 89vh #fff, 38vh 46vh #fff, 419vh 61vh #fff, 345vh 42vh #fff, 575vh 37vh #fff, 444vh 5vh #fff, 283vh 10vh #fff, 307vh 91vh #fff, 530vh 23vh #fff, 164vh 59vh #fff, 412vh 12vh #fff, 459vh 74vh #fff, 652vh 45vh #fff, 456vh 75vh #fff, 71vh 63vh #fff, 183vh 65vh #fff, 130vh 15vh #fff, 254vh 67vh #fff, 263vh 64vh #fff, 16vh 70vh #fff, 486vh 98vh #fff, 654vh 83vh #fff, 332vh 58vh #fff, 457vh 11vh #fff;
-    animation: animStar 35s linear infinite;
+    animation: animStar 80s linear infinite;
 }
 
 .AboutContainer{

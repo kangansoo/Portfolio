@@ -16,13 +16,15 @@
     margin-top: 2%;
 }
 
-.SkillsContainer{
+.FrontEnd{
     display: flex;
-    height: 800px;
+    height: 500px;
     width: 1280px;
     justify-content: flex-start;
     background-color: white;
     border-radius: 15px;
-    box-shadow: 1px 4px 8px #d4d4d4
+    box-shadow: 1px 4px 8px #d4d4d4;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 

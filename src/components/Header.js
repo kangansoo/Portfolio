@@ -11,8 +11,8 @@ export default function Header() {
             <div className="TitlesContainer">
               <p className='HeaderAbout'>About Me</p>
               <p className='HeaderSkills'>Skills</p>
-              <p className='HeaderProjects'>Projects</p>
               <p className='HeaderExp'>Exp</p>
+              <p className='HeaderProjects'>Projects</p>
             </div>
         </div>
     </div>
