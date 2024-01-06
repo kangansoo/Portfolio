@@ -4,16 +4,3 @@
     margin-top: auto !important;
     background-color: #393E46;
 }
-
-.BadgesContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.BadgeContainer {
-    height: 28px;
-    width: auto;
-    display: flex;
-}
