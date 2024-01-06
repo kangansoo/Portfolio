@@ -4,8 +4,6 @@
     align-items: center;
     background-color: white;
     flex-direction: column;
-    z-index: 50;
-    top: 0;
 }
 
 .ProjectsTitle{
@@ -14,6 +12,7 @@
     font-size: 45px;
     text-shadow: 2px 2px 4px #044075;
     z-index: 50;
+    margin-top: 3%;
 }
 
 .ProjectsContainer{

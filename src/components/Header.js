@@ -1,7 +1,32 @@
 import React from "react";
 import "../css/Header.css";
 
-export default function Header() {
+export default function Header({ aboutRef, skillsRef, expRef, projectsRef }) {
+
+  const scrollToAbout = () => {
+    if (aboutRef.current) {
+      aboutRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }    
+  };
+  
+  const scrollToSkills = () => {
+    if (skillsRef.current) {
+      skillsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }    
+  };
+
+  const scrollToExp = () => {
+    if (expRef.current) {
+      expRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }    
+  };
+
+  const scrollToProjects = () => {
+    if (projectsRef.current) {
+      projectsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }    
+  };
+
   return (
     <div className="Header">
         <div className="HeaderContainer">
@@ -9,10 +34,10 @@ export default function Header() {
               강안수's Portfolio
             </p>
             <div className="TitlesContainer">
-              <p className='HeaderAbout'>About Me</p>
-              <p className='HeaderSkills'>Skills</p>
-              <p className='HeaderExp'>Exp</p>
-              <p className='HeaderProjects'>Projects</p>
+              <p className='HeaderTitle' onClick={() => scrollToAbout(aboutRef)}>About Me</p>
+              <p className='HeaderTitle' onClick={() => scrollToSkills(skillsRef)}>Skills</p>
+              <p className='HeaderTitle' onClick={() => scrollToExp(expRef)}>Exp</p>
+              <p className='HeaderTitle' onClick={() => scrollToProjects(projectsRef)}>Projects</p>
             </div>
         </div>
     </div>

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import "../css/Exp.css";
 import arrow from "../assets/arrow.png";
 
-export default function Exp() {
+const Exp = forwardRef((props, ref) => {
   return (
-    <div className="ExpBg">
+    <div ref={ref} className="ExpBg">
       <div className="ExpTitle"></div>
       <div className="ExpContainer">
         <img src={arrow} alt="arrow" className="ExpArrow" />
@@ -47,4 +47,6 @@ export default function Exp() {
       </div>
     </div>
   );
-}
+})
+
+export default Exp;

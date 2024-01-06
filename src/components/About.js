@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import "../css/About.css";
 import user from '../assets/user.png';
 import bachelor from '../assets/bachelor.png';
@@ -7,9 +7,9 @@ import home from '../assets/home.png';
 import phone from '../assets/phone.png';
 import email from '../assets/email.png';
 
-export default function About() {
+const About = forwardRef((props, ref) => {
   return (
-    <div className="AboutBG">
+    <div ref={ref} className="AboutBG">
       <div className="StarContainer">
         <div className="star1"></div>
         <div className="star2"></div>
@@ -74,4 +74,6 @@ export default function About() {
       </div>
     </div>
   );
-}
+})
+
+export default About;

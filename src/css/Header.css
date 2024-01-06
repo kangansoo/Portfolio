@@ -33,30 +33,13 @@
     margin-left: auto;
 }
 
-.HeaderAbout {
+.HeaderTitle {
     display: flex;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
 }
 
-.HeaderSkills {
-    display: flex;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.HeaderProjects {
-    display: flex;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.HeaderExp {
-    display: flex;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
+.HeaderTitle:hover {
+    color: #3379b6;
 }

@@ -1,10 +1,9 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import "../css/Projects.css";
-import map from "../assets/cheonanmap1.png";
 
-export default function Projects() {
+const Projects = forwardRef((props, ref) => {
   return (
-    <div className="Projects">
+    <div ref={ref} className="Projects">
       <div className="ProjectsTitle">Projects</div>
       <div className="ProjectsContainer">
         <div className="ProjectContainer">
@@ -26,4 +25,6 @@ export default function Projects() {
       </div>
     </div>
   );
-}
+})
+
+export default Projects;
