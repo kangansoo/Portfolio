@@ -3,7 +3,7 @@ import "../css/About.css";
 import user from '../assets/user.png';
 import bachelor from '../assets/bachelor.png';
 import birth from '../assets/birth.png';
-import home from '../assets/home.png';
+import link from '../assets/link.png';
 import phone from '../assets/phone.png';
 import email from '../assets/email.png';
 
@@ -41,9 +41,20 @@ const About = forwardRef((props, ref) => {
               </div>
             </div>
             <div className="ProfilSmallContainer">
-              <img src={home} alt="home" className="ProfileIcon" />
+              <img src={link} alt="home" className="ProfileIcon" />
               <div className="Profile">
-                서울시 강서구
+              <div className="BadgesContainer">
+                <div className="BadgeContainer">
+                  <a href="https://github.com/kangansoo" target="_black">
+                    <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white" alt="" />
+                  </a>
+                </div>
+                <div className="BadgeContainer">
+                  <a href="https://kangansoo.notion.site/ec28d8266ae14aa7a9cb1e513ea773d3?pvs=4" target="_black">
+                    <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white" alt="" /> 
+                  </a>
+                </div>
+              </div>
               </div>
             </div>
             <div className="ProfilSmallContainer">

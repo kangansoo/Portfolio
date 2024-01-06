@@ -4,7 +4,7 @@ import '../css/Footer.css'
 export default function Footer() {
   return (
     <div className="Footer">
-        <div className="FooterContainer">
+        <div className="BadgesContainer">
           <div className="BadgeContainer">
             <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white" alt="" />
           </div>
