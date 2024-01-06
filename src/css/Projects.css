@@ -1,5 +1,5 @@
 .Projects{
-    height: 2000px;
+    height: 1000px;
     display: flex;
     align-items: center;
     background-color: white;
@@ -36,6 +36,8 @@
     border: 3px solid #4786bd;
     border-radius: 20px;
     margin-top: 4%;
+    justify-content: center;
+    align-items: center;
 }
 
 .ProjectTitle{
@@ -44,12 +46,66 @@
     font-size: 30px;
     color: white;
     top: -4.5%;
-    left: 2%;
+    left: 4%;
     background-color: #4786bd;
-    border-radius: 30px;
+    border-radius: 20px;
     padding: 5px 10px;
 }
 
 .ProjectTitle:hover {
     transform: scale(1.05, 1.05);
+}
+
+.ProjectDetail{
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    height: 450px;
+    margin-top: 3%;
+}
+
+.DetailTitle {
+    display: flex;
+    font-size: 18px;
+    margin: 0;
+    margin-top: 1%;
+    list-style-type: disc;
+}
+
+.ToolsContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.Tools{
+    margin-bottom: 1%;
+    margin-right: 1%;
+    border-radius: 5px;
+}
+
+.DetailRow{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.GitHubwrapper{
+    text-decoration: none;
+    color: black;
+}
+
+.DetailGitHub{
+    margin: 0;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.DetailGitHub:hover{
+    color: #4786bd;
+}
+
+.DetailText{
+    font-size: 20px;
 }
