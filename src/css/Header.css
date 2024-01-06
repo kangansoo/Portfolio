@@ -42,4 +42,5 @@
 
 .HeaderTitle:hover {
     color: #3379b6;
+    transform: scale(1.2, 1.2);
 }

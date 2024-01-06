@@ -37,7 +37,19 @@ const About = forwardRef((props, ref) => {
             <div className="ProfilSmallContainer">
               <img src={phone} alt="phone" className="ProfileIcon" />
               <div className="Profile">
-                +82-10-3622-8749
+                010-3622-8749
+              </div>
+            </div>
+            <div className="ProfilSmallContainer">
+              <img src={email} alt="email" className="ProfileIcon" />
+              <div className="Profile">
+                ansoo971@gmail.com
+              </div>
+            </div>
+            <div className="ProfilSmallContainer">
+              <img src={bachelor} alt="bachelor" className="ProfileIcon" />
+              <div className="Profile">
+                중국인민대학교(경제학)
               </div>
             </div>
             <div className="ProfilSmallContainer">
@@ -57,18 +69,6 @@ const About = forwardRef((props, ref) => {
               </div>
               </div>
             </div>
-            <div className="ProfilSmallContainer">
-              <img src={bachelor} alt="bachelor" className="ProfileIcon" />
-              <div className="Profile">
-                중국인민대학교(경제학)
-              </div>
-            </div>
-            <div className="ProfilSmallContainer">
-              <img src={email} alt="email" className="ProfileIcon" />
-              <div className="Profile">
-                ansoo971@gmail.com
-              </div>
-            </div>
           </div>  
         </div>
         <div className='AboutTextContainer'>
@@ -76,10 +76,10 @@ const About = forwardRef((props, ref) => {
             안녕하세요! IT 서비스 기획자가 최종 목표인 프론트엔드 개발자입니다.
           </p>
           <p className='aboutText'>
-            다름을 인정하고 시야를 넓히기 위해 배우는 자세로 소통하며,
+            다름을 인정하고 시야를 넓히기 위해 배우는 자세로 임하고 <br />
           </p>
           <p className='aboutText'>
-            성장하기 위해 노력하고 있습니다.
+            소통하며 성장하기 위해 노력하고 있습니다.
           </p>
         </div>
       </div>
