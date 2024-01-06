@@ -1,28 +1,60 @@
 .Projects{
-    border-top: 5%;
-    height: 900px;
+    height: 2000px;
     display: flex;
     align-items: center;
-    justify-content: center;
     background-color: white;
     flex-direction: column;
+    z-index: 50;
+    top: 0;
 }
 
 .ProjectsTitle{
     display: flex;
-    right: 0;
     color: white;
-    font-size: 35px;
-    text-shadow: 1px 1px 2px #404040;
-    margin-top: 2%;
+    font-size: 45px;
+    text-shadow: 2px 2px 4px #044075;
+    z-index: 50;
 }
 
 .ProjectsContainer{
-    height: 800px;
     width: 1280px;
     display: flex;
-    border: 1px solid black;
+    flex-direction: column;
+    align-items: center;
 }
 
+.map {
+    display: flex;
+    z-index: 50;
+    height: 500px !important;
+    width: auto;
+}
 
+.ProjectContainer1{
+    display: flex;
+    flex-direction: column;
+    height : 550px;
+    width: 1280px;
+}
 
+.Project{
+    position: relative;
+    display: flex;
+    height: 500px;
+    width: 1280px;
+    border: 3px solid #4786bd;
+    border-radius: 20px;
+    margin-top: 4%;
+}
+
+.ProjectTitle{
+    position: absolute;
+    display: flex;
+    font-size: 30px;
+    color: white;
+    top: -4.5%;
+    left: 2%;
+    background-color: #4786bd;
+    border-radius: 30px;
+    padding: 5px 10px;
+}

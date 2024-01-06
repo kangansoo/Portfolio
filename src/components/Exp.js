@@ -5,7 +5,7 @@ import arrow from "../assets/arrow.png";
 export default function Exp() {
   return (
     <div className="ExpBg">
-      <div className="ExpTitle">Exp</div>
+      <div className="ExpTitle"></div>
       <div className="ExpContainer">
         <img src={arrow} alt="arrow" className="ExpArrow" />
         <div className="ExpColumn">
