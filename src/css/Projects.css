@@ -26,18 +26,17 @@
 .ProjectContainer{
     display: flex;
     flex-direction: column;
-    height : 550px;
+    height : 650px;
 }
 
 .Project{
     position: relative;
     display: flex;
-    height: 500px;
+    height: 650px;
     border: 3px solid #4786bd;
     border-radius: 20px;
     margin-top: 4%;
     justify-content: center;
-    align-items: center;
 }
 
 .ProjectTitle{
@@ -68,8 +67,8 @@
     display: flex;
     font-size: 18px;
     margin: 0;
-    margin-top: 1%;
     list-style-type: disc;
+    margin-top: 3%;
 }
 
 .ToolsContainer{
