@@ -13,18 +13,199 @@
     color: white;
     font-size: 45px;
     text-shadow: 1px 1px 2px #404040;
-    margin-top: 2%;
+    margin-top: 4%;
 }
 
-.FrontEnd{
-    display: flex;
-    height: 500px;
+.SkillsContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
     width: 1280px;
-    justify-content: flex-start;
+    height:900px;
+    z-index: 50;
+}
+
+.SkillsWrapper1 {
+    position: relative;
     background-color: white;
     border-radius: 15px;
     box-shadow: 1px 4px 8px #d4d4d4;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
+
+.SkillsWrapper1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(64, 64, 64, 0.7);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.SkillsWrapper1:hover::before {
+    opacity: 1;
+}
+
+.SkillsWrapper1:hover::before {
+    content: "Languages";
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.SkillsWrapper2 {
+    position: relative;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 1px 4px 8px #d4d4d4;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.SkillsWrapper2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(64, 64, 64, 0.7);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.SkillsWrapper2:hover::before {
+    opacity: 1;
+}
+
+.SkillsWrapper2:hover::before {
+    content: "Frontend";
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.SkillsSmallContainer{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    height: 380px;
+}
+
+.SkillsSmallWrapper1{
+    position: relative;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 1px 4px 8px #d4d4d4;
+    height: 390px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.SkillsSmallWrapper1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(64, 64, 64, 0.7);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.SkillsSmallWrapper1:hover::before {
+    opacity: 1;
+}
+
+.SkillsSmallWrapper1:hover::before {
+    content: "Deploy";
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.SkillsSmallWrapper2{
+    position: relative;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 1px 4px 8px #d4d4d4;
+    height: 390px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.SkillsSmallWrapper2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(64, 64, 64, 0.7);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.SkillsSmallWrapper2:hover::before {
+    opacity: 1;
+}
+
+.SkillsSmallWrapper2:hover::before {
+    content: "Collaboration&Tools";
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.SkillsImg1{
+    height: 600px;
+    width: auto;
+}
+
+.SkillsImg2{
+    width: 300px;
+    height: auto;
+}
+
+.SkillsImg3{
+    width: 300px;
+    height: auto;
+}
+
+.SkillsImg4{
+    width: 250px;
+    height: auto;
+}
+
 

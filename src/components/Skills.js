@@ -1,28 +1,32 @@
-import React, { forwardRef } from 'react'
-import '../css/Skills.css'
+import React, { forwardRef } from "react";
+import "../css/Skills.css";
+import frontend from "../assets/frontend.png";
+import language from "../assets/language.png";
+import deploy from "../assets/deploy.png";
+import tools from "../assets/tools.png";
 
 const Skills = forwardRef((props, ref) => {
   return (
-    <div ref={ref} className='SkillsBG'>
-        <div className="SkillsTitle">
-            Skills
+    <div ref={ref} className="SkillsBG">
+      <div className="SkillsTitle">Skills</div>
+      <div className="SkillsContainer">
+        <div className="SkillsWrapper1">
+          <img src={language} alt="laguage" className="SkillsImg1" />
         </div>
-        <div className="FrontEnd">
-          프론트엔드
-          <img src='https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white' alt=""/>
-          <img src='https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white' alt=""/>
+        <div className="SkillsWrapper2">
+          <img src={frontend} alt="frontend" className="SkillsImg2" />
         </div>
-        <div className="DataAnalysis">
-          데이터 분석
+        <div className="SkillsSmallContainer">
+          <div className="SkillsSmallWrapper1">
+            <img src={deploy} alt="deploy" className="SkillsImg3" />
+          </div>
+          <div className="SkillsSmallWrapper2">
+            <img src={tools} alt="tools" className="SkillsImg4" />
+          </div>
         </div>
-        <div className="Deploy">
-          배포
-        </div>
-        <div className="Colaboration_Tools">
-          협업 및 툴
-        </div>
+      </div>
     </div>
-  )
-})
+  );
+});
 
 export default Skills;
