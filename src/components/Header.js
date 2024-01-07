@@ -5,13 +5,13 @@ export default function Header({ aboutRef, skillsRef, expRef, projectsRef }) {
 
   const scrollToAbout = () => {
     if (aboutRef.current) {
-      aboutRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      aboutRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }    
   };
   
   const scrollToSkills = () => {
     if (skillsRef.current) {
-      skillsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      skillsRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }    
   };
 
@@ -23,7 +23,7 @@ export default function Header({ aboutRef, skillsRef, expRef, projectsRef }) {
 
   const scrollToProjects = () => {
     if (projectsRef.current) {
-      projectsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      projectsRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }    
   };
 
