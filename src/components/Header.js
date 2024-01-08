@@ -23,7 +23,7 @@ export default function Header({ aboutRef, skillsRef, expRef, projectsRef }) {
 
   const scrollToProjects = () => {
     if (projectsRef.current) {
-      projectsRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      projectsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }    
   };
 
