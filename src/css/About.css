@@ -139,11 +139,11 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-left: 2%;
 }
 
 .BadgeContainer {
     height: 28px;
-    width: auto;
     display: flex;
     padding-right: 3%;
 }
