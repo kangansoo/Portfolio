@@ -2,8 +2,7 @@ name: Portfolio_action
 
 on:
   push:
-    branches: 
-      - deploy
+    branches: [ "deploy" ]
     
 jobs:
   deploy:
