@@ -2,7 +2,8 @@ name: Portfolio_action
 
 on:
   push:
-    branches: [ "deploy" ]
+    branches: 
+      - deploy
     
 jobs:
   deploy:
@@ -20,15 +21,15 @@ jobs:
       - name: node 버전 설정
         uses: actions/setup-node@v4
         with:
-          node-version: 21.3.0
+          node-version: 20.10.0
 
-      # - name: 캐싱 작업
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: cache
-      #     key: ${{ runner.OS }}-yarn-${{ hashFiles('**/yarn-lock') }}
-      #     restore-keys: |
-      #       ${{ runner.OS }}-yarn-
+      - name: 캐싱 작업
+        uses: actions/cache@v2
+        with:
+          path: cache
+          key: ${{ runner.OS }}-yarn-${{ hashFiles('**/yarn-lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-yarn-
 
       - name: yarn 설치
         run: npm install -g yarn
