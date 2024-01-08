@@ -23,13 +23,13 @@ jobs:
         with:
           node-version: 20.10.0
 
-      - name: 캐싱 작업
-        uses: actions/cache@v2
-        with:
-          path: cache
-          key: ${{ runner.OS }}-yarn-${{ hashFiles('**/yarn-lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-yarn-
+      # - name: 캐싱 작업
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: cache
+      #     key: ${{ runner.OS }}-yarn-${{ hashFiles('**/yarn-lock') }}
+      #     restore-keys: |
+      #       ${{ runner.OS }}-yarn-
 
       - name: yarn 설치
         run: npm install -g yarn
