@@ -76,10 +76,10 @@ const About = forwardRef((props, ref) => {
             안녕하세요! IT 서비스 기획자가 최종 목표인 프론트엔드 개발자입니다.
           </p>
           <p className='aboutText'>
-            다름을 인정하고 시야를 넓히기 위해 배우는 자세로 임하고 <br />
+            다름을 인정하고 시야를 넓히기 위해 배우는 자세로 임하며 <br />
           </p>
           <p className='aboutText'>
-            소통하며 성장하기 위해 노력하고 있습니다.
+            소통하고 성장하기 위해 노력하고 있습니다.
           </p>
         </div>
       </div>

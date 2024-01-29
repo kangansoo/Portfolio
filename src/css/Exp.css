@@ -1,6 +1,6 @@
 .ExpBg{
     display: flex;
-    height: 500px;
+    height: 600px;
     align-items: center;
     justify-content: center;
     background-color: white;
@@ -26,7 +26,7 @@
 }
 
 .ExpArrow{
-    height: 360px;
+    height: 520px;
     width: 50px;
     margin-right: 2%;
 }
@@ -40,6 +40,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 1%;
+    font-weight: 500;
 }
 
 .Exprow{

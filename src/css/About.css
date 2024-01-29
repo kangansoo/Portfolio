@@ -1,6 +1,5 @@
 .AboutBG{
     height: 1000px;
-    width: auto;
     background-color: #393E46;
     background-repeat: no-repeat;
     background-size: cover;
@@ -116,6 +115,7 @@
 .Profile {
     font-size: 25px;
     display: flex;
+    font-weight: 500;
 }
 
 .ProfileIcon {
@@ -151,6 +151,7 @@
 .aboutText{
     font-size: 22px;
     margin: 0;
+    font-weight: 500;
 }
 
 

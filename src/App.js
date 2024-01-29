@@ -25,7 +25,7 @@ function App() {
       <Skills ref={skillsRef} />
       <Exp ref={expRef} />
       <Projects ref={projectsRef} />
-      <Footer />
+      <Footer aboutRef={aboutRef} />
     </div>
   );
 }

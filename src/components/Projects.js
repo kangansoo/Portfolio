@@ -30,14 +30,12 @@ const Projects = forwardRef((props, ref) => {
               <div className="DetailTextContainer">
                 <p className="DetailText">
                   천안시 교통 문제를 인지하고 공공자전거 설치를 통해 교통 문제 완화에 기여하고자 공모전에 참여하였습니다.<br />
-                  파이썬을 기반으로
                   Pands와 Numpy를 사용하여 서울시와 천안시의 인구, 유동 인구, 면적 그리고 따릉이 데이터를 전처리하였고, 
                   Scikit-Learn의 선형 회귀 모델을 사용하여 적정 공공자전거 대여소 수를 예측하였습니다.
-                  또한, plotly를 사용하여 실제 천안시 지도에 공공자전거 대여소의 좌표를 표시하였고, Tableu를 통해 EDA 및 
-                  데이터 분석 과정을 시각화하였습니다.<br />
-                  첫 프로젝트를 경험하며 Notion, Git Hub 등의 협업 및 소통 방식에 대해 배울 수 있었고 
-                  부트캠프에서 배운 내용을 복습하였고, 첫 공모전에서 비록 수상은 아니지만
-                  실제 PT까지 준비하며 도전의 성취감을 느낄 수 있었습니다.
+                  또한, plotly와 Tableu를 통해 EDA과정을 시각화하였습니다.<br />
+                  첫 프로젝트를 경험하며 Notion, Git Hub 등의 협업 프로세스 및 소통 방식에 대해 배울 수 있었습니다.
+                  처음 도전한 공모전에서 비록 수상은 아니지만 실제 PT까지 준비하며 부트캠프에서 배운 내용을 
+                  복습할 수 있었고 성취감과 흥미를 느낄 수 있는 좋은 경험이었다고 생각합니다.
                 </p>
               </div>
             </div>
@@ -58,7 +56,6 @@ const Projects = forwardRef((props, ref) => {
                 <img className="Tools" src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="git" />
                 <img className="Tools" src="https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=white" alt="redux" />
                 <img className="Tools" src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white" alt="styledcomponents" />
-                <img className="Tools" src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="bootstrap" />
                 <img className="Tools" src="https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white" alt="aws" />
                 <img className="Tools" src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white" alt="github" />
                 <img className="Tools" src="https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white" alt="slack" />
@@ -80,11 +77,12 @@ const Projects = forwardRef((props, ref) => {
                 <p className="DetailText">
                   LG 헬로비전 DX DATA School의 최종 프로젝트로서, LG 헬로비전의 실제 로그 데이터를 활용해
                   개인화 맞춤 VOD 추천을 하는 서비스입니다. <br />
-                  저는 프론트엔드를 담당하였고, React로 웹 페이지를 구현하였습니다. 프로젝트 시작 전 피그마를 활용하여 웹 페이지를 기획하였고
-                  css와 styledcomponents를 같이 이용하여 css 중복 생성을 최소화하였습니다.
-                  리액트 훅들을 적극 활용하여 찜, 평점, 리뷰와 같은 기능들을 구현하였습니다. 기능들, 예를 들어 캐러셀, 모달 등을 구현할 때에도 다양한 라이브러리들을
+                  저는 React로 웹 페이지를 구현을 담당하였습니다. 피그마를 통해 웹 페이지를 기획하였고
+                  css와 styled components를 같이 이용하여 css 중복 생성을 최소화하였습니다.
+                  리액트 훅들을 활용하여 찜, 평점, 리뷰와 같은 기능들을 구현하였습니다. 캐러셀, 모달 등의 기능을 구현할 때에도 다양한 라이브러리들을
                   적용하며 비교해 다양한 라이브러리들을 경험할 수 있었습니다. 서버에서 받아오는 데이터들의 상태를 리덕스로 관리하여 로딩페이지를 구현하였습니다.
-                  Git과 AWS를 통해 CI/CD를 구현하였고 슬랙을 통해 팀간 소통을 하였고 노션을 통해 회의, 의견 등의 문서화를 하였습니다.
+                  Git과 AWS를 통해 CI/CD를 구현하였고 슬랙을 통해 팀간 소통과 노션을 통해 회의, 의견 등의 문서화를 하였습니다.
+
                 </p>
               </div>
             </div>
