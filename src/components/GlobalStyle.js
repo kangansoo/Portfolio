@@ -3,7 +3,7 @@ import "../css/font.css"
 
 const GlobalStyle = createGlobalStyle`
 body {
-    font-family: "KNUTRUTH";
+    font-family: "NotoSansKR-VariableFont_wght";
     text-color: black;
 }
 `

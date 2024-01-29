@@ -13,6 +13,7 @@
     text-shadow: 2px 2px 4px #044075;
     z-index: 50;
     margin-top: 3%;
+    font-weight: 500;
 }
 
 .ProjectsContainer{
@@ -32,7 +33,7 @@
 .Project{
     position: relative;
     display: flex;
-    height: 650px;
+    min-height: 700px;
     border: 3px solid #4786bd;
     border-radius: 20px;
     margin-top: 4%;
@@ -49,10 +50,19 @@
     background-color: #4786bd;
     border-radius: 20px;
     padding: 5px 10px;
+    font-weight: 500;
+    z-index: 50;
 }
 
 .ProjectTitle:hover {
     transform: scale(1.05, 1.05);
+}
+
+.ProjectClick{
+    width: 35px;
+    height: 35px;
+    z-index: 999;
+    position: relative;
 }
 
 .ProjectDetail{
@@ -69,6 +79,7 @@
     margin: 0;
     list-style-type: disc;
     margin-top: 3%;
+    font-weight: 500;
 }
 
 .ToolsContainer{
@@ -99,6 +110,7 @@
     margin: 0;
     font-size: 18px;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .DetailGitHub:hover{
@@ -107,4 +119,5 @@
 
 .DetailText{
     font-size: 20px;
+    font-weight: 500;
 }

@@ -27,6 +27,9 @@ export default function Header({ aboutRef, skillsRef, expRef, projectsRef }) {
     }    
   };
 
+  const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+
+console.log("Viewport Width:", viewportWidth, "px");
   return (
     <div className="Header">
         <div className="HeaderContainer">
