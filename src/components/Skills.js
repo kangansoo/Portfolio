@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import "../css/Skills.css";
-import frontend from "../assets/frontend.png";
+import frontend from "../assets/frontend1.png";
 import language from "../assets/language.png";
 import deploy from "../assets/deploy.png";
 import tools from "../assets/tools.png";
