@@ -16,7 +16,7 @@ const Exp = forwardRef((props, ref) => {
               <p classNmae="Expperiod">(2023.06.28 ~ 2023.12.29)</p>
             </div>
             <p className="ExpDetail">
-              파이썬을 기반으로 데이터 수집 및 전처리, 분석, 시각화와 DB 및 CI/CD에 대한 교육
+              파이썬 기반 데이터 수집 및 전처리, 분석, 시각화 및 CI/CD에 대한 교육
             </p>
           </div>
           <div className="ExpSmallContainer">
@@ -52,7 +52,7 @@ const Exp = forwardRef((props, ref) => {
               <p classNmae="Expperiod">(2024.1.23 ~ )</p>
             </div>
             <p className="ExpDetail">
-              프로젝트 기반 Web Full-Stack 교육 과정
+              MVC 기반 Web Full-Stack 교육 과정
             </p>
           </div>
         </div>

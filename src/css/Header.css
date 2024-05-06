@@ -1,5 +1,6 @@
 .Header {
     height: 80px;
+    min-width: 1900px;
     top: 0;
     background-color: #ffffff;
     border-bottom: 1px solid #d4d4d4;
@@ -12,7 +13,7 @@
 
 .HeaderContainer {
     display: flex;
-    width: 80%;
+    width: 1280px;
     flex-direction: row;
     justify-content: flex-start;
 }
@@ -28,8 +29,9 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 25%;
+    width: 400px;
     margin-left: auto;
+    gap: 20px;
 }
 
 .HeaderTitle {
