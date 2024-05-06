@@ -1,6 +1,7 @@
 .SkillsBG{
     display: flex;
     height: 1000px;
+    min-width: 1900px;
     align-items: center;
     justify-content: center;
     background-color: aliceblue;

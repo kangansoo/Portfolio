@@ -1,5 +1,6 @@
 .AboutBG{
     height: 1000px;
+    min-width: 1900px;
     background-color: #393E46;
     background-repeat: no-repeat;
     background-size: cover;
@@ -33,7 +34,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    min-width: 1900px;
     height: 100%;
     overflow: hidden;
 }
@@ -113,7 +114,7 @@
 }
 
 .Profile {
-    font-size: 25px;
+    font-size: 21px;
     display: flex;
     font-weight: 500;
 }
@@ -149,7 +150,7 @@
 }
 
 .aboutText{
-    font-size: 22px;
+    font-size: 21px;
     margin: 0;
     font-weight: 500;
 }
