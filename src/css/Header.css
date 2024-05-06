@@ -1,10 +1,6 @@
 .Header {
     height: 80px;
-<<<<<<< HEAD
     min-width: 1900px;
-=======
-    width: 100%;
->>>>>>> 1357f5e96fd8387dcb9118f57a3a57e15370d734
     top: 0;
     background-color: #ffffff;
     border-bottom: 1px solid #d4d4d4;
@@ -34,11 +30,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-<<<<<<< HEAD
     width: 400px;
-=======
-    width: auto;
->>>>>>> 1357f5e96fd8387dcb9118f57a3a57e15370d734
     margin-left: auto;
     gap: 20px;
 }
