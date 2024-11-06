@@ -15,7 +15,7 @@ const About = forwardRef((props, ref) => {
         <div className="star2"></div>
         <div className="star3"></div>
       </div>
-      <div className="AboutMe">
+      <div className="AboutMe"> 
         About Me
       </div>
       <div className="About">
