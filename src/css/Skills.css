@@ -98,7 +98,7 @@
 }
 
 .SkillsWrapper2:hover::before {
-    content: "Frontend";
+    content: "Framework";
     color: white;
     font-size: 24px;
     font-weight: bold;

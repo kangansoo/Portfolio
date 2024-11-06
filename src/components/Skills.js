@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import "../css/Skills.css";
-import frontend from "../assets/frontend1.png";
+import framework from "../assets/framework.png";
 import language from "../assets/language.png";
 import deploy from "../assets/deploy.png";
 import tools from "../assets/tools.png";
@@ -14,7 +14,7 @@ const Skills = forwardRef((props, ref) => {
           <img src={language} alt="laguage" className="SkillsImg1" />
         </div>
         <div className="SkillsWrapper2">
-          <img src={frontend} alt="frontend" className="SkillsImg2" />
+          <img src={framework} alt="framework" className="SkillsImg2" />
         </div>
         <div className="SkillsSmallContainer">
           <div className="SkillsSmallWrapper1">

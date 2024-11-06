@@ -73,13 +73,13 @@ const About = forwardRef((props, ref) => {
         </div>
         <div className='AboutTextContainer'>
           <p className='aboutText'>
-            안녕하세요! IT 서비스 기획자가 최종 목표인 프론트엔드 개발자입니다.
+            안녕하세요! 가치를 나누고 싶은 개발자 강안수입니다.
           </p>
           <p className='aboutText'>
-            다름을 인정하고 시야를 넓히기 위해 배우는 자세로 임하며 <br />
+            다름을 인정하고 시야를 넓히기 위해 배우는 자세로 임하여 <br />
           </p>
           <p className='aboutText'>
-            소통하고 성장하기 위해 노력하고 있습니다.
+            가치를 전달하기 위해 노력하고 있습니다.
           </p>
         </div>
       </div>

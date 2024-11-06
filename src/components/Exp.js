@@ -49,10 +49,10 @@ const Exp = forwardRef((props, ref) => {
                 KOSA MSA 기반 Web Full-Stack 교육 과정
               </p>
               &nbsp;&nbsp;
-              <p classNmae="Expperiod">(2024.3.28 ~ )</p>
+              <p classNmae="Expperiod">(2024.7.02 ~ )</p>
             </div>
             <p className="ExpDetail">
-              Spring boot, Vue.js 기반 Web 풀스택 교육 과정
+              SSAFY 12기 (JAVA 전공반)
             </p>
           </div>
         </div>
