@@ -16,13 +16,13 @@ const LandingComponent = () => {
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="h-full w-full flex items-center justify-center bg-black absolute top-0 left-0 z-50"
+          className="h-full w-full flex items-center justify-center bg-landing absolute top-0 left-0 z-50"
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
-          exit={{ y: -100, opacity: 0 }}
+          exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
         >
-          <GradientText className="text-5xl font-bold" isAnimated={true}>
+          <GradientText className="text-5xl font-nanumsquare font-bold" isAnimated={true}>
             강안수's Portfolio
           </GradientText>
         </motion.div>
