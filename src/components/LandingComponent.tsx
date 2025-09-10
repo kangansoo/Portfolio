@@ -16,7 +16,7 @@ const LandingComponent = () => {
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="h-full w-full flex items-center justify-center bg-landing absolute top-0 left-0 z-50"
+          className="h-full w-full flex items-center justify-center bg-landing-900 absolute top-0 left-0 z-50"
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
