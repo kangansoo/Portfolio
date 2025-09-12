@@ -1,6 +1,6 @@
 const Header = () => {
   const navItemClasses =
-    "relative cursor-pointer select-none pb-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-font-hover after:transition-all after:duration-300 hover:after:w-full hover:text-blue-gray-500"
+    "relative cursor-pointer select-none pb-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-font-hover after:transition-all after:duration-300 hover:after:w-full hover:text-font-hover"
   return (
     <div className="w-full h-12 border-b-1 border-gray-300 flex flex-row items-center justify-center">
       <div className="w-[80%] h-full flex flex-row justify-between items-center text-font-color font-bold">

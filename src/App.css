@@ -64,9 +64,31 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "NexonLv1Gothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Light.woff") format("woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NexonLv1Gothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff") format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NexonLv1Gothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff") format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
+
 @theme {
   --font-pretendard: "Pretendard";
   --font-nanumsquare: "NanumSquare", sans-serif;
+  --font-nexon: "NexonLv1Gothic";
   /* --color-landing: #1f2121; */
   --color-main-bg: #fffffa;
 
@@ -101,9 +123,11 @@
   --color-blue-gray-800: #37474f;
   --color-blue-gray-900: #263238;
 
+  /* 퍼플렉시티 민트 */
+  --color-perplexity: #31b8c6;
   /* 요소 별 색 */
   --color-font-color: var(--color-landing-700);
-  --color-font-hover: var(--color-blue-gray-500);
+  --color-font-hover: var(--color-perplexity);
 
   /* hover:깜빡이는 효과 */
   --animate-pulse-color: pulse-color 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -117,4 +141,30 @@
       color: var(--color-font-hover);
     }
   }
+
+  /* 타이핑 효과 */
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: var(--color-font-hover); /* 커서 색상 */
+    }
+  }
+}
+
+.typewriter-cursor {
+  border-right: 0.1em solid var(--color-font-hover);
+  animation: blink-caret 0.75s step-end infinite;
+  padding-right: 2px;
 }
