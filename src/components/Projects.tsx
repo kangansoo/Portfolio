@@ -8,7 +8,7 @@ const Projects = () => {
     infinite: true,
     speed: 500,
     centerMode: true,
-    centerPadding: "60px", // 양 옆 카드 보이는 정도 조절
+    centerPadding: "60px",
     slidesToShow: 1,
     slidesToScroll: 1,
     focusOnSelect: true,
@@ -52,11 +52,11 @@ const Projects = () => {
   return (
     <div className="h-full w-full bg-blue-gray-500/30 flex items-center justify-center">
       <div className="w-[80%] h-[90%] flex flex-col">
-        <div className="flex-1 flex items-center overflow-visible">
+        <div className="flex-1 flex items-center">
           <Slider {...settings} className="w-full">
             {projects.map((project) => (
               <div key={project.id} className="px-2">
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden mx-2 transform transition-transform hover:scale-105">
+                <div className="bg-white rounded-lg overflow-hidden mx-2 transform transition-transform hover:scale-105">
                   <img src={project.image} alt={project.title} className="w-full h-64 object-cover" />
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-2">{project.title}</h3>
