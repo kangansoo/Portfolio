@@ -24,7 +24,7 @@ const Hero = () => {
     runAnimation()
   }, [])
   return (
-    <div className="w-full h-1/3 flex flex-col justify-center items-center text-font-color font-nexon font-normal text-xl select-none">
+    <div className="w-full h-full flex flex-col justify-center items-center text-font-color font-nexon font-normal text-xl select-none">
       <div>안녕하세요, 강안수입니다.</div>
       <div className="mt-4 relative">
         <div ref={typingRef} className={`inline-block typewriter-cursor ${!animationStarted ? "invisible" : "visible"}`}></div>

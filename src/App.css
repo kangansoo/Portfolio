@@ -168,3 +168,11 @@
   animation: blink-caret 0.75s step-end infinite;
   padding-right: 2px;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+main {
+  scroll-snap-type: y mandatory;
+}
