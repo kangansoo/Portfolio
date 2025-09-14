@@ -4,6 +4,7 @@ import Header from "@/components/Header"
 import Hero from "@/components/Hero"
 import Projects from "@/components/Projects"
 import Skills from "@/components/Skills"
+import Exprience from "./components/Exprience"
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           </div>
           <div className="w-full h-1/2 shrink-0">
             <Skills />
+          </div>
+          <div className="w-full h-1/4 shrink-0">
+            <Exprience />
           </div>
         </div>
       </div>
