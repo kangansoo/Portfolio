@@ -28,7 +28,7 @@ function App() {
           <div className="w-full h-1/4 shrink-0">
             <Exprience />
           </div>
-          <div className="w-full h-12 bg-gray-100">
+          <div className="w-full h-12 bg-landing-700">
             <Footer />
           </div>
         </div>
