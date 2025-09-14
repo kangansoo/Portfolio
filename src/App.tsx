@@ -1,14 +1,29 @@
-import "./App.css"
+import "@/App.css"
+import "@/style/CustomScroll.css"
 import LandingComponent from "@/components/LandingComponent"
 import Header from "@/components/Header"
 import Hero from "@/components/Hero"
 import Projects from "@/components/Projects"
 import Skills from "@/components/Skills"
-import Exprience from "./components/Exprience"
-import Footer from "./components/Footer"
-import About from "./components/About"
+import Exprience from "@/components/Exprience"
+import Footer from "@/components/Footer"
+import About from "@/components/About"
+import { useScrollLock } from "@/hooks/useScrollLock"
+import { useState, useEffect } from "react"
 
 function App() {
+  const [showLanding, setShowLanding] = useState<boolean>(true)
+
+  useScrollLock(showLanding)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLanding(false)
+    }, 4000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <div className="w-full h-screen">
       <LandingComponent />
