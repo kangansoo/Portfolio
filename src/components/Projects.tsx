@@ -51,7 +51,7 @@ const Projects = () => {
 
   return (
     <div className="h-full w-full bg-blue-gray-500/30 flex items-center justify-center">
-      <div className="w-[80%] h-[90%] flex flex-col">
+      <div className="w-[60%] h-[90%] flex flex-col">
         <div className="flex-1 flex items-center">
           <Slider {...settings} className="w-full">
             {projects.map((project) => (
