@@ -11,7 +11,7 @@ function App() {
     <div className="w-full h-screen">
       <LandingComponent />
       <div className="w-full h-full bg-main-bg">
-        <div className="h-12 top-0 sticky flex">
+        <div className="h-12 top-0 sticky flex bg-main-bg z-999">
           <Header />
         </div>
         <div className="w-full h-full flex flex-col">
