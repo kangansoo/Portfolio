@@ -9,7 +9,7 @@ const Skills = () => {
           <p className="text-lg mt-5 mb-2">experienced</p>
           <p className="text-sm">Vue.js / Spring / Python / scikit-learn / Numpy / Pandas / MySQL </p>
           <p className="text-lg mt-5 mb-2">etc</p>
-          <p className="text-sm">Figma / Git / Jira</p>
+          <p className="text-sm">Figma / Git / Jira / AWS</p>
         </div>
       </div>
     </div>
