@@ -59,8 +59,8 @@ const Projects = () => {
                 <div className="bg-white rounded-lg overflow-hidden mx-2 transform transition-transform hover:scale-105">
                   <img src={project.image} alt={project.title} className="w-full h-64 object-cover" />
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                    <p className="text-gray-600">{project.description}</p>
+                    <h3 className="text-xl font-bold mb-2 font-nanumsquare">{project.title}</h3>
+                    <p className="text-gray-600 text-sm font-nexon truncate">{project.description}</p>
                   </div>
                 </div>
               </div>
