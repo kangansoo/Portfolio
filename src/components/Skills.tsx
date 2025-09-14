@@ -1,7 +1,7 @@
 const Skills = () => {
   return (
     <div className="w-full h-full flex justify-center items-center select-none">
-      <div className="w-[60%] h-[80%]">
+      <div className="w-[60%] h-[80%] flex flex-col justify-center">
         <p className="font-nanumsquare text-2xl font-bold text-font-color">Skills</p>
         <div className="w-full flex flex-col font-nexon text-font-color/80">
           <p className="text-lg mt-5 mb-2">strong</p>
