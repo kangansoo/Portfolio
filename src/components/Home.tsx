@@ -69,7 +69,7 @@ function Home() {
         </div>
         <div className="w-full h-full flex flex-col">
           <div className="w-full h-1/3 shrink-0">
-            <Hero />
+            <Hero showLanding={showLanding} />
           </div>
           <div ref={projectsRef} className="w-full h-2/3 shrink-0">
             <Projects />

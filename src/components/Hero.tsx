@@ -1,18 +1,24 @@
 import { createTypeStream, delay } from "hangul-typing-animation"
 import { useEffect, useRef, useState } from "react"
 
-const Hero = () => {
+interface HeroProps {
+  showLanding: boolean
+}
+
+const Hero = ({ showLanding }: HeroProps) => {
   const typingRef = useRef<HTMLDivElement>(null)
   const [animationStarted, setAnimationStarted] = useState(false)
+
   useEffect(() => {
+    if (showLanding) return
+
     const typeStream = createTypeStream({
       perChar: 40,
       perHangul: 120,
     })
 
     const runAnimation = async () => {
-      await delay(4000)
-      setAnimationStarted(true) // 애니메이션 시작
+      setAnimationStarted(true)
 
       await typeStream("신뢰를 기반으로 사용자에게 실질적인 가치를 더하는 개발자입니다.", (typing) => {
         if (typingRef.current) {
