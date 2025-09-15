@@ -1,4 +1,4 @@
-import { createTypeStream, delay } from "hangul-typing-animation"
+import { createTypeStream } from "hangul-typing-animation"
 import { useEffect, useRef, useState } from "react"
 
 interface HeroProps {

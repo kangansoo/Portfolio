@@ -10,6 +10,7 @@ import Footer from "@/components/Footer"
 import About from "@/components/About"
 import { useScrollLock } from "@/hooks/useScrollLock"
 import { useState, useEffect, useRef } from "react"
+import ScrollReveal from "@/components/ScrollReveal"
 
 function Home() {
   const [showLanding, setShowLanding] = useState<boolean>(false)
@@ -58,7 +59,7 @@ function Home() {
     <div className="w-full h-screen bg-main-bg">
       {showLanding && <LandingComponent />}
       <div className="w-full h-full">
-        <div className="h-12 top-0 sticky flex z-40 bg-white">
+        <div className="h-12 top-0 sticky flex z-40 bg-white shadow-md">
           <Header
             onLogoClick={scrollToTop}
             onProjectsClick={() => scrollToSection(projectsRef)}
@@ -72,16 +73,26 @@ function Home() {
             <Hero showLanding={showLanding} />
           </div>
           <div ref={projectsRef} className="w-full h-2/3 shrink-0">
-            <Projects />
+            <ScrollReveal direction="up" delay={0}>
+              <Projects />
+            </ScrollReveal>
           </div>
-          <div ref={aboutRef} className="w-full h-1/3 shrink-0">
-            <About />
+          <div ref={aboutRef} className="w-full min-h-[40vh] shrink-0">
+            <ScrollReveal direction="up" delay={0}>
+              <About />
+            </ScrollReveal>
           </div>
-          <div ref={skillsRef} className="w-full h-1/2 shrink-0">
-            <Skills />
+
+          <div ref={skillsRef} className="w-full min-h-[50vh] shrink-0">
+            <ScrollReveal direction="up" delay={0.2}>
+              <Skills />
+            </ScrollReveal>
           </div>
-          <div ref={expRef} className="w-full h-1/4 shrink-0">
-            <Exprience />
+
+          <div ref={expRef} className="w-full min-h-[30vh] shrink-0">
+            <ScrollReveal direction="up" delay={0.3}>
+              <Exprience />
+            </ScrollReveal>
           </div>
           <div className="w-full h-12 bg-landing-700">
             <Footer />
