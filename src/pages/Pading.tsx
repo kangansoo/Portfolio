@@ -143,6 +143,7 @@ const Pading = () => {
                 <li>Stomp와 Sock.js를 통한 실시간 통신 안정성과 효율성 확보</li>
                 <li>Resizable Box 적용으로 사용자 맞춤형 인터페이스 제공</li>
                 <li>파일/폴더 생성/삭제/수정/이동 기능</li>
+                <li>WebSocket을 활용한 실시간 파일 구조 동기화 구현</li>
               </div>
             </div>
           </div>
