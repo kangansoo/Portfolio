@@ -89,12 +89,12 @@ function Home() {
             </ScrollReveal>
           </div>
 
-          <div ref={expRef} className="w-full min-h-[30vh] shrink-0">
+          <div ref={expRef} className="w-full min-h-[30vh] shrink-0 my-10">
             <ScrollReveal direction="up" delay={0.1}>
               <Exprience />
             </ScrollReveal>
           </div>
-          <div className="w-full mt-10 h-12 bg-landing-700">
+          <div className="w-full h-12 bg-landing-700 mt-20">
             <Footer />
           </div>
         </div>
