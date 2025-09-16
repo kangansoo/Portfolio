@@ -125,9 +125,13 @@
 
   /* 퍼플렉시티 민트 */
   --color-perplexity: #31b8c6;
+  /* 넥슨 그린, 네이비 */
+  --color-nexon-green: #b4e114;
+  --color-nexon-navy: #0a3255;
+
   /* 요소 별 색 */
   --color-font-color: var(--color-landing-700);
-  --color-font-hover: var(--color-perplexity);
+  --color-font-hover: var(--color-nexon-green);
 
   /* hover:깜빡이는 효과 */
   --animate-pulse-color: pulse-color 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
