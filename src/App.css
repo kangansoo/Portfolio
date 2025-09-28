@@ -131,7 +131,7 @@
 
   /* 요소 별 색 */
   --color-font-color: var(--color-landing-700);
-  --color-font-hover: var(--color-nexon-green);
+  --color-font-hover: var(--color-perplexity);
 
   /* hover:깜빡이는 효과 */
   --animate-pulse-color: pulse-color 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
