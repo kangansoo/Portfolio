@@ -109,8 +109,8 @@ const NewKiz = () => {
             <p className="font-nanumsquare text-lg font-extrabold text-font-color">프로젝트 설계</p>
             <div className="w-full flex flex-col justify-center mt-3 gap-3">
               <div className="w-full font-nexon text-sm text-font-color ml-3">
-                <li>프로젝트 복잡성 관리 및 코드 모듈화와 유지보수성, 확장성 향상을 위해 FSD 아키텍처 채용</li>
-                <li>사용자 접근성을 고려하여 PWA 기반 설계, 반응형 웹으로 다양한 디바이스 환경 지원</li>
+                <li>프로젝트 복잡성 관리 및 코드 모듈화와 유지보수성, 확장성 향상을 위해 FSD 아키텍처 채택</li>
+                <li>사용자 접근성을 고려한 PWA 기반 설계, 반응형 웹으로 다양한 디바이스 환경 지원</li>
                 <li>사용자를 고려한 색상 선정, 단순한 구조, 접근성 중심의 UI 설계 및 구현</li>
               </div>
             </div>
@@ -127,7 +127,7 @@ const NewKiz = () => {
               <div className="w-full font-nexon text-sm `   text-font-color ml-3">
                 <li>재사용성과 확장성을 고려한 추상화</li>
                 <li>캐릭터 스프라이트 이미지를 프리로딩하여 불필요한 렌더링 문제 해결</li>
-                <li>Min-Max Scaling으로 다양한 해상도 독립성 및 좌표 일관성 확보</li>
+                <li>Min-Max Scaling으로 다양한 해상도 독립성 및 좌표 일관성 유지</li>
                 <li>Stomp와 Sock.js를 통한 실시간 통신 안정성과 효율성 확보</li>
                 <li>캐릭터 움직임 감지, 동적 전송 주기 조절과 보간법을 적용하여 네트워크 부하를 60% 이상 절감</li>
               </div>
