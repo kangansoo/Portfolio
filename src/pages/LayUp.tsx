@@ -61,7 +61,7 @@ const LayUp = () => {
               <p className="text-sm font-nexon">스택</p>
             </div>
             <div className="flex-1 text-landing-700">
-              <p className="text-sm font-nexon">Next.js, React.js, TypeScript, Redux-ToolKit, react-query, Tailwind CSS, vite, Cursor AI</p>
+              <p className="text-sm font-nexon">Next.js, React, TypeScript, Redux-ToolKit, react-query, Tailwind CSS, vite, Cursor AI</p>
             </div>
           </div>
           <div className="flex flex-row items-center justify-between">
@@ -87,6 +87,10 @@ const LayUp = () => {
         </div>
         <div className="my-5 flex flex-col">
           <div className="font-nanumsquare text-2xl font-extrabold text-font-color mb-5">상세 내용</div>
+          <div className="text-sm font-nexon text-landing-700 mb-10">
+            <p className="text-lg font-extrabold text-font-color font-nanumsquare mb-2">프로젝트 소개</p>
+            <div className="flex flex-col gap-2 font-nexon text-font-color">AI가 SNS 게시물 자동 포스팅부터 주간 성과 및 월간 트렌드 분석 리포트까지 제공하는 마케팅 자동화 서비스</div>
+          </div>
           <div className="text-sm font-nexon text-landing-700">
             <p className="text-lg font-extrabold text-font-color font-nanumsquare">주요 기능</p>
             <div className="flex flex-col ml-5 gap-2 font-nexon text-font-color">
@@ -96,12 +100,14 @@ const LayUp = () => {
               <p>주제만 작성하면 사업체 정보를 기반으로 AI가 글을 생성하고 포스팅</p>
               <li>이미지 드라이브</li>
               <p>모바일과 연동되어 촬영한 이미지를 저장하고 그룹화 가능</p>
-              <li>템플릿 생성</li>
-              <p>글 흐름, 글 스타일, 이미지 그룹 등 저장</p>
+              <li>템플릿</li>
+              <p>글 흐름, 글 스타일, 이미지 그룹 등을 기반으로 템플릿 생성</p>
               <li>사업체 정보 관리</li>
               <p>등록한 사업체의 정보 관리 기능</p>
               <li>모바일 메뉴 관리</li>
               <p>등록된 사업체(카페, 식당 등)의 메뉴 관리 기능</p>
+              <li>리포트</li>
+              <p>주 1회 마케팅 성과 리포트, 월 1회 트렌드 리서치 리포트 제공</p>
             </div>
           </div>
         </div>
@@ -113,12 +119,12 @@ const LayUp = () => {
               <img src={`${url}/template.gif`} alt="template_gif" className="rounded-sm" />
               <div className="w-full font-nexon text-sm text-font-color ml-5">
                 <li>템플릿 추가/삭제/수정 기능</li>
-                <li>관심사 분리 기반 코드 구조화</li>
-                <li>react-query 캐싱 전략을 통한 데이터 응답 속도 및 안정성 확보</li>
-                <li>4단계 UI 설계, Framer-motion 적용으로 몰입감 있는 UX 제공</li>
-                <li>초기 로딩 속도 개선과 상호 작용성 강화를 위한 SSR/CSR 분리 및 코드 스플리팅적용</li>
+                {/* <li>관심사 분리 기반 코드 구조화</li> */}
+                <li>React-Query 캐싱 전략을 통한 데이터 응답 속도 및 안정성 확보</li>
+                <li>Framer-motion을 활용한 4단계 UI 설계로 몰입감 있는 UX 제공</li>
+                <li>SSR/CSR 분리 및 코드 스플리팅을 적용하여 초기 로딩 속도 향상</li>
                 <li>체감 속도 향상을 위한 미리보기 단계에 스트리밍 처리 도입</li>
-                <li>Redux-Toolkit 기반 전역 상태 관리</li>
+                <li>Redux-Toolkit 기반 전역 상태 관리로 복잡한 템플릿 데이터를 안정적으로 관리</li>
               </div>
             </div>
           </div>
@@ -131,9 +137,10 @@ const LayUp = () => {
                 <li>이미지 업로드/삭제/이동 기능</li>
                 <li>이미지 그룹별 관리 및 가용 이미지 확인</li>
                 <li>이미지 설명 태그 관리 기능</li>
+                <li>SSR/CSR 분리 및 코드 스플리팅을 적용하여 초기 로딩 속도 향상</li>
                 <li>초기 로딩 속도 개선과 상호 작용성 강화를 위한 SSR/CSR 분리 및 코드 스플리팅적용</li>
-                <li>react-query 활용 캐싱 및 무한 스크롤 구현</li>
-                <li>UX 향상을 위한 스켈레톤 UI 도입</li>
+                <li>React-Query 캐싱 전략을 통한 데이터 응답 속도 및 안정성 확보, 무한 스크롤 구현</li>
+                <li>스켈레톤 UI를 도입하여 데이터 로딩 중에도 사용자에게 부드러운 UX 제공</li>
               </div>
             </div>
           </div>
@@ -142,11 +149,11 @@ const LayUp = () => {
             <div className="w-full flex flex-row justify-center mt-3 gap-3">
               <img src={`${url}/mobile_drive.gif`} alt="mobile_drive_gif" className="w-1/2 rounded-sm" />
               <div className="w-full font-nexon text-sm text-font-color ml-5 mt-2">
-                <li>접근성 향상을 위한 PWA 기반 설계</li>
+                <li>PWA 기반 설계로 접근성 향상</li>
                 <li>이미지 그룹 생성/삭제/수정 기능</li>
                 <li>이미지 업로드/삭제/이동 기능</li>
-                <li>react-query 활용 캐싱 및 무한 스크롤 구현</li>
-                <li>UX 향상을 위한 스켈레톤 UI 도입</li>
+                <li>React-Query 캐싱 전략을 통한 데이터 응답 속도 및 안정성 확보, 무한 스크롤 구현</li>
+                <li>스켈레톤 UI를 도입하여 데이터 로딩 중에도 사용자에게 부드러운 UX 제공</li>
               </div>
             </div>
           </div>
@@ -156,19 +163,18 @@ const LayUp = () => {
               <img src={`${url}/mobile_menu.gif`} alt="mobile_menu_gif" className="w-1/2 rounded-sm" />
               <div className="w-full font-nexon text-sm text-font-color ml-5 mt-2">
                 <li>메뉴 추가/삭제/수정 기능</li>
-                <li>react-query 활용 캐싱 및 무한 스크롤 구현</li>
+                <li>React-Query 캐싱 전략을 통한 데이터 응답 속도 및 안정성 확보, 무한 스크롤 구현</li>
               </div>
             </div>
           </div>
           <div className="my-5 flex flex-col">
             <div className="font-nanumsquare text-2xl font-extrabold text-font-color mb-5">성과</div>
             <div className="w-full font-nexon text-sm text-font-color ml-5">
-              <li>Next.js를 활용하여 CSR과 SSR을 상황에 맞게 병행함으로써 로딩 속도 최적화와 SEO 강화라는 두 가지 목표를 동시에 달성했습니다.</li>
-              <li>프론트엔드 아키텍처 설계 과정에서 관심사를 명확히 분리하여 코드의 가독성, 재사용성, 유지보수성을 높였고 전반적인 코드 품질을 향상시켰습니다.</li>
-              <li>복잡해진 상태 관리를 Redux Toolkit으로 체계적으로 구성하였고 React-Query 기반 캐싱 전략을 통해 통신을 최적화하여 지연 없는 빠른 화면 전환과 안정적인 UX를 제공했습니다.</li>
-              <li>스켈레톤 UI, 데이터 스트리밍 처리 등을 활용하여 몰입갑을 높일 수 있었습니다.</li>
-              <li>Cursor AI를 활용해 반복 코드를 줄이고 개발 효율성을 향상시켰으며 이를 기반으로 약 3주 만에 프로젝트를 성공적으로 완성할 수 있었습니다.</li>
-              <li>초기 설계에 없던 모바일 기능을 직접 제안하고 주도하여 사용자 중심 개발 역량을 쌓을 수 있었습니다.</li>
+              <li>Next.js를 활용하여 CSR과 SSR을 상황에 맞게 병행함으로써 로딩 속도 최적화 및 SEO 강화</li>
+              <li>프론트엔드 아키텍처 설계 과정에서 관심사를 명확히 분리하여 코드의 가독성, 재사용성, 유지보수성 및 코드 품질을 향상시켰습니다.</li>
+              <li>Redux-Toolkit과 React-Query를 통해 체계적인 상태 관리 및 효율적인 데이터 통신을 구현하여 안정적인 경험 제공</li>
+              <li>스켈레톤 UI, 데이터 스트리밍 처리 등을 활용하여 몰입감있는 UX 제공</li>
+              <li>Cursor AI 활용을 통해 개발 효율성 극대화</li>
             </div>
           </div>
         </div>

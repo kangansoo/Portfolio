@@ -59,7 +59,7 @@ const NewKiz = () => {
               <p className="text-sm font-nexon">스택</p>
             </div>
             <div className="flex-1 text-landing-700">
-              <p className="text-sm font-nexon">React.js, TypeScript, Redux-ToolKit, react-query, Tailwind CSS, vite, PWA</p>
+              <p className="text-sm font-nexon">React, TypeScript, Redux-ToolKit, react-query, Tailwind CSS, vite, PWA</p>
             </div>
           </div>
           <div className="flex flex-row items-center justify-between">
@@ -76,6 +76,13 @@ const NewKiz = () => {
         </div>
         <div className="my-5 flex flex-col">
           <div className="font-nanumsquare text-2xl font-extrabold text-font-color mb-5">상세 내용</div>
+          <div className="text-sm font-nexon text-landing-700 mb-10">
+            <p className="text-lg font-extrabold text-font-color font-nanumsquare mb-2">프로젝트 소개</p>
+            <div className="flex flex-col gap-2 font-nexon text-font-color">
+              난이도 조절이 가능한 뉴스 콘텐츠와 퀴즈 게임 요소, AI 요약 기능을 통해 아이들이 쉽고 재미있게 뉴스에 접근할 수 있도록 돕고 문해력 향상과 사회적 관심을 자연스럽게 이끌어내는 어린이 뉴스
+              통합 플랫폼
+            </div>
+          </div>
           <div className="text-sm font-nexon text-landing-700">
             <p className="text-lg font-extrabold text-font-color font-nanumsquare">주요 기능</p>
             <div className="flex flex-col ml-5 gap-2 font-nexon text-font-color">
@@ -92,21 +99,19 @@ const NewKiz = () => {
               <li>실시간 OX 퀴즈 게임</li>
               <p>오늘의 핫 토픽 기사 기반 OX 퀴즈 게임</p>
               <li>기자단</li>
-              <p>SNS와 유사한 기사 작성 등을 통한 기자 활동 체험</p>
+              <p>기사 작성 등을 통한 기자 활동 체험</p>
             </div>
           </div>
         </div>
         <div className="my-5 flex flex-col">
           <div className="font-nanumsquare text-2xl font-extrabold text-font-color mb-5">맡은 역할</div>
           <div className="mb-10">
-            <p className="font-nanumsquare text-lg font-extrabold text-font-color">아키텍처 설계</p>
+            <p className="font-nanumsquare text-lg font-extrabold text-font-color">프로젝트 설계</p>
             <div className="w-full flex flex-col justify-center mt-3 gap-3">
               <div className="w-full font-nexon text-sm text-font-color ml-3">
                 <li>프로젝트 복잡성 관리 및 코드 모듈화와 유지보수성, 확장성 향상을 위해 FSD 아키텍처 채용</li>
-                <li>관심사 분리 기반 코드 구조화</li>
-                <li>사용자 접근성을 고려하여 PWA 적용</li>
-                <li>반응형 웹 설계</li>
-                <li>어린이 타겟 UX를 고려하여 색상 대비, 네비게이션 구조, 접근성 중심 UI 설계</li>
+                <li>사용자 접근성을 고려하여 PWA 기반 설계, 반응형 웹으로 다양한 디바이스 환경 지원</li>
+                <li>사용자를 고려한 색상 선정, 단순한 구조, 접근성 중심의 UI 설계 및 구현</li>
               </div>
             </div>
           </div>
@@ -121,11 +126,10 @@ const NewKiz = () => {
               </div>
               <div className="w-full font-nexon text-sm `   text-font-color ml-3">
                 <li>재사용성과 확장성을 고려한 추상화</li>
-                <li>렌더링 지연 문제 해결을 위해 스프라이트 이미지 프리로딩 적용</li>
+                <li>캐릭터 스프라이트 이미지를 프리로딩하여 불필요한 렌더링 문제 해결</li>
                 <li>Min-Max Scaling으로 다양한 해상도 독립성 및 좌표 일관성 확보</li>
                 <li>Stomp와 Sock.js를 통한 실시간 통신 안정성과 효율성 확보</li>
-                <li>참여자의 움직임을 감지하여 전송 주기를 동적으로 조절하는 방식과 보간법을 적용하여 네트워크 부하를 약 60% 이상 절감</li>
-                <li>PWA 기반 모바일 지원</li>
+                <li>캐릭터 움직임 감지, 동적 전송 주기 조절과 보간법을 적용하여 네트워크 부하를 60% 이상 절감</li>
               </div>
             </div>
           </div>
@@ -141,18 +145,11 @@ const NewKiz = () => {
           <div className="my-5 flex flex-col">
             <div className="font-nanumsquare text-2xl font-extrabold text-font-color mb-5">성과</div>
             <div className="w-full font-nexon text-sm text-font-color ml-5">
-              <li>프로젝트의 전반적인 설계부터 개발 환경 세팅, 기술 스택 선정, 아키텍처 구성까지 주도하며 체계적인 개발 프로세스를 이끌었습니다.</li>
-              <li>
-                이전 프로젝트에서도 FSD 아키텍처를 도입했으나 핵심 개념에 대한 이해 부족으로 계층 분리를 제대로 구현하지 못하고 추상화 레벨이 혼재된 구조를 사용했습니다. 이후 FSD 원리를 심화 학습하여
-                계층별 명확한 책임 분리와 올바른 계층 구조를 적용한 아키텍처를 재설계했고 이를 통해 코드의 모듈화와 유지보수성을 크게 향상시켰으며 학습한 내용과 개선 과정을 팀원들과 공유하여 전체 개발
-                품질을 높였습니다.
-              </li>
-              <li>어린이 사용자를 주요 타겟으로 한 서비스 특성을 고려해 쉬운 이용, 명확한 구조, 글자 크기 조정 등 접근성을 강화한 UI/UX를 설계 및 개선했습니다.</li>
-              <li>
-                게임 개발 과정에서 다수의 플레이어 상호작용, 실시간 동기화, 예외 상황 처리 등 수많은 문제 상황을 마주하며 다양한 경우의 수를 체계적으로 고려해야 한다는 것을 깊이 체감했습니다. 이를
-                통해 작은 단위의 문제를 먼저 파악하고 해결한 후, 이를 조합하여 전체 시스템을 구축하는 바텀업 방식의 문제 해결 능력을 키웠으며 다양한 변수와 예외 상황을 미리 고려하는 분석적 사고력을
-                크게 향상시켰습니다.
-              </li>
+              <li>프로젝트의 전반적인 설계부터 개발 환경 세팅, 기술 스택 선정, 아키텍처 구성까지 주도하며 개발 과정 리드</li>
+              <li>FSD 아키텍처를 적용하여 코드의 모듈화와 유지보수성 향상</li>
+              <li>사용자 접근성을 고려한 UI/UX 설계 및 구현을 통해 사용자 친화적 개발</li>
+              <li>게임 개발 과정에서 발생한 다양한 문제 상황(실시간 동기화, 예외 처리 등)을 바텀업 방식으로 해결하며 분석적 사고력과 문제 해결 능력 향상</li>
+              <li>실시간 통신 및 네트워크 부하 절감을 통해 게임의 안정성 향상</li>
             </div>
           </div>
         </div>

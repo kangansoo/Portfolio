@@ -87,6 +87,14 @@ const Pading = () => {
         </div>
         <div className="my-5 flex flex-col">
           <div className="font-nanumsquare text-2xl font-extrabold text-font-color mb-5">상세 내용</div>
+          <div className="text-sm font-nexon text-landing-700 mb-10">
+            <p className="text-lg font-extrabold text-font-color font-nanumsquare mb-2">프로젝트 소개</p>
+            <div className="flex flex-col gap-2 font-nexon text-font-color">
+              실시간 동시 코드 편집, 화상 채팅을 통해 페어프로그래밍의 효율성을 높이고 나아가 협업의 효율성까지 향상 가능한 웹 IDE 서비스
+              <br />
+              그룹 생성/관리를 통해 참여자를 초대하고 각 프로젝트에 인원 할당 등 관리 가능
+            </div>
+          </div>
           <div className="text-sm font-nexon text-landing-700">
             <p className="text-lg font-extrabold text-font-color font-nanumsquare">주요 기능</p>
             <div className="flex flex-col ml-5 gap-2 font-nexon text-font-color">
@@ -115,9 +123,9 @@ const Pading = () => {
             <div className="w-full flex flex-col justify-center mt-3 gap-3">
               <img src={`${url}/project.png`} alt="IDE_page_image" className="rounded-sm" />
               <div className="w-full font-nexon text-sm text-font-color ml-5">
-                <li>프로젝트 복잡성 관리 및 병렬 개발과 유지보수성, 확장성 향상을 위해 FSD 아키텍처 채용</li>
-                <li>Resizable Box 적용으로 사용자 맞춤형 인터페이스 제공</li>
-                <li>접근성 및 중심 UI, 반응형 레이아웃 설계</li>
+                <li>병렬 개발 및 확장성 향상을 위해 FSD 아키텍처 채택</li>
+                <li>디자인 및 레이아웃 설계 전 과정을 맡아 사용자 친화적인 UI와 레이아웃 설계 및 구현</li>
+                <li>Resizable Box를 적용하여 사용자 맞춤형 UI 제공</li>
               </div>
             </div>
           </div>
@@ -129,32 +137,29 @@ const Pading = () => {
                 <img src={`${url}/video2.gif`} alt="video_gif_2" className="flex-1 w-1/4 rounded-sm" />
               </div>
               <div className="w-full font-nexon text-sm `   text-font-color ml-3">
-                <li>Open Vidu 라이브러리를 활용한 화상회의 구현. 로컬과 원격 참여자로 데이터를 분리하여 관리함으로써 렌더링 효율 향상, 상태관리 단순화 및 UI 호환성 향상</li>
-                <li>카메라/마이크 사전 테스트, 마이크 및 오디오 온/오프 제어 기능 등 직관적인 UX 구성</li>
-                <li>캐러셀 UI 적용 및 확장 기능</li>
+                <li>Open Vidu 라이브러리를 활용하여 화상회의 기능 구현, 로컬과 원격 참여자로 데이터를 분리하여 관리함으로써 렌더링 효율 향상, 상태관리 단순화 및 UI 호환성 향상</li>
+                <li>카메라/마이크 사전 테스트, 마이크 및 오디오 온/오프 제어 기능 등 사용자 편의성 향상</li>
               </div>
             </div>
           </div>
           <div className="mb-10">
-            <p className="font-nanumsquare text-lg font-extrabold text-font-color">Web Socket 기반 파일 탐색기</p>
+            <p className="font-nanumsquare text-lg font-extrabold text-font-color">파일 탐색기(Web Socket 기반)</p>
             <div className="w-full flex flex-col justify-center mt-3 gap-3">
               <img src={`${url}/file_explorer.gif`} alt="file_explorer_gif" className="rounded-sm" />
               <div className="w-full font-nexon text-sm text-font-color ml-5">
                 <li>Stomp와 Sock.js를 통한 실시간 통신 안정성과 효율성 확보</li>
-                <li>Resizable Box 적용으로 사용자 맞춤형 인터페이스 제공</li>
-                <li>파일/폴더 생성/삭제/수정/이동 기능</li>
-                <li>WebSocket을 활용한 실시간 파일 구조 동기화 구현</li>
+                <li>Resizable Box 적용으로 사용자 맞춤형 UI 제공</li>
+                <li>파일/폴더의 생성/삭제/수정/이동 기능</li>
+                <li>Map 자료구조를 활용하여 재귀 탐색 성능 향상</li>
               </div>
             </div>
           </div>
           <div className="my-5 flex flex-col">
             <div className="font-nanumsquare text-2xl font-extrabold text-font-color mb-5">성과</div>
             <div className="w-full font-nexon text-sm text-font-color ml-5">
-              <li>WebSocket을 활용한 실시간 동기화 기능을 구현하며 네트워크 통신과 상태 관리에 대한 이해도를 향상시킬 수 있었습니다.</li>
-              <li>WebSocket과 WebRTC의 동작 원리와 역할 차이를 명확히 구분하고 적용하며 실시간 서비스 기술에 대한 이해도를 높였습니다.</li>
-              <li>파일 탐색기 라이브러리 적용 과정에서 의존성 충돌 문제를 겪으며 블랙박스 개발의 한계를 체감했고 오픈소스 코드를 분석해 직접 구현함으로써 문제를 해결할 수 있었습니다.</li>
-              <li>이해도 부족으로 인해 FSD 아키텍처 적용이 부족했던 점은 한계로 남았지만 이를 계기로 아키텍처 설계의 중요성을 체감하고 이후 프로젝트에서 개선할 수 있었습니다.</li>
-              <li>UI/UX 디자인을 주도하며 다양한 레퍼런스를 분석 및 반영해 사용자 중심 설계 능력을 향상시켰습니다.</li>
+              <li>UI/UX 설계를 주도하며 다양한 레퍼런스를 분석하고 반영하는 과정을 통해 사용자 중심의 설계 능력 향상</li>
+              <li>WebSocket과 WebRTC를 활용하며 실시간 통신에 대한 이해도 향상</li>
+              <li>파일 탐색기 기능 구현 과정에서 복잡한 기능을 작은 단위로 구현하며 조합하는 바텀업 방식에 대한 이해도 향상</li>
             </div>
           </div>
         </div>
