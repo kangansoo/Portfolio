@@ -7,10 +7,13 @@ interface HeroProps {
 
 const Hero = ({ showLanding }: HeroProps) => {
   const typingRef = useRef<HTMLDivElement>(null)
-  const [animationStarted, setAnimationStarted] = useState(false)
+  const [animationStarted, setAnimationStarted] = useState<boolean>(false)
 
   useEffect(() => {
     if (showLanding) return
+    if (animationStarted) return
+
+    let cancelled = false
 
     const typeStream = createTypeStream({
       perChar: 40,
@@ -28,7 +31,12 @@ const Hero = ({ showLanding }: HeroProps) => {
     }
 
     runAnimation()
-  }, [])
+
+    return () => {
+      cancelled = true
+    }
+  }, [showLanding, animationStarted])
+
   return (
     <div className="w-full h-full flex flex-col justify-center items-center text-font-color font-nexon font-normal text-xl select-none">
       <div>안녕하세요, 강안수입니다.</div>

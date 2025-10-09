@@ -13,7 +13,7 @@ import { useState, useEffect, useRef } from "react"
 import ScrollReveal from "@/components/ScrollReveal"
 
 function Home() {
-  const [showLanding, setShowLanding] = useState<boolean>(false)
+  const [showLanding, setShowLanding] = useState<boolean>(true)
 
   const projectsRef = useRef<HTMLDivElement>(null)
   const aboutRef = useRef<HTMLDivElement>(null)
@@ -26,10 +26,11 @@ function Home() {
     // sessionStorage에서 방문 기록 확인
     const hasVisited = sessionStorage.getItem("hasVisitedPortfolio")
 
-    if (!hasVisited) {
-      // 첫 방문이면 LandingComponent 표시
-      setShowLanding(true)
-
+    if (hasVisited) {
+      // 방문 기록이 있다면
+      setShowLanding(false)
+    } else {
+      // 첫 방문이면
       // 4초 후 LandingComponent 숨기고 방문 기록 저장
       const timer = setTimeout(() => {
         setShowLanding(false)
@@ -38,7 +39,6 @@ function Home() {
 
       return () => clearTimeout(timer)
     }
-    // 이미 방문했다면 showLanding은 false로 유지
   }, [])
 
   const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
