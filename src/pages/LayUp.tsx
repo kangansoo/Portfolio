@@ -89,7 +89,9 @@ const LayUp = () => {
           <div className="font-nanumsquare text-2xl font-extrabold text-font-color mb-5">상세 내용</div>
           <div className="text-sm font-nexon text-landing-700 mb-10">
             <p className="text-lg font-extrabold text-font-color font-nanumsquare mb-2">프로젝트 소개</p>
-            <div className="flex flex-col gap-2 font-nexon text-font-color">AI가 SNS 게시물 자동 포스팅부터 주간 성과 및 월간 트렌드 분석 리포트까지 제공하는 마케팅 자동화 서비스</div>
+            <div className="flex flex-col gap-2 font-nexon text-font-color">
+              입력된 사업체 정보와 템플릿을 기반으로 SNS 자동 포스팅부터 주간 성과 및 월간 트렌드 분석 리포트까지 제공하는 SNS 마케팅 자동화 서비스
+            </div>
           </div>
           <div className="text-sm font-nexon text-landing-700">
             <p className="text-lg font-extrabold text-font-color font-nanumsquare">주요 기능</p>

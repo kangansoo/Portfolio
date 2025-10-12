@@ -79,8 +79,8 @@ const NewKiz = () => {
           <div className="text-sm font-nexon text-landing-700 mb-10">
             <p className="text-lg font-extrabold text-font-color font-nanumsquare mb-2">프로젝트 소개</p>
             <div className="flex flex-col gap-2 font-nexon text-font-color">
-              난이도 조절이 가능한 뉴스 콘텐츠와 퀴즈 게임 요소, AI 요약 기능을 통해 아이들이 쉽고 재미있게 뉴스에 접근할 수 있도록 돕고 문해력 향상과 사회적 관심을 자연스럽게 이끌어내는 어린이 뉴스
-              통합 플랫폼
+              다양한 난이도의 뉴스 콘텐츠와 퀴즈, 게임 요소, AI 요약 기능을 통해 아이들이 쉽고 재미있게 뉴스에 접근할 수 있도록 돕고, 문해력 향상과 사회적 관심을 자연스럽게 이끌어내는 어린이 뉴스 통합
+              플랫폼
             </div>
           </div>
           <div className="text-sm font-nexon text-landing-700">
