@@ -120,7 +120,7 @@ const Pading = () => {
           <div className="mb-10">
             <p className="font-nanumsquare text-lg font-extrabold text-font-color">프로젝트 설계</p>
             <div className="w-full flex flex-col justify-center mt-3 gap-3">
-              <img src={`${url}/project.png`} alt="IDE_page_image" className="rounded-sm" />
+              <img src={`${url}/project.png`} alt="IDE_page_image" className="rounded-sm border-1 border-gray-200" />
               <div className="w-full font-nexon text-sm text-font-color ml-5">
                 <li>병렬 개발 및 확장성 향상을 위해 FSD 아키텍처 채택</li>
                 <li>디자인 및 레이아웃 설계 전 과정을 맡아 사용자 친화적인 UI와 레이아웃 설계 및 구현</li>
@@ -130,10 +130,10 @@ const Pading = () => {
           </div>
           <div className="mb-10">
             <p className="font-nanumsquare text-lg font-extrabold text-font-color">화상회의</p>
-            <div className="w-full flex flex-col justify-center mt-3 gap-3">
+            <div className="w-full h-full flex flex-col justify-center mt-3 gap-3">
               <div className="w-full h-1/4 flex flex-row gap-3">
-                <img src={`${url}/video.gif`} alt="video_gif_1" className="flex-1 h-full rounded-sm" />
-                <img src={`${url}/video2.gif`} alt="video_gif_2" className="flex-1 w-1/4 rounded-sm" />
+                <img src={`${url}/video.gif`} alt="video_gif_1" className="flex-1 h-full rounded-sm border-1 border-gray-200" />
+                <img src={`${url}/video2.gif`} alt="video_gif_2" className="flex-1 w-1/5 rounded-sm border-1 border-gray-200" />
               </div>
               <div className="w-full font-nexon text-sm `   text-font-color ml-3">
                 <li>Open Vidu 라이브러리를 활용하여 화상회의 기능 구현, 로컬과 원격 참여자로 데이터를 분리하여 관리함으로써 렌더링 효율 향상, 상태관리 단순화 및 UI 호환성 향상</li>
@@ -144,7 +144,7 @@ const Pading = () => {
           <div className="mb-10">
             <p className="font-nanumsquare text-lg font-extrabold text-font-color">파일 탐색기(Web Socket 기반)</p>
             <div className="w-full flex flex-col justify-center mt-3 gap-3">
-              <img src={`${url}/file_explorer.gif`} alt="file_explorer_gif" className="rounded-sm" />
+              <img src={`${url}/file_explorer.gif`} alt="file_explorer_gif" className="rounded-sm border-1 border-gray-200" />
               <div className="w-full font-nexon text-sm text-font-color ml-5">
                 <li>Stomp와 Sock.js를 통한 실시간 통신 안정성과 효율성 확보</li>
                 <li>Resizable Box 적용으로 사용자 맞춤형 UI 제공</li>

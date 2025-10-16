@@ -17,7 +17,7 @@ const LayUp = () => {
   return (
     <div className="w-full h-full flex flex-col items-center bg-main-bg pb-20">
       <div className="w-full h-50">
-        <img src={`${import.meta.env.VITE_S3_URL}/Logo.png`} className="w-full h-full object-cover" alt="logo" />
+        <img src={`${import.meta.env.VITE_S3_URL}/Logo.png`} className="w-full h-full object-cover border-b-1 border-gray-300" alt="logo" />
       </div>
       <div className="mt-10 max-w-1/2 flex flex-col">
         <div className="font-nanumsquare text-3xl font-extrabold text-font-color">LAY UP</div>
@@ -132,7 +132,7 @@ const LayUp = () => {
           <div className="mb-10">
             <p className="font-nanumsquare text-lg font-extrabold text-font-color">템플릿</p>
             <div className="w-full flex flex-col justify-center mt-3 gap-3">
-              <img src={`${url}/template.gif`} alt="template_gif" className="rounded-sm" />
+              <img src={`${url}/template.gif`} alt="template_gif" className="rounded-sm border-1 border-gray-200" />
               <div className="w-full font-nexon text-sm text-font-color ml-5">
                 <li>템플릿 추가/삭제/수정 기능</li>
                 {/* <li>관심사 분리 기반 코드 구조화</li> */}
@@ -147,7 +147,7 @@ const LayUp = () => {
           <div className="mb-10">
             <p className="font-nanumsquare text-lg font-extrabold text-font-color">이미지 드라이브</p>
             <div className="w-full flex flex-col justify-center mt-3 gap-3">
-              <img src={`${url}/drive.gif`} alt="drive_gif" className="rounded-sm" />
+              <img src={`${url}/drive.gif`} alt="drive_gif" className="rounded-sm border-1 border-gray-200" />
               <div className="w-full font-nexon text-sm text-font-color ml-5">
                 <li>이미지 그룹 생성/삭제/수정 기능</li>
                 <li>이미지 업로드/삭제/이동 기능</li>
@@ -162,7 +162,7 @@ const LayUp = () => {
           <div className="mb-10">
             <p className="font-nanumsquare text-lg font-extrabold text-font-color">이미지 드라이브(모바일)</p>
             <div className="w-full flex flex-row justify-center mt-3 gap-3">
-              <img src={`${url}/mobile_drive.gif`} alt="mobile_drive_gif" className="w-1/2 rounded-sm" />
+              <img src={`${url}/mobile_drive.gif`} alt="mobile_drive_gif" className="w-1/2 rounded-sm border-1 border-gray-200" />
               <div className="w-full font-nexon text-sm text-font-color ml-5 mt-2">
                 <li>PWA 기반 설계로 접근성 향상</li>
                 <li>이미지 그룹 생성/삭제/수정 기능</li>
@@ -175,7 +175,7 @@ const LayUp = () => {
           <div className="mb-10">
             <p className="font-nanumsquare text-lg font-extrabold text-font-color">메뉴 관리(모바일)</p>
             <div className="w-full flex flex-row justify-center mt-3 gap-3">
-              <img src={`${url}/mobile_menu.gif`} alt="mobile_menu_gif" className="w-1/2 rounded-sm" />
+              <img src={`${url}/mobile_menu.gif`} alt="mobile_menu_gif" className="w-1/2 rounded-sm border-1 border-gray-200" />
               <div className="w-full font-nexon text-sm text-font-color ml-5 mt-2">
                 <li>메뉴 추가/삭제/수정 기능</li>
                 <li>React-Query 캐싱 전략을 통한 데이터 응답 속도 및 안정성 확보, 무한 스크롤 구현</li>
