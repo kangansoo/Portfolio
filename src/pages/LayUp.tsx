@@ -4,12 +4,15 @@ import { MdPeopleAlt } from "react-icons/md"
 import { HiMiniSquare3Stack3D } from "react-icons/hi2"
 import { RiAwardFill } from "react-icons/ri"
 import { IoMdPerson } from "react-icons/io"
-import { FaGithub } from "react-icons/fa"
+import { FaGithub, FaInstagram } from "react-icons/fa"
 
 const LayUp = () => {
   const url = import.meta.env.VITE_S3_URL
   const openGithub = () => {
     window.open("https://github.com/kangansoo/LayUp", "_blank", "noopener,noreferrer")
+  }
+  const openInstagram = () => {
+    window.open("https://www.instagram.com/geogeum_coffee", "_blank", "noopener,noreferrer")
   }
   return (
     <div className="w-full h-full flex flex-col items-center bg-main-bg pb-20">
@@ -80,6 +83,17 @@ const LayUp = () => {
             </div>
             <div className="flex-1 text-landing-700">
               <p className="text-sm font-nexon underline underline-offset-4 cursor-pointer hover:text-font-hover transition-colors duration-300 ease-in-out" onClick={() => openGithub()}>
+                바로 가기
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-row items-center justify-between">
+            <div className="flex flex-row items-center w-40 gap-2 text-landing-500">
+              <FaInstagram />
+              <p className="text-sm font-nexon">포스팅 결과물</p>
+            </div>
+            <div className="flex-1 text-landing-700">
+              <p className="text-sm font-nexon underline underline-offset-4 cursor-pointer hover:text-font-hover transition-colors duration-300 ease-in-out" onClick={() => openInstagram()}>
                 바로 가기
               </p>
             </div>

@@ -90,8 +90,8 @@ const Pading = () => {
           <div className="text-sm font-nexon text-landing-700 mb-10">
             <p className="text-lg font-extrabold text-font-color font-nanumsquare mb-2">프로젝트 소개</p>
             <div className="flex flex-col gap-2 font-nexon text-font-color">
-              원격 환경에서도 효과적인 페어프로그래밍 및 협업이 가능한 웹 IDE 통합 서비스 <br /> 실시간 동시 코드 편집, 화상 회의, 채팅 등을 통해 브라우저 환경에서 프로젝트 생성부터 실행, 배포까지
-              전체 개발 파이프라인을 실시간으로 협업하고 관리할 수 있고 그룹 생성/관리를 통해 참여자를 초대하고 각 프로젝트에 인원 할당 등 관리 가능
+              원격 환경에서도 효과적인 페어프로그래밍 및 협업이 가능한 웹 IDE 통합 서비스. 실시간 동시 코드 편집, 화상 회의, 채팅 등을 통해 브라우저 환경에서 프로젝트 생성부터 실행, 배포까지 전체 개발
+              파이프라인을 실시간으로 협업하고 관리 가능. 그룹 생성/관리를 통해 참여자를 초대하고 각 프로젝트에 인원 할당 등 관리 가능.
             </div>
           </div>
           <div className="text-sm font-nexon text-landing-700">
