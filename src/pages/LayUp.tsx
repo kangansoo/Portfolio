@@ -4,17 +4,20 @@ import { MdPeopleAlt } from "react-icons/md"
 import { HiMiniSquare3Stack3D } from "react-icons/hi2"
 import { RiAwardFill } from "react-icons/ri"
 import { IoMdPerson } from "react-icons/io"
-import { FaGithub } from "react-icons/fa"
+import { FaGithub, FaInstagram } from "react-icons/fa"
 
 const LayUp = () => {
   const url = import.meta.env.VITE_S3_URL
   const openGithub = () => {
     window.open("https://github.com/kangansoo/LayUp", "_blank", "noopener,noreferrer")
   }
+  const openInstagram = () => {
+    window.open("https://www.instagram.com/geogeum_coffee", "_blank", "noopener,noreferrer")
+  }
   return (
     <div className="w-full h-full flex flex-col items-center bg-main-bg pb-20">
       <div className="w-full h-50">
-        <img src={`${import.meta.env.VITE_S3_URL}/Logo.png`} className="w-full h-full object-cover" alt="logo" />
+        <img src={`${import.meta.env.VITE_S3_URL}/Logo.png`} className="w-full h-full object-cover border-b-1 border-gray-300" alt="logo" />
       </div>
       <div className="mt-10 max-w-1/2 flex flex-col">
         <div className="font-nanumsquare text-3xl font-extrabold text-font-color">LAY UP</div>
@@ -84,12 +87,25 @@ const LayUp = () => {
               </p>
             </div>
           </div>
+          <div className="flex flex-row items-center justify-between">
+            <div className="flex flex-row items-center w-40 gap-2 text-landing-500">
+              <FaInstagram />
+              <p className="text-sm font-nexon">포스팅 결과물</p>
+            </div>
+            <div className="flex-1 text-landing-700">
+              <p className="text-sm font-nexon underline underline-offset-4 cursor-pointer hover:text-font-hover transition-colors duration-300 ease-in-out" onClick={() => openInstagram()}>
+                바로 가기
+              </p>
+            </div>
+          </div>
         </div>
         <div className="my-5 flex flex-col">
           <div className="font-nanumsquare text-2xl font-extrabold text-font-color mb-5">상세 내용</div>
           <div className="text-sm font-nexon text-landing-700 mb-10">
             <p className="text-lg font-extrabold text-font-color font-nanumsquare mb-2">프로젝트 소개</p>
-            <div className="flex flex-col gap-2 font-nexon text-font-color">AI가 SNS 게시물 자동 포스팅부터 주간 성과 및 월간 트렌드 분석 리포트까지 제공하는 마케팅 자동화 서비스</div>
+            <div className="flex flex-col gap-2 font-nexon text-font-color">
+              입력된 사업체 정보와 템플릿을 기반으로 SNS 자동 포스팅부터 주간 성과 및 월간 트렌드 분석 리포트까지 제공하는 SNS 마케팅 자동화 서비스
+            </div>
           </div>
           <div className="text-sm font-nexon text-landing-700">
             <p className="text-lg font-extrabold text-font-color font-nanumsquare">주요 기능</p>
@@ -116,7 +132,7 @@ const LayUp = () => {
           <div className="mb-10">
             <p className="font-nanumsquare text-lg font-extrabold text-font-color">템플릿</p>
             <div className="w-full flex flex-col justify-center mt-3 gap-3">
-              <img src={`${url}/template.gif`} alt="template_gif" className="rounded-sm" />
+              <img src={`${url}/template.gif`} alt="template_gif" className="rounded-sm border-1 border-gray-200" />
               <div className="w-full font-nexon text-sm text-font-color ml-5">
                 <li>템플릿 추가/삭제/수정 기능</li>
                 {/* <li>관심사 분리 기반 코드 구조화</li> */}
@@ -131,7 +147,7 @@ const LayUp = () => {
           <div className="mb-10">
             <p className="font-nanumsquare text-lg font-extrabold text-font-color">이미지 드라이브</p>
             <div className="w-full flex flex-col justify-center mt-3 gap-3">
-              <img src={`${url}/drive.gif`} alt="drive_gif" className="rounded-sm" />
+              <img src={`${url}/drive.gif`} alt="drive_gif" className="rounded-sm border-1 border-gray-200" />
               <div className="w-full font-nexon text-sm text-font-color ml-5">
                 <li>이미지 그룹 생성/삭제/수정 기능</li>
                 <li>이미지 업로드/삭제/이동 기능</li>
@@ -146,7 +162,7 @@ const LayUp = () => {
           <div className="mb-10">
             <p className="font-nanumsquare text-lg font-extrabold text-font-color">이미지 드라이브(모바일)</p>
             <div className="w-full flex flex-row justify-center mt-3 gap-3">
-              <img src={`${url}/mobile_drive.gif`} alt="mobile_drive_gif" className="w-1/2 rounded-sm" />
+              <img src={`${url}/mobile_drive.gif`} alt="mobile_drive_gif" className="w-1/2 rounded-sm border-1 border-gray-200" />
               <div className="w-full font-nexon text-sm text-font-color ml-5 mt-2">
                 <li>PWA 기반 설계로 접근성 향상</li>
                 <li>이미지 그룹 생성/삭제/수정 기능</li>
@@ -159,7 +175,7 @@ const LayUp = () => {
           <div className="mb-10">
             <p className="font-nanumsquare text-lg font-extrabold text-font-color">메뉴 관리(모바일)</p>
             <div className="w-full flex flex-row justify-center mt-3 gap-3">
-              <img src={`${url}/mobile_menu.gif`} alt="mobile_menu_gif" className="w-1/2 rounded-sm" />
+              <img src={`${url}/mobile_menu.gif`} alt="mobile_menu_gif" className="w-1/2 rounded-sm border-1 border-gray-200" />
               <div className="w-full font-nexon text-sm text-font-color ml-5 mt-2">
                 <li>메뉴 추가/삭제/수정 기능</li>
                 <li>React-Query 캐싱 전략을 통한 데이터 응답 속도 및 안정성 확보, 무한 스크롤 구현</li>

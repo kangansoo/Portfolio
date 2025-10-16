@@ -12,7 +12,7 @@ const NewKiz = () => {
   return (
     <div className="w-full h-full flex flex-col items-center bg-main-bg pb-20">
       <div className="w-full h-50">
-        <img src={`${import.meta.env.VITE_S3_URL}/main.png`} className="w-full h-full object-cover" alt="logo" />
+        <img src={`${import.meta.env.VITE_S3_URL}/main.png`} className="w-full h-full object-cover border-b-1 border-gray-300" alt="logo" />
       </div>
       <div className="mt-10 max-w-1/2 flex flex-col">
         <div className="font-nanumsquare text-3xl font-extrabold text-font-color">NewKiz</div>
@@ -79,8 +79,8 @@ const NewKiz = () => {
           <div className="text-sm font-nexon text-landing-700 mb-10">
             <p className="text-lg font-extrabold text-font-color font-nanumsquare mb-2">프로젝트 소개</p>
             <div className="flex flex-col gap-2 font-nexon text-font-color">
-              난이도 조절이 가능한 뉴스 콘텐츠와 퀴즈 게임 요소, AI 요약 기능을 통해 아이들이 쉽고 재미있게 뉴스에 접근할 수 있도록 돕고 문해력 향상과 사회적 관심을 자연스럽게 이끌어내는 어린이 뉴스
-              통합 플랫폼
+              다양한 난이도의 뉴스 콘텐츠와 퀴즈, 게임 요소, AI 요약 기능을 통해 아이들이 쉽고 재미있게 뉴스에 접근할 수 있도록 돕고, 문해력 향상과 사회적 관심을 자연스럽게 이끌어내는 어린이 뉴스 통합
+              플랫폼
             </div>
           </div>
           <div className="text-sm font-nexon text-landing-700">
@@ -119,10 +119,10 @@ const NewKiz = () => {
             <p className="font-nanumsquare text-lg font-extrabold text-font-color">실시간 OX 퀴즈 게임</p>
             <div className="w-full flex flex-col justify-center mt-3 gap-3">
               <div className="w-full flex flex-row gap-3">
-                <video controls autoPlay muted loop className="flex-1 w-1/3 rounded-sm">
+                <video controls autoPlay muted loop className="flex-1 w-1/3 rounded-sm border-1 border-gray-200">
                   <source src={`${url}/game.mp4`} type="video/mp4" />
                 </video>
-                <img src={`${url}/game_min_max_scailing.gif`} alt="min_max_scailing_example_gif" className="flex-1 object-fit w-2/3 rounded-sm" />
+                <img src={`${url}/game_min_max_scailing.gif`} alt="min_max_scailing_example_gif" className="flex-1 object-fit w-2/3 rounded-sm border-1 border-gray-200" />
               </div>
               <div className="w-full font-nexon text-sm `   text-font-color ml-3">
                 <li>재사용성과 확장성을 고려한 추상화</li>
@@ -136,7 +136,7 @@ const NewKiz = () => {
           <div className="mb-10">
             <p className="font-nanumsquare text-lg font-extrabold text-font-color">카테고리/세부 카테고리 페이지</p>
             <div className="w-full flex flex-row justify-center mt-3 gap-3">
-              <img src={`${url}/category.gif`} alt="mobile_drive_gif" className="w-1/2" />
+              <img src={`${url}/category.gif`} alt="mobile_drive_gif" className="w-1/2 border-1 border-gray-200" />
               <div className="w-full font-nexon text-sm text-font-color ml-3 mt-2">
                 <li>초기 단순 카테고리를 페이지 단위로 개선하여 세부 카테고리 페이지까지 확장</li>
               </div>
