@@ -13,8 +13,6 @@ const Hero = ({ showLanding }: HeroProps) => {
     if (showLanding) return
     if (animationStarted) return
 
-    let cancelled = false
-
     const typeStream = createTypeStream({
       perChar: 40,
       perHangul: 120,
@@ -31,10 +29,6 @@ const Hero = ({ showLanding }: HeroProps) => {
     }
 
     runAnimation()
-
-    return () => {
-      cancelled = true
-    }
   }, [showLanding, animationStarted])
 
   return (
