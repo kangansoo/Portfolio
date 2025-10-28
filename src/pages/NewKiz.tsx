@@ -59,7 +59,7 @@ const NewKiz = () => {
               <p className="text-sm font-nexon">스택</p>
             </div>
             <div className="flex-1 text-landing-700">
-              <p className="text-sm font-nexon">React, TypeScript, Redux-ToolKit, react-query, Tailwind CSS, vite, PWA</p>
+              <p className="text-sm font-nexon">React, TypeScript, Redux-ToolKit, Tailwind CSS, vite, PWA</p>
             </div>
           </div>
           <div className="flex flex-row items-center justify-between">
@@ -129,7 +129,7 @@ const NewKiz = () => {
                 <li>캐릭터 스프라이트 이미지를 프리로딩하여 불필요한 렌더링 문제 해결</li>
                 <li>Min-Max Scaling으로 다양한 해상도 독립성 및 좌표 일관성 유지</li>
                 <li>Stomp와 Sock.js를 통한 실시간 통신 안정성과 효율성 확보</li>
-                <li>캐릭터 움직임 감지, 동적 전송 주기 조절과 보간법을 적용하여 네트워크 부하를 60% 이상 절감</li>
+                <li>캐릭터 움직임 감지, 동적 전송 주기 조절과 보간법을 적용하여 네트워크 부하를 약 60% 절감</li>
               </div>
             </div>
           </div>

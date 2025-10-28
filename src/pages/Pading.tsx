@@ -61,7 +61,7 @@ const Pading = () => {
               <p className="text-sm font-nexon">스택</p>
             </div>
             <div className="flex-1 text-landing-700">
-              <p className="text-sm font-nexon">React, TypeScript, Redux-ToolKit, context API, Tailwind CSS, vite, Web Socket, WebRTC</p>
+              <p className="text-sm font-nexon">React, TypeScript, Redux-ToolKit, Tailwind CSS, vite, Web Socket, WebRTC</p>
             </div>
           </div>
           <div className="flex flex-row items-center justify-between">
