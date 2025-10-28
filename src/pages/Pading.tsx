@@ -122,7 +122,6 @@ const Pading = () => {
             <div className="w-full flex flex-col justify-center mt-3 gap-3">
               <img src={`${url}/project.png`} alt="IDE_page_image" className="rounded-sm border-1 border-gray-200" />
               <div className="w-full font-nexon text-sm text-font-color ml-5">
-                <li>코드 복잡도 관리 및 확장성 향상을 위해 FSD 아키텍처 채택</li>
                 <li>디자인 및 레이아웃 설계 전 과정을 맡아 사용자 친화적인 UI와 레이아웃 설계 및 구현</li>
                 <li>Resizable Box를 적용하여 사용자 맞춤형 UI 제공</li>
               </div>
