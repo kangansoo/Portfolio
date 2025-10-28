@@ -21,7 +21,7 @@ const Hero = ({ showLanding }: HeroProps) => {
     const runAnimation = async () => {
       setAnimationStarted(true)
 
-      await typeStream("기술을 통해 사용자에게 실질적인 가치를 더하는 개발자입니다.", (typing) => {
+      await typeStream("기술을 통해 사용자에게 더 나은 가치를 전하는 개발자입니다.", (typing) => {
         if (typingRef.current) {
           typingRef.current.textContent = typing
         }
