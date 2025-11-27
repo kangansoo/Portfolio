@@ -68,9 +68,9 @@ const NewKiz = () => {
               <p className="text-sm font-nexon">Git Hub</p>
             </div>
             <div className="flex-1 text-landing-700">
-              <p className="text-sm font-nexon underline underline-offset-4 cursor-pointer hover:text-font-hover transition-colors duration-300 ease-in-out" onClick={() => openGithub()}>
+              <span className="text-sm font-nexon underline underline-offset-4 cursor-pointer hover:text-font-hover transition-colors duration-300 ease-in-out" onClick={() => openGithub()}>
                 바로 가기
-              </p>
+              </span>
             </div>
           </div>
         </div>
