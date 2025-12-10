@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "LAY UP",
+    "image": "/Logo.png",
+    "description": "소상공인을 위한 AI 기반 SNS 마케팅 자동화 서비스",
+    "route": "/layup"
+  },
+  {
+    "id": 2,
+    "title": "뉴키즈",
+    "image": "/main.png",
+    "description": "어린이를 위한 뉴스 플랫폼",
+    "route": "/newkiz"
+  },
+  {
+    "id": 3,
+    "title": "Pading",
+    "image": "/pading.png",
+    "description": "협업을 위한 웹 IDE 및 관리 시스템",
+    "route": "/pading"
+  }
+]

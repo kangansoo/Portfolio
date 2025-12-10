@@ -5,6 +5,7 @@ import { HiMiniSquare3Stack3D } from "react-icons/hi2"
 import { RiAwardFill } from "react-icons/ri"
 import { IoMdPerson } from "react-icons/io"
 import { FaGithub, FaInstagram } from "react-icons/fa"
+import ProjectFooter from "@/components/ProjectFooter"
 
 const LayUp = () => {
   const url = import.meta.env.VITE_S3_URL
@@ -15,7 +16,7 @@ const LayUp = () => {
     window.open("https://www.instagram.com/geogeum_coffee", "_blank", "noopener,noreferrer")
   }
   return (
-    <div className="w-full h-full flex flex-col items-center bg-main-bg pb-20">
+    <div className="w-full h-full flex flex-col items-center bg-main-bg">
       <div className="w-full h-50">
         <img src={`${import.meta.env.VITE_S3_URL}/Logo.png`} className="w-full h-full object-cover border-b-1 border-gray-300" alt="logo" />
       </div>
@@ -194,6 +195,7 @@ const LayUp = () => {
           </div>
         </div>
       </div>
+      <ProjectFooter id={1} />
     </div>
   )
 }
