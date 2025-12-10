@@ -73,12 +73,12 @@ function Home() {
             <Hero showLanding={showLanding} />
           </div>
           <div ref={projectsRef} className="w-full h-2/3 shrink-0">
-            <ScrollReveal direction="up" delay={0}>
+            <ScrollReveal direction="up" delay={0.4}>
               <Projects />
             </ScrollReveal>
           </div>
           <div ref={aboutRef} className="w-full min-h-[40vh] shrink-0">
-            <ScrollReveal direction="up" delay={0}>
+            <ScrollReveal direction="up" delay={0.2}>
               <About />
             </ScrollReveal>
           </div>
