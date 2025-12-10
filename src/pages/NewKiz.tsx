@@ -3,6 +3,7 @@ import { FaGithub, FaRegCalendarCheck } from "react-icons/fa"
 import { MdPeopleAlt } from "react-icons/md"
 import { HiMiniSquare3Stack3D } from "react-icons/hi2"
 import { IoMdPerson } from "react-icons/io"
+import ProjectFooter from "@/components/ProjectFooter"
 
 const NewKiz = () => {
   const url = import.meta.env.VITE_S3_URL
@@ -10,7 +11,7 @@ const NewKiz = () => {
     window.open("https://github.com/Aren-t-you-eating/newkiz_readme", "_blank", "noopener,noreferrer")
   }
   return (
-    <div className="w-full h-full flex flex-col items-center bg-main-bg pb-20">
+    <div className="w-full h-full flex flex-col items-center bg-main-bg">
       <div className="w-full h-50">
         <img src={`${import.meta.env.VITE_S3_URL}/main.png`} className="w-full h-full object-cover border-b-1 border-gray-300" alt="logo" />
       </div>
@@ -154,6 +155,7 @@ const NewKiz = () => {
           </div>
         </div>
       </div>
+      <ProjectFooter id={2} />
     </div>
   )
 }

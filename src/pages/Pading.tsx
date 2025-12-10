@@ -5,6 +5,7 @@ import { HiMiniSquare3Stack3D } from "react-icons/hi2"
 import { RiAwardFill } from "react-icons/ri"
 import { IoMdPerson } from "react-icons/io"
 import { FaGithub } from "react-icons/fa"
+import ProjectFooter from "@/components/ProjectFooter"
 
 const Pading = () => {
   const url = import.meta.env.VITE_S3_URL
@@ -12,7 +13,7 @@ const Pading = () => {
     window.open("https://github.com/ssafy-pading/pading", "_blank", "noopener,noreferrer")
   }
   return (
-    <div className="w-full h-full flex flex-col items-center bg-main-bg pb-20">
+    <div className="w-full h-full flex flex-col items-center bg-main-bg">
       <div className="w-full h-50">
         <img src={`${import.meta.env.VITE_S3_URL}/pading_logo.png`} className="w-full h-full object-cover" alt="logo" />
       </div>
@@ -162,6 +163,7 @@ const Pading = () => {
           </div>
         </div>
       </div>
+      <ProjectFooter id={3} />
     </div>
   )
 }
