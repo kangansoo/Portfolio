@@ -49,18 +49,18 @@ const Footer = () => {
   }
 
   return (
-    <div className="w-full h-full flex flex-row justify-center items-center">
+    <footer className="w-full h-12 flex flex-row justify-center items-center bg-landing-700 mt-20">
       <div className="w-[60%] h-[80%] flex flex-row justify-start items-center my-5 gap-7 text-gray-500 font-nexon">
-        <div className="text-xs cursor-pointer hover:animate-pulse-color flex flex-row justify-center items-center gap-2" onClick={() => copyToClipboard("ansoo971@gmail.com", "email")}>
+        <section className="text-xs cursor-pointer hover:animate-pulse-color flex flex-row justify-center items-center gap-2" onClick={() => copyToClipboard("ansoo971@gmail.com", "email")}>
           <MdEmail />
           <p>{copiedType === "email" ? "✓ 복사됨!" : "ansoo971@gmail.com"}</p>
-        </div>
-        <div className="text-xs cursor-pointer hover:animate-pulse-color flex flex-row justify-center items-center gap-2" onClick={() => openGithub()}>
+        </section>
+        <section className="text-xs cursor-pointer hover:animate-pulse-color flex flex-row justify-center items-center gap-2" onClick={() => openGithub()}>
           <FaGithub />
           <p>{copiedType === "github" ? "✓ 복사됨!" : "kangansoo"}</p>
-        </div>
+        </section>
       </div>
-    </div>
+    </footer>
   )
 }
 
