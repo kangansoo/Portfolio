@@ -1,168 +1,175 @@
-import { MdOutlineFeaturedPlayList } from "react-icons/md"
-import { FaRegCalendarCheck } from "react-icons/fa"
-import { MdPeopleAlt } from "react-icons/md"
+import { MdOutlineFeaturedPlayList, MdPeopleAlt } from "react-icons/md"
+import { FaRegCalendarCheck, FaGithub } from "react-icons/fa"
 import { HiMiniSquare3Stack3D } from "react-icons/hi2"
 import { RiAwardFill } from "react-icons/ri"
 import { IoMdPerson } from "react-icons/io"
-import { FaGithub } from "react-icons/fa"
 import ProjectFooter from "@/components/ProjectFooter"
 
 const Pading = () => {
   const url = import.meta.env.VITE_S3_URL
-  const openGithub = () => {
-    window.open("https://github.com/ssafy-pading/pading", "_blank", "noopener,noreferrer")
+
+  const openLink = (href: string) => {
+    window.open(href, "_blank", "noopener,noreferrer")
   }
+
+  // 1. 상단 기본 정보 데이터
+  const projectInfo = [
+    { icon: <MdOutlineFeaturedPlayList />, label: "한 줄 소개", content: "페어프로그래밍을 위한 웹 IDE 및 관리 시스템" },
+    { icon: <FaRegCalendarCheck />, label: "프로젝트 기간", content: "2025.01 ~ 2025.02 (7주)" },
+    { icon: <MdPeopleAlt />, label: "팀 구성", content: "BE 2명, FE 4명" },
+    { icon: <IoMdPerson />, label: "참여 역할", content: "FE 개발" },
+    { icon: <HiMiniSquare3Stack3D />, label: "스택", content: "React, TypeScript, Redux-ToolKit, Tailwind CSS, vite, Web Socket, WebRTC" },
+    { icon: <RiAwardFill />, label: "수상", content: "SSAFY 2학기 공통 프로젝트 우수상" },
+  ]
+
+  // 2. 주요 기능 데이터
+  const features = [
+    { title: "매니징 시스템", desc: "오너, 매니저, 멤버로 구성. 그룹 및 프로젝트 관리(그룹 내 멤버 초대 및 다수 프로젝트 생성 가능)" },
+    { title: "그룹 페이지", desc: "그룹 정보, 프로젝트 현황, 멤버 관리 기능을 제공하는 통합 대시보드" },
+    { title: "권한 설정", desc: "역할 기반 접근 제어(RBAC)를 통한 멤버 초대 및 권한 변경" },
+    { title: "프로젝트 생성", desc: "언어, OS, 성능 사양 및 참여 멤버를 선택하여 맞춤형 개발 환경 구축" },
+    { title: "공동 편집 IDE", desc: "실시간 동시 편집, 파일 탐색기, 화상 회의, 채팅, AI 코드 리뷰, 터미널 및 배포 기능 제공" },
+  ]
+
+  // 3. 담당 역할 상세 데이터
+  const roles = [
+    {
+      title: "프로젝트 설계",
+      img: "project.png",
+      tasks: [
+        "디자인 및 레이아웃 설계 전 과정을 주도하여 사용자 친화적인 웹 IDE UI 구현",
+        "Resizable Box 패턴을 적용하여 사용자가 작업 영역(에디터, 터미널 등) 크기를 자유롭게 조절 가능한 레이아웃 구축",
+      ],
+    },
+    {
+      title: "화상회의 (WebRTC)",
+      isMultiImg: true,
+      imgs: ["video.gif", "video2.gif"],
+      tasks: [
+        "Open Vidu 라이브러리를 활용하여 실시간 화상회의 기능 구현",
+        "로컬/원격 참여자 데이터 분리 관리를 통해 렌더링 효율 최적화 및 상태 관리 단순화",
+        "카메라/마이크 사전 테스트 및 하드웨어 제어 기능을 구현하여 사용자 경험 향상",
+      ],
+    },
+    {
+      title: "파일 탐색기 (Web Socket)",
+      img: "file_explorer.gif",
+      tasks: [
+        "Stomp와 Sock.js 기반의 실시간 통신으로 파일/폴더 변경 사항의 즉각적인 동기화 보장",
+        "파일/폴더의 생성, 삭제, 수정, 이동 기능을 트리 구조로 구현",
+        "Map 자료구조를 활용하여 복잡한 트리 구조의 재귀 탐색 성능 최적화",
+        "Resizable Box를 통한 탐색기 영역 UI 유연성 확보",
+      ],
+    },
+  ]
+
   return (
-    <div className="w-full h-full flex flex-col items-center bg-main-bg">
-      <div className="w-full h-50">
-        <img src={`${import.meta.env.VITE_S3_URL}/pading_logo.png`} className="w-full h-full object-cover" alt="logo" />
-      </div>
-      <div className="mt-10 max-w-1/2 flex flex-col">
-        <div className="font-nanumsquare text-3xl font-extrabold text-font-color">Pading</div>
-        <div className="my-5 flex flex-col gap-3">
-          <div className="flex flex-row items-center justify-between">
-            <div className="flex flex-row items-center w-40 gap-2 text-landing-500">
-              <MdOutlineFeaturedPlayList />
-              <p className="text-sm font-nexon">한 줄 소개</p>
-            </div>
-            <div className="flex-1 text-landing-700">
-              <p className="text-sm font-nexon">페어프로그래밍을 위한 웹 IDE 및 관리 시스템</p>
-            </div>
-          </div>
-          <div className="flex flex-row items-center justify-between">
-            <div className="flex flex-row items-center w-40 gap-2 text-landing-500">
-              <FaRegCalendarCheck />
-              <p className="text-sm font-nexon">프로젝트 기간</p>
-            </div>
-            <div className="flex-1 text-landing-700">
-              <p className="text-sm font-nexon">2025.01 ~ 2025.02 (7주)</p>
-            </div>
-          </div>
-          <div className="flex flex-row items-center justify-between">
-            <div className="flex flex-row items-center w-40 gap-2 text-landing-500">
-              <MdPeopleAlt />
-              <p className="text-sm font-nexon">팀 구성</p>
-            </div>
-            <div className="flex-1 text-landing-700">
-              <p className="text-sm font-nexon">BE 2명, FE 4명</p>
-            </div>
-          </div>
-          <div className="flex flex-row items-center justify-between">
-            <div className="flex flex-row items-center w-40 gap-2 text-landing-500">
-              <IoMdPerson />
-              <p className="text-sm font-nexon">참여 역할</p>
-            </div>
-            <div className="flex-1 text-landing-700">
-              <p className="text-sm font-nexon">FE 개발</p>
-            </div>
-          </div>
-          <div className="flex flex-row items-center justify-between">
-            <div className="flex flex-row items-center w-40 gap-2 text-landing-500">
-              <HiMiniSquare3Stack3D />
-              <p className="text-sm font-nexon">스택</p>
-            </div>
-            <div className="flex-1 text-landing-700">
-              <p className="text-sm font-nexon">React, TypeScript, Redux-ToolKit, Tailwind CSS, vite, Web Socket, WebRTC</p>
-            </div>
-          </div>
-          <div className="flex flex-row items-center justify-between">
-            <div className="flex flex-row items-center w-40 gap-2 text-landing-500">
-              <RiAwardFill />
-              <p className="text-sm font-nexon">수상</p>
-            </div>
-            <div className="flex-1 text-landing-700">
-              <p className="text-sm font-nexon">SSAFY 2학기 공통 프로젝트 우수상</p>
-            </div>
-          </div>
-          <div className="flex flex-row items-center justify-between">
-            <div className="flex flex-row items-center w-40 gap-2 text-landing-500">
-              <FaGithub />
-              <p className="text-sm font-nexon">Git Hub</p>
-            </div>
-            <div className="flex-1 text-landing-700">
-              <span className="text-sm font-nexon underline underline-offset-4 cursor-pointer hover:text-font-hover transition-colors duration-300 ease-in-out" onClick={() => openGithub()}>
-                바로 가기
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="my-5 flex flex-col">
-          <div className="font-nanumsquare text-2xl font-extrabold text-font-color mb-5">상세 내용</div>
-          <div className="text-sm font-nexon text-landing-700 mb-10">
-            <p className="text-lg font-extrabold text-font-color font-nanumsquare mb-2">프로젝트 소개</p>
-            <div className="flex flex-col gap-2 font-nexon text-font-color">
-              원격 환경에서도 효과적인 페어프로그래밍 및 협업이 가능한 웹 IDE 통합 서비스. 실시간 동시 코드 편집, 화상 회의, 채팅 등을 통해 브라우저 환경에서 프로젝트 생성부터 실행, 배포까지 전체 개발
-              파이프라인을 실시간으로 협업하고 관리 가능. 그룹 생성/관리를 통해 참여자를 초대하고 각 프로젝트에 인원 할당 등 관리 가능.
-            </div>
-          </div>
-          <div className="text-sm font-nexon text-landing-700">
-            <p className="text-lg font-extrabold text-font-color font-nanumsquare">주요 기능</p>
-            <div className="flex flex-col ml-5 gap-2 font-nexon text-font-color">
-              <li>매니징 시스템</li>
-              <p>
-                오너, 매니저, 멤버로 구성. <br /> 그룹 및 프로젝트 관리(그룹 내에 멤버들을 초대하고 여러 개의 프로젝트 생성 가능)
-              </p>
-              <li>그룹 페이지</li>
-              <p>
-                자신이 속한 그룹 페이지 내에서 그룹의 정보와 프로젝트, 멤버 등의 정보 확인 및 변경
-                <br />
-              </p>
-              <li>권한 설정</li>
-              <p>오너는 매니저와 일반 멤버를 초대 및 권한 변경 가능</p>
-              <li>프로젝트 생성</li>
-              <p>프로젝트 이름, 언어, OS, 성능, 참여자를 선택하여 생성</p>
-              <li>공동 편집 IDE</li>
-              <p>실시간 공동 편집 지원 IDE, 파일 탐색기, 화상 회의, 채팅, AI 코드 리뷰, 터미널 기능 및 실행과 배포 가능</p>
-            </div>
-          </div>
-        </div>
-        <div className="my-5 flex flex-col">
-          <div className="font-nanumsquare text-2xl font-extrabold text-font-color mb-5">맡은 역할</div>
-          <div className="mb-10">
-            <p className="font-nanumsquare text-lg font-extrabold text-font-color">프로젝트 설계</p>
-            <div className="w-full flex flex-col justify-center mt-3 gap-3">
-              <img src={`${url}/project.png`} alt="IDE_page_image" className="rounded-sm border-1 border-gray-200" />
-              <div className="w-full font-nexon text-sm text-font-color ml-5">
-                <li>디자인 및 레이아웃 설계 전 과정을 맡아 사용자 친화적인 UI와 레이아웃 설계 및 구현</li>
-                <li>Resizable Box를 적용하여 사용자 맞춤형 UI 제공</li>
+    <div className="w-full min-h-screen flex flex-col items-center bg-main-bg">
+      <header className="w-full h-50 overflow-hidden">
+        <img src={`${url}/pading_logo.png`} className="w-full h-full object-cover" alt="Pading 프로젝트 로고" />
+      </header>
+
+      <main className="mt-10 max-w-[50%] w-full flex flex-col mb-20">
+        {/* 프로젝트 기본 정보 */}
+        <section aria-labelledby="project-title">
+          <h1 id="project-title" className="font-nanumsquare text-3xl font-extrabold text-font-color uppercase">
+            Pading
+          </h1>
+
+          <dl className="my-5 flex flex-col gap-3">
+            {projectInfo.map((info, idx) => (
+              <div key={idx} className="flex flex-row items-center justify-between">
+                <dt className="flex flex-row items-center w-40 gap-2 text-landing-500 text-sm font-nexon">
+                  {info.icon}
+                  <span>{info.label}</span>
+                </dt>
+                <dd className="flex-1 text-landing-700 text-sm font-nexon">{info.content}</dd>
               </div>
+            ))}
+            <div className="flex flex-row items-center justify-between">
+              <dt className="flex flex-row items-center w-40 gap-2 text-landing-500 text-sm font-nexon">
+                <FaGithub /> <span>Git Hub</span>
+              </dt>
+              <dd className="flex-1 text-landing-700 text-sm font-nexon">
+                <button onClick={() => openLink("https://github.com/ssafy-pading/pading")} className="underline underline-offset-4 hover:text-font-hover cursor-pointer transition-colors">
+                  바로 가기
+                </button>
+              </dd>
             </div>
-          </div>
-          <div className="mb-10">
-            <p className="font-nanumsquare text-lg font-extrabold text-font-color">화상회의</p>
-            <div className="w-full h-full flex flex-col justify-center mt-3 gap-3">
-              <div className="w-full h-1/4 flex flex-row gap-3">
-                <img src={`${url}/video.gif`} alt="video_gif_1" className="flex-1 h-full rounded-sm border-1 border-gray-200" />
-                <img src={`${url}/video2.gif`} alt="video_gif_2" className="flex-1 w-1/5 rounded-sm border-1 border-gray-200" />
+          </dl>
+        </section>
+
+        {/* 상세 내용 */}
+        <section className="my-6" aria-labelledby="detail-content">
+          <h2 id="detail-content" className="font-nanumsquare text-2xl font-extrabold text-font-color mb-8 pb-2">
+            상세 내용
+          </h2>
+
+          <article className="mb-12">
+            <h3 className="text-lg font-extrabold text-font-color font-nanumsquare mb-3">프로젝트 소개</h3>
+            <p className="text-sm font-nexon text-font-color leading-relaxed">
+              원격 환경에서도 효과적인 페어프로그래밍 및 협업이 가능한 웹 IDE 통합 서비스입니다. 실시간 동시 코드 편집, 화상 회의, 채팅 등을 통해 브라우저 환경에서 프로젝트 생성부터 실행, 배포까지
+              전체 개발 파이프라인을 실시간으로 협업하고 관리할 수 있습니다.
+            </p>
+          </article>
+
+          <article>
+            <h3 className="text-lg font-extrabold text-font-color font-nanumsquare mb-4">주요 기능</h3>
+            <ul className="grid grid-cols-1 gap-5 ml-5 text-font-color font-nexon text-sm">
+              {features.map((feature, i) => (
+                <li key={i} className="list-disc">
+                  <strong className="text-font-color">{feature.title}</strong>
+                  <p className="mt-1 text-landing-700">{feature.desc}</p>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </section>
+
+        {/* 맡은 역할 */}
+        <section className="my-6" aria-labelledby="my-role">
+          <h2 id="my-role" className="font-nanumsquare text-2xl font-extrabold text-font-color mb-8 pb-2">
+            맡은 역할
+          </h2>
+
+          {roles.map((role, i) => (
+            <article key={i} className="mb-16">
+              <h3 className="font-nanumsquare text-lg font-extrabold text-font-color mb-4">{role.title}</h3>
+              <div className="flex flex-col gap-6">
+                <figure className="w-full flex flex-row gap-3">
+                  {role.isMultiImg ? (
+                    role.imgs?.map((img, idx) => (
+                      <img key={idx} src={`${url}/${img}`} className={`rounded-sm border border-gray-200 shadow-sm ${idx === 1 ? "w-1/5" : "flex-1"}`} alt={`${role.title} 시연 ${idx + 1}`} />
+                    ))
+                  ) : (
+                    <img src={`${url}/${role.img}`} alt={`${role.title} 시연`} className="w-full rounded-sm border border-gray-200 shadow-sm" />
+                  )}
+                </figure>
+                <ul className="ml-5 font-nexon text-sm text-font-color flex flex-col gap-2.5">
+                  {role.tasks.map((task, j) => (
+                    <li key={j} className="list-disc leading-relaxed">
+                      {task}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="w-full font-nexon text-sm `   text-font-color ml-3">
-                <li>Open Vidu 라이브러리를 활용하여 화상회의 기능 구현, 로컬과 원격 참여자로 데이터를 분리하여 관리함으로써 렌더링 효율 향상, 상태관리 단순화 및 UI 호환성 향상</li>
-                <li>카메라/마이크 사전 테스트, 마이크 및 오디오 온/오프 제어 기능 등 사용자 편의성 향상</li>
-              </div>
-            </div>
-          </div>
-          <div className="mb-10">
-            <p className="font-nanumsquare text-lg font-extrabold text-font-color">파일 탐색기(Web Socket 기반)</p>
-            <div className="w-full flex flex-col justify-center mt-3 gap-3">
-              <img src={`${url}/file_explorer.gif`} alt="file_explorer_gif" className="rounded-sm border-1 border-gray-200" />
-              <div className="w-full font-nexon text-sm text-font-color ml-5">
-                <li>Stomp와 Sock.js를 통한 실시간 통신 안정성과 효율성 확보</li>
-                <li>Resizable Box 적용으로 사용자 맞춤형 UI 제공</li>
-                <li>파일/폴더의 생성/삭제/수정/이동 기능</li>
-                <li>Map 자료구조를 활용하여 재귀 탐색 성능 향상</li>
-              </div>
-            </div>
-          </div>
-          <div className="my-5 flex flex-col">
-            <div className="font-nanumsquare text-2xl font-extrabold text-font-color mb-5">성과</div>
-            <div className="w-full font-nexon text-sm text-font-color ml-5">
-              <li>UI/UX 설계를 주도하며 다양한 레퍼런스를 분석하고 반영하는 과정을 통해 사용자 중심의 설계 능력 향상</li>
-              <li>WebSocket과 WebRTC를 활용하며 실시간 통신에 대한 이해도 향상</li>
-              <li>파일 탐색기 기능 구현 과정에서 복잡한 기능을 작은 단위로 구현하며 조합하는 바텀업 방식에 대한 이해도 향상</li>
-            </div>
-          </div>
-        </div>
-      </div>
+            </article>
+          ))}
+        </section>
+
+        {/* 성과 */}
+        <section className="my-6" aria-labelledby="achievements-title">
+          <h2 id="achievements-title" className="font-nanumsquare text-2xl font-extrabold text-font-color mb-4 pb-2">
+            성과
+          </h2>
+          <ul className="ml-5 font-nexon text-sm text-font-color flex flex-col gap-4">
+            <li className="list-disc">UI/UX 설계를 주도하며 다양한 레퍼런스를 분석하고 반영하는 과정을 통해 사용자 중심의 설계 능력 향상</li>
+            <li className="list-disc">WebSocket과 WebRTC를 직접 다루며 실시간 통신 및 동기화 기술에 대한 깊은 이해도 확보</li>
+            <li className="list-disc">파일 탐색기와 같은 복잡한 상태를 가진 기능을 바텀업 방식으로 구현하며 컴포넌트 조합 및 유지보수 역량 강화</li>
+          </ul>
+        </section>
+      </main>
+
       <ProjectFooter id={3} />
     </div>
   )

@@ -65,30 +65,20 @@ function Home() {
         onSkillsClick={() => scrollToSection(skillsRef)}
         onExpClick={() => scrollToSection(expRef)}
       />
-      <main className="w-full h-full flex flex-col bg-main-bg">
-        <section className="w-full h-1/3 shrink-0">
-          <Hero showLanding={showLanding} />
-        </section>
-        <section ref={projectsRef} className="w-full h-2/3 shrink-0">
-          <ScrollReveal direction="up" delay={0.4}>
-            <Projects />
-          </ScrollReveal>
-        </section>
-        <section ref={aboutRef} className="w-full min-h-[40vh] shrink-0">
-          <ScrollReveal direction="up" delay={0.2}>
-            <About />
-          </ScrollReveal>
-        </section>
-        <section ref={skillsRef} className="w-full min-h-[50vh] shrink-0">
-          <ScrollReveal direction="up" delay={0.2}>
-            <Skills />
-          </ScrollReveal>
-        </section>
-        <section ref={expRef} className="w-full min-h-[30vh] shrink-0 my-10">
-          <ScrollReveal direction="up" delay={0.3}>
-            <Exprience />
-          </ScrollReveal>
-        </section>
+      <main className="w-full min-h-screen flex flex-col bg-main-bg">
+        <Hero showLanding={showLanding} />
+        <ScrollReveal direction="up" delay={0.4}>
+          <Projects ref={projectsRef} />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={0.2}>
+          <About ref={aboutRef} />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={0.2}>
+          <Skills ref={skillsRef} />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={0.3}>
+          <Exprience ref={expRef} />
+        </ScrollReveal>
         <Footer />
       </main>
     </div>
