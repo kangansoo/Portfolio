@@ -22,7 +22,7 @@ const LayUp = () => {
     { icon: <RiAwardFill />, label: "수상", content: "SSAFY 2학기 자율 프로젝트 우수상" },
   ]
 
-  // 2. 주요 기능 데이터 (원본 누락 없이 전체 포함)
+  // 2. 주요 기능 데이터
   const features = [
     { title: "Auto Posting", desc: "템플릿과 주기를 설정해두면 등록된 사업체 정보를 기반으로 AI가 글을 생성해서 자동으로 포스팅" },
     { title: "Manual Posting", desc: "주제만 작성하면 사업체 정보를 기반으로 AI가 글을 생성하고 포스팅" },
@@ -33,7 +33,7 @@ const LayUp = () => {
     { title: "리포트", desc: "주 1회 마케팅 성과 리포트, 월 1회 트렌드 리서치 리포트 제공" },
   ]
 
-  // 3. 담당 역할 상세 데이터 (원본 리스트 전체 포함)
+  // 3. 담당 역할 상세 데이터
   const roles = [
     {
       title: "템플릿",

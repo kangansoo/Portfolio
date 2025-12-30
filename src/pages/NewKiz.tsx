@@ -35,7 +35,7 @@ const NewKiz = () => {
   const roles = [
     {
       title: "프로젝트 설계",
-      type: "text", // 이미지가 없는 텍스트 중심 섹션
+      type: "text", 
       tasks: [
         "프로젝트 복잡성 관리 및 코드 모듈화와 유지보수성, 확장성 향상을 위해 FSD 아키텍처 채택",
         "사용자 접근성을 고려한 PWA 기반 설계, 반응형 웹으로 다양한 디바이스 환경 지원",
@@ -59,7 +59,7 @@ const NewKiz = () => {
     {
       title: "카테고리/세부 카테고리 페이지",
       type: "media",
-      isMobileSize: true, // 원본 w-1/2 반영
+      isMobileSize: true, 
       imgSrc: "category.gif",
       tasks: ["초기 단순 카테고리를 페이지 단위로 개선하여 세부 카테고리 페이지까지 확장"],
     },
