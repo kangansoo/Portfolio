@@ -47,7 +47,7 @@ const Projects = forwardRef<HTMLElement, any>((_, ref) => {
           <Slider {...settings} className="w-full">
             {projects.map((project) => (
               <div key={project.id} className="outline-none py-4">
-                <article className="mx-4 bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all">
+                <article className="mx-4 bg-white rounded-2xl overflow-hidden transform transition-all">
                   <button type="button" className="w-full flex flex-col focus:outline-none" onClick={() => handleProjectClick(project.route)} aria-label={`${project.title} 프로젝트 상세보기`}>
                     <figure className="w-full">
                       <div className="relative aspect-video overflow-hidden">
