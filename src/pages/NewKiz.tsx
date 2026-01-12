@@ -17,64 +17,78 @@ const NewKiz = () => {
     { icon: <FaRegCalendarCheck />, label: "프로젝트 기간", content: "2025.02 ~ 2025.04 (7주)" },
     { icon: <MdPeopleAlt />, label: "팀 구성", content: "BE 3명, FE 3명" },
     { icon: <IoMdPerson />, label: "참여 역할", content: "FE 개발" },
-    { icon: <HiMiniSquare3Stack3D />, label: "스택", content: "React, TypeScript, Redux-ToolKit, Tailwind CSS, vite, PWA" },
+    { icon: <HiMiniSquare3Stack3D />, label: "스택", content: "React, TypeScript, Redux-ToolKit, Tailwind CSS, vite, PWA, Stomp, Sock.js" },
   ]
 
   // 2. 주요 기능 데이터
   const features = [
-    { title: "뉴스 추천", desc: "오늘의 핫 토픽 추천 / 개인형 맞춤 추천" },
-    { title: "난이도 별 뉴스", desc: "어린이가 이해하기 쉽도록 상/중/하 난이도로 뉴스를 제공" },
-    { title: "뉴스 해설", desc: "생성형 AI 챗봇을 활용하여 뉴스 내 단어 해설 및 질문 답변" },
-    { title: "스크랩", desc: "관심 기사 스크랩" },
-    { title: "객관식 퀴즈", desc: "뉴스 내용 기반 객관식 문제" },
-    { title: "실시간 OX 퀴즈 게임", desc: "오늘의 핫 토픽 기사 기반 OX 퀴즈 게임" },
-    { title: "기자단", desc: "기사 작성 등을 통한 기자 활동 체험" },
+    { title: "뉴스 추천", desc: "오늘의 핫 토픽 및 사용자 맞춤형 뉴스 추천 서비스 제공" },
+    { title: "난이도별 뉴스", desc: "어린이의 눈높이에 맞춘 상/중/하 난이도 조절 뉴스 콘텐츠" },
+    { title: "AI 뉴스 해설", desc: "생성형 AI 챗봇을 통한 어려운 단어 풀이 및 뉴스 관련 Q&A" },
+    { title: "스크랩 및 기자단", desc: "관심 기사 저장 및 직접 기사를 작성해보는 기자단 활동 체험" },
+    { title: "실시간 OX 퀴즈 게임", desc: "당일 핫 토픽 기반으로 실시간 접속자들과 즐기는 OX 퀴즈" },
   ]
 
-  // 3. 담당 역할 상세 데이터
+  // 3. 담당 역할 상세 데이터 (문제/해결/결과 구조)
   const roles = [
     {
-      title: "프로젝트 설계",
-      type: "text", 
-      tasks: [
-        "프로젝트 복잡성 관리 및 코드 모듈화와 유지보수성, 확장성 향상을 위해 FSD 아키텍처 채택",
-        "사용자 접근성을 고려한 PWA 기반 설계, 반응형 웹으로 다양한 디바이스 환경 지원",
-        "사용자를 고려한 색상 선정, 단순한 구조, 접근성 중심의 UI 설계 및 구현",
+      title: "PWA 기반 프로젝트 및 아키텍처 설계",
+      isMobile: false,
+      desc: "확장성과 유지보수성을 고려한 프론트엔드 설계 및 모바일 접근성 강화",
+      problem: ["MVP 이후 개발 단계에서 확장 및 유지보수의 어려움", "모바일 사용자의 접근성 및 UX 부족"],
+      solution: [
+        "**FSD(Feature-Sliced Design) 채택**: 관심사 분리를 기반으로 모듈 간 결합도를 낮추고 독립적인 개발 환경 구축, 코드 가독성 및 팀 협업 효율성 증대",
+        "**PWA(Progressive Web App)**: 모바일 앱과 유사한 UX를 제공하기 위한 PWA 설계를 주도하여 홈 화면 추가 및 오프라인 접근성 확보",
+        "**접근성 중심 UI 설계**: 어린이 사용자를 고려한 직관적인 색상 선정 및 반응형 웹 구현",
       ],
+      result: ["확장성 및 유지보수성 향상으로 신규 기능 개발 속도 증가", "모바일 사용자 경험 개선 및 접근성 강화"],
     },
     {
       title: "실시간 OX 퀴즈 게임",
-      type: "media",
-      hasVideo: true, // 비디오 포함 여부
+      img: "game_min_max_scailing.gif",
       videoSrc: "game.mp4",
-      imgSrc: "game_min_max_scailing.gif",
-      tasks: [
-        "재사용성과 확장성을 고려한 추상화",
-        "캐릭터 스프라이트 이미지를 프리로딩하여 불필요한 렌더링 문제 해결",
-        "Min-Max Scaling으로 다양한 해상도 독립성 및 좌표 일관성 유지",
-        "Stomp와 Sock.js를 통한 실시간 통신 안정성과 효율성 확보",
-        "캐릭터 움직임 감지, 동적 전송 주기 조절과 보간법을 적용하여 네트워크 부하를 약 60% 절감",
+      hasVideo: true,
+      isMobile: false,
+      desc: "WebSocket 기반 실시간 멀티플레이어 퀴즈 게임",
+      problem: ["다양한 디바이스 해상도 차이로 인한 캐릭터 위치 불일치 현상", "다수 유저의 위치 데이터를 매 프레임 전송 시 발생하는 서버 부하", "네트워크 지연에 따른 캐릭터 끊김 현상"],
+      solution: [
+        "**Min-Max Scaling**: 기기별 상대 좌표를 0~1 사이의 절대값으로 변환하는 알고리즘을 활용하여 해상도에 독립적인 일관된 게임 환경 구축",
+        "**네트워크 최적화**: 모든 프레임이 아닌 임계값 기반의 동적 전송 로직 구현 및 동적 전송 주기 조절, **보간법**을 적용하여 자연스러운 움직임 구현",
+        "**리소스 프리로딩/캐싱**: 캐릭터 스프라이트 이미지를 사전에 로드하여 게임 도중 발생하는 렌더링 끊김 현상 방지",
+        "**Stomp, Sock.js**: STOMP 프로토콜의 Pub/Sub 모델을 활용하여 데이터 규격을 표준화하고 안정적인 실시간 통신 환경 구축을 위한 웹소켓 라이브러리 활용",
       ],
+      result: ["좌표 정합성 확보", "네트워크 통신 안정화 및 협업 용이성 확보", "위치 전송 빈도 최적화를 통해 네트워크 트래픽 부하 약 60% 절감"],
     },
     {
-      title: "카테고리/세부 카테고리 페이지",
-      type: "media",
-      isMobileSize: true, 
-      imgSrc: "category.gif",
-      tasks: ["초기 단순 카테고리를 페이지 단위로 개선하여 세부 카테고리 페이지까지 확장"],
+      title: "카테고리 시스템 고도화",
+      img: "category.gif",
+      isMobile: true,
+      desc: "어린이 사용자의 뉴스 탐색 편의를 위한 카테고리 구조 개선",
+      problem: "단순 나열 방식의 초기 카테고리 구조로 인해 세부 뉴스 주제에 대한 탐색 편의성 저하",
+      solution: ["**계층형 카테고리 설계**: 대분류에서 세부 카테고리로 이어지는 페이지 단위의 유저 흐름 개선"],
+      result: "사용자 뉴스 탐색 용이성 개선",
     },
+  ]
+
+  // 4. 성과 데이터
+  const achievements = [
+    "**실시간 통신 최적화**: Stomp 기반 게임 통신 환경에서 보간법과 데이터 전송 최적화를 통해 네트워크 비용 60% 절감",
+    "**견고한 아키텍처 구축**: FSD 아키텍처 도입을 주도하여 대규모 기능 확장 시에도 코드 일관성 및 높은 유지보수성 유지",
+    "**모바일 웹 경험 혁신**: PWA 및 반응형 설계를 통해 다양한 디바이스 환경에서 끊김 없는 사용자 경험 제공",
+    "**사용자 중심 UI/UX**: 어린이 타겟에 특화된 직관적인 디자인 시스템과 접근성 향상을 위한 최적화 레이아웃 구현",
+    "**분석적 문제 해결 역량 향상**: Min-Max Scaling 등 수학적 접근을 통해 기기 간의 실시간 동기화 오차 문제 해결",
   ]
 
   return (
     <div className="w-full min-h-screen flex flex-col items-center bg-main-bg">
       <header className="w-full h-50 overflow-hidden">
-        <img src={`${url}/main.png`} className="w-full h-full object-cover border-b border-gray-300" alt="NewKiz 프로젝트 커버" />
+        <img src={`${url}/main.png`} className="w-full h-full object-cover border-b border-gray-300" alt="NewKiz 로고" />
       </header>
 
       <main className="mt-10 max-w-[50%] w-full flex flex-col mb-20">
-        {/* 프로젝트 타이틀 및 기본 정보 */}
+        {/* 프로젝트 기본 정보 */}
         <section aria-labelledby="project-title">
-          <h1 id="project-title" className="font-nanumsquare text-3xl font-extrabold text-font-color">
+          <h1 id="project-title" className="font-nanumsquare text-3xl font-extrabold text-font-color uppercase">
             NewKiz
           </h1>
 
@@ -101,7 +115,7 @@ const NewKiz = () => {
           </dl>
         </section>
 
-        {/* 상세 내용 섹션 */}
+        {/* 상세 내용 */}
         <section className="my-6" aria-labelledby="detail-content">
           <h2 id="detail-content" className="font-nanumsquare text-2xl font-extrabold text-font-color mb-8 pb-2">
             상세 내용
@@ -110,8 +124,7 @@ const NewKiz = () => {
           <article className="mb-12">
             <h3 className="text-lg font-extrabold text-font-color font-nanumsquare mb-3">프로젝트 소개</h3>
             <p className="text-sm font-nexon text-font-color leading-relaxed">
-              다양한 난이도의 뉴스 콘텐츠와 퀴즈, 게임 요소, AI 요약 기능을 통해 아이들이 쉽고 재미있게 뉴스에 접근할 수 있도록 돕고, 문해력 향상과 사회적 관심을 자연스럽게 이끌어내는 어린이 뉴스 통합
-              플랫폼
+              다양한 난이도의 뉴스 콘텐츠와 퀴즈, 실시간 게임 요소를 결합하여 아이들이 자연스럽게 사회에 관심을 갖고 문해력을 향상시킬 수 있도록 돕는 어린이 뉴스 종합 플랫폼
             </p>
           </article>
 
@@ -128,53 +141,97 @@ const NewKiz = () => {
           </article>
         </section>
 
-        {/* 맡은 역할 섹션 */}
-        <section className="my-6" aria-labelledby="my-role">
-          <h2 id="my-role" className="font-nanumsquare text-2xl font-extrabold text-font-color mb-8 pb-2">
+        {/* 맡은 역할 */}
+        <section className="my-4" aria-labelledby="my-role">
+          <h2 id="my-role" className="font-nanumsquare text-2xl font-extrabold text-font-color mb-4 pb-2">
             맡은 역할
           </h2>
 
           {roles.map((role, i) => (
-            <article key={i} className="mb-16">
-              <h3 className="font-nanumsquare text-lg font-extrabold text-font-color mb-4">{role.title}</h3>
+            <article key={i} className="mb-20">
+              <h2 className="font-nanumsquare text-xl font-extrabold text-font-color mb-2">{role.title}</h2>
+              <p className="text-sm text-landing-700 mb-4 font-nexon">{role.desc}</p>
 
-              <div className={`flex flex-col gap-6 ${role.isMobileSize ? "items-start" : ""}`}>
-                {role.type === "media" && (
-                  <div className="flex flex-row gap-3 w-full">
-                    {role.hasVideo && (
-                      <video controls autoPlay muted loop className="flex-1 w-1/3 rounded-sm border border-gray-200">
-                        <source src={`${url}/${role.videoSrc}`} type="video/mp4" />
-                      </video>
-                    )}
-                    <figure className={`${role.hasVideo ? "flex-[2] w-2/3" : role.isMobileSize ? "w-1/2" : "w-full"}`}>
-                      <img src={`${url}/${role.imgSrc}`} alt={`${role.title} 시연`} className="w-full rounded-sm border border-gray-200 shadow-sm" />
+              <div className={`flex flex-col gap-8 ${role.isMobile ? "items-start" : ""}`}>
+                <div className="flex flex-row gap-3 w-full">
+                  {role.hasVideo && (
+                    <video controls autoPlay muted loop className="flex-1 w-1/3 rounded-sm border border-gray-200">
+                      <source src={`${url}/${role.videoSrc}`} type="video/mp4" />
+                    </video>
+                  )}
+                  {role.img && (
+                    <figure className={`${role.hasVideo ? "flex-[2] w-2/3" : role.isMobile ? "max-w-[40%]" : "w-full"}`}>
+                      <img src={`${url}/${role.img}`} alt={`${role.title} 시연`} className="w-full rounded-sm border border-gray-200 shadow-sm" />
                     </figure>
-                  </div>
-                )}
+                  )}
+                </div>
 
-                <ul className="ml-5 font-nexon text-sm text-font-color flex flex-col gap-2.5">
-                  {role.tasks.map((task, j) => (
-                    <li key={j} className="list-disc leading-relaxed">
-                      {task}
-                    </li>
-                  ))}
-                </ul>
+                <div className="w-full flex flex-col gap-6 font-nexon text-sm text-font-color">
+                  <div>
+                    <h3 className="font-bold text-landing-600 mb-2">문제 상황</h3>
+                    <div className="ml-2 text-font-color">
+                      {Array.isArray(role.problem) ? (
+                        <ul className="flex flex-col gap-2">
+                          {role.problem.map((prob, j) => (
+                            <li key={j} className="list-disc ml-4 leading-relaxed">
+                              <span dangerouslySetInnerHTML={{ __html: prob.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="leading-relaxed">
+                          <span dangerouslySetInnerHTML={{ __html: role.problem.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-landing-600 mb-2">해결 방법</h3>
+                    <ul className="ml-5 flex flex-col gap-2">
+                      {role.solution.map((sol, j) => (
+                        <li key={j} className="list-disc leading-relaxed">
+                          <span dangerouslySetInnerHTML={{ __html: sol.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-landing-600 mb-2">결과</h3>
+                    <div className="ml-2 text-font-color">
+                      {Array.isArray(role.result) ? (
+                        <ul className="flex flex-col gap-2">
+                          {role.result.map((res, j) => (
+                            <li key={j} className="list-disc ml-4 leading-relaxed">
+                              <span dangerouslySetInnerHTML={{ __html: res.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="leading-relaxed">
+                          <span dangerouslySetInnerHTML={{ __html: role.result.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
               </div>
             </article>
           ))}
         </section>
 
-        {/* 성과 섹션 */}
+        {/* 성과 */}
         <section className="my-6" aria-labelledby="achievements-title">
           <h2 id="achievements-title" className="font-nanumsquare text-2xl font-extrabold text-font-color mb-4 pb-2">
             성과
           </h2>
           <ul className="ml-5 font-nexon text-sm text-font-color flex flex-col gap-4">
-            <li className="list-disc">프로젝트의 전반적인 설계부터 개발 환경 세팅, 기술 스택 선정, 아키텍처 구성까지 주도하며 개발 과정 리드</li>
-            <li className="list-disc">FSD 아키텍처를 적용하여 코드의 모듈화와 유지보수성 향상</li>
-            <li className="list-disc">사용자 접근성을 고려한 UI/UX 설계 및 구현을 통해 사용자 친화적 개발</li>
-            <li className="list-disc">게임 개발 과정에서 발생한 다양한 문제 상황(실시간 동기화, 예외 처리 등)을 바텀업 방식으로 해결하며 분석적 사고력과 문제 해결 능력 향상</li>
-            <li className="list-disc">실시간 통신 및 네트워크 부하 절감을 통해 게임의 안정성 향상</li>
+            {achievements.map((achievement, idx) => (
+              <li key={idx} className="list-disc leading-relaxed">
+                <span dangerouslySetInnerHTML={{ __html: achievement.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+              </li>
+            ))}
           </ul>
         </section>
       </main>
