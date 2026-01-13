@@ -3,6 +3,7 @@ import { FaRegCalendarCheck, FaGithub } from "react-icons/fa"
 import { HiMiniSquare3Stack3D } from "react-icons/hi2"
 import { IoMdPerson } from "react-icons/io"
 import ProjectFooter from "@/components/ProjectFooter"
+import type { FeatureProps, ProjectInfoProps, RoleProps } from "@/types"
 
 const NewKiz = () => {
   const url = import.meta.env.VITE_S3_URL
@@ -12,7 +13,7 @@ const NewKiz = () => {
   }
 
   // 1. 상단 기본 정보 데이터
-  const projectInfo = [
+  const projectInfo: ProjectInfoProps[] = [
     { icon: <MdOutlineFeaturedPlayList />, label: "한 줄 소개", content: "어린이를 위한 종합 뉴스 플랫폼" },
     { icon: <FaRegCalendarCheck />, label: "프로젝트 기간", content: "2025.02 ~ 2025.04 (7주)" },
     { icon: <MdPeopleAlt />, label: "팀 구성", content: "BE 3명, FE 3명" },
@@ -21,7 +22,7 @@ const NewKiz = () => {
   ]
 
   // 2. 주요 기능 데이터
-  const features = [
+  const features: FeatureProps[] = [
     { title: "뉴스 추천", desc: "오늘의 핫 토픽 및 사용자 맞춤형 뉴스 추천 서비스 제공" },
     { title: "난이도별 뉴스", desc: "어린이의 눈높이에 맞춘 상/중/하 난이도 조절 뉴스 콘텐츠" },
     { title: "AI 뉴스 해설", desc: "생성형 AI 챗봇을 통한 어려운 단어 풀이 및 뉴스 관련 Q&A" },
@@ -30,7 +31,7 @@ const NewKiz = () => {
   ]
 
   // 3. 담당 역할 상세 데이터 (문제/해결/결과 구조)
-  const roles = [
+  const roles: RoleProps[] = [
     {
       title: "PWA 기반 프로젝트 및 아키텍처 설계",
       isMobile: false,
@@ -71,7 +72,7 @@ const NewKiz = () => {
   ]
 
   // 4. 성과 데이터
-  const achievements = [
+  const achievements: string[] = [
     "**실시간 통신 최적화**: Stomp 기반 게임 통신 환경에서 보간법과 데이터 전송 최적화를 통해 네트워크 비용 60% 절감",
     "**견고한 아키텍처 구축**: FSD 아키텍처 도입을 주도하여 대규모 기능 확장 시에도 코드 일관성 및 높은 유지보수성 유지",
     "**모바일 웹 경험 혁신**: PWA 및 반응형 설계를 통해 다양한 디바이스 환경에서 끊김 없는 사용자 경험 제공",

@@ -4,6 +4,7 @@ import { HiMiniSquare3Stack3D } from "react-icons/hi2"
 import { RiAwardFill } from "react-icons/ri"
 import { IoMdPerson } from "react-icons/io"
 import ProjectFooter from "@/components/ProjectFooter"
+import type { FeatureProps, ProjectInfoProps, RoleProps } from "@/types"
 
 const LayUp = () => {
   const url = import.meta.env.VITE_S3_URL
@@ -13,7 +14,7 @@ const LayUp = () => {
   }
 
   // 1. 상단 기본 정보 데이터
-  const projectInfo = [
+  const projectInfo: ProjectInfoProps[] = [
     { icon: <MdOutlineFeaturedPlayList />, label: "한 줄 소개", content: "소상공인을 위한 AI 기반 SNS 마케팅 자동화 서비스" },
     { icon: <FaRegCalendarCheck />, label: "프로젝트 기간", content: "2025.04 ~ 2025.05 (6주)" },
     { icon: <MdPeopleAlt />, label: "팀 구성", content: "BE 3명, FE 3명" },
@@ -23,7 +24,7 @@ const LayUp = () => {
   ]
 
   // 2. 주요 기능 데이터
-  const features = [
+  const features: FeatureProps[] = [
     { title: "Auto Posting", desc: "템플릿과 주기를 설정해두면 등록된 사업체 정보를 기반으로 AI가 글을 생성해서 자동으로 포스팅" },
     { title: "Manual Posting", desc: "주제만 작성하면 사업체 정보를 기반으로 AI가 글을 생성하고 포스팅" },
     { title: "이미지 드라이브", desc: "모바일과 연동되어 촬영한 이미지를 저장하고 그룹화 가능" },
@@ -34,7 +35,7 @@ const LayUp = () => {
   ]
 
   // 3. 담당 역할 상세 데이터
-  const roles = [
+  const roles: RoleProps[] = [
     {
       title: "템플릿 관리",
       img: "template.gif",
@@ -89,7 +90,7 @@ const LayUp = () => {
   ]
 
   // 4. 성과 데이터
-  const achievements = [
+  const achievements: string[] = [
     "**사용자 체감 성능 극대화**: Next.js의 dynamic과 코드 스플리팅을 적용하여 로딩 속도를 최적화하고 AI 데이터 생성 시 실시간 피드백 제공",
     "**체계적인 상태 관리**: Redux-Toolkit과 React-Query를 통해 관심사를 분리하고 전역 상태 및 데이터 통신을 효율화하여 안정적인 경험 구현",
     "**모바일 접근성 강화**: PWA 도입으로 PC 웹의 한계를 극복하고 현장에서 즉시 활용 가능한 실시간 관리 환경 구축",
