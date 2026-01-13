@@ -10,27 +10,37 @@ const Header = ({ onLogoClick, onProjectsClick, onAboutClick, onSkillsClick, onE
   const navItemClasses =
     "relative cursor-pointer select-none pb-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-font-hover after:transition-all after:duration-300 hover:after:w-full hover:text-font-hover"
   return (
-    <div className="w-full h-full border-b-1 border-gray-300 flex flex-row items-center justify-center">
+    <header className="w-full border-b-1 border-gray-300 flex flex-row items-center justify-center h-12 top-0 sticky z-40 bg-white shadow-md">
       <div className="w-[80%] h-full flex flex-row justify-between items-center text-font-color font-bold">
-        <div className="cursor-pointer select-none hover:animate-pulse-color text-lg" onClick={onLogoClick}>
+        <strong className="cursor-pointer select-none hover:animate-pulse-color text-lg" onClick={onLogoClick}>
           Ansoo
-        </div>
-        <div className="flex flex-row gap-6 cursor-pointer select-none">
-          <div className={navItemClasses} onClick={onProjectsClick}>
-            projects
-          </div>
-          <div className={navItemClasses} onClick={onAboutClick}>
-            about
-          </div>
-          <div className={navItemClasses} onClick={onSkillsClick}>
-            skills
-          </div>
-          <div className={navItemClasses} onClick={onExpClick}>
-            exp
-          </div>
-        </div>
+        </strong>
+        <nav aria-label="메인 네비게이션">
+          <ul className="flex flex-row gap-6">
+            <li>
+              <button type="button" className={navItemClasses} onClick={onProjectsClick}>
+                projects
+              </button>
+            </li>
+            <li>
+              <button type="button" className={navItemClasses} onClick={onAboutClick}>
+                about
+              </button>
+            </li>
+            <li>
+              <button type="button" className={navItemClasses} onClick={onSkillsClick}>
+                skills
+              </button>
+            </li>
+            <li>
+              <button type="button" className={navItemClasses} onClick={onExpClick}>
+                exp
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </div>
+    </header>
   )
 }
 

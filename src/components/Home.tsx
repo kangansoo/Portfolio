@@ -58,47 +58,29 @@ function Home() {
   return (
     <div className="w-full h-screen bg-main-bg">
       {showLanding && <LandingComponent />}
-      <div className="w-full h-full">
-        <div className="h-12 top-0 sticky flex z-40 bg-white shadow-md">
-          <Header
-            onLogoClick={scrollToTop}
-            onProjectsClick={() => scrollToSection(projectsRef)}
-            onAboutClick={() => scrollToSection(aboutRef)}
-            onSkillsClick={() => scrollToSection(skillsRef)}
-            onExpClick={() => scrollToSection(expRef)}
-          />
-        </div>
-        <div className="w-full h-full flex flex-col bg-main-bg">
-          <div className="w-full h-1/3 shrink-0">
-            <Hero showLanding={showLanding} />
-          </div>
-          <div ref={projectsRef} className="w-full h-2/3 shrink-0">
-            <ScrollReveal direction="up" delay={0.4}>
-              <Projects />
-            </ScrollReveal>
-          </div>
-          <div ref={aboutRef} className="w-full min-h-[40vh] shrink-0">
-            <ScrollReveal direction="up" delay={0.2}>
-              <About />
-            </ScrollReveal>
-          </div>
-
-          <div ref={skillsRef} className="w-full min-h-[50vh] shrink-0">
-            <ScrollReveal direction="up" delay={0.2}>
-              <Skills />
-            </ScrollReveal>
-          </div>
-
-          <div ref={expRef} className="w-full min-h-[30vh] shrink-0 my-10">
-            <ScrollReveal direction="up" delay={0.1}>
-              <Exprience />
-            </ScrollReveal>
-          </div>
-          <div className="w-full h-12 bg-landing-700 mt-20">
-            <Footer />
-          </div>
-        </div>
-      </div>
+      <Header
+        onLogoClick={scrollToTop}
+        onProjectsClick={() => scrollToSection(projectsRef)}
+        onAboutClick={() => scrollToSection(aboutRef)}
+        onSkillsClick={() => scrollToSection(skillsRef)}
+        onExpClick={() => scrollToSection(expRef)}
+      />
+      <main className="w-full min-h-screen flex flex-col bg-main-bg">
+        <Hero showLanding={showLanding} />
+        <ScrollReveal direction="up" delay={0.4}>
+          <Projects ref={projectsRef} />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={0.2}>
+          <About ref={aboutRef} />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={0.2}>
+          <Skills ref={skillsRef} />
+        </ScrollReveal>
+        <ScrollReveal direction="up" delay={0.3}>
+          <Exprience ref={expRef} />
+        </ScrollReveal>
+        <Footer />
+      </main>
     </div>
   )
 }

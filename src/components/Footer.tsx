@@ -49,18 +49,29 @@ const Footer = () => {
   }
 
   return (
-    <div className="w-full h-full flex flex-row justify-center items-center">
-      <div className="w-[60%] h-[80%] flex flex-row justify-start items-center my-5 gap-7 text-gray-500 font-nexon">
-        <div className="text-xs cursor-pointer hover:animate-pulse-color flex flex-row justify-center items-center gap-2" onClick={() => copyToClipboard("ansoo971@gmail.com", "email")}>
+    <footer className="w-full py-6 flex flex-row justify-center items-center bg-landing-700">
+      <h2 className="sr-only">Home Page Footer</h2>
+      <div className="w-[60%] h-[80%] flex flex-row justify-start items-center gap-7 text-gray-500 font-nexon">
+        <section
+          aria-labelledby="EmailAddress"
+          className="text-xs cursor-pointer hover:animate-pulse-color flex flex-row justify-center items-center gap-2"
+          onClick={() => copyToClipboard("ansoo971@gmail.com", "email")}
+        >
+          <h3 id="EmailAddress" className="sr-only">
+            Email address
+          </h3>
           <MdEmail />
           <p>{copiedType === "email" ? "✓ 복사됨!" : "ansoo971@gmail.com"}</p>
-        </div>
-        <div className="text-xs cursor-pointer hover:animate-pulse-color flex flex-row justify-center items-center gap-2" onClick={() => openGithub()}>
+        </section>
+        <section aria-labelledby="GithubAccount" className="text-xs cursor-pointer hover:animate-pulse-color flex flex-row justify-center items-center gap-2" onClick={() => openGithub()}>
+          <h3 id="GithubAccount" className="sr-only">
+            Github account
+          </h3>
           <FaGithub />
           <p>{copiedType === "github" ? "✓ 복사됨!" : "kangansoo"}</p>
-        </div>
+        </section>
       </div>
-    </div>
+    </footer>
   )
 }
 

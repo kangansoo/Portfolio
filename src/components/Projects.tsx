@@ -3,8 +3,9 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { useNavigate } from "react-router-dom"
 import projects from "@/data/projects.json"
+import { forwardRef } from "react"
 
-const Projects = () => {
+const Projects = forwardRef<HTMLElement, any>((_, ref) => {
   const navigate = useNavigate()
 
   const handleProjectClick = (route: string) => {
@@ -37,26 +38,36 @@ const Projects = () => {
   }
 
   return (
-    <div className="h-full w-full bg-blue-gray-500/50 flex items-center justify-center">
-      <div className="w-[60%] h-[90%] flex flex-col">
-        <div className="flex-1 flex items-center">
+    <section ref={ref} className="w-full bg-blue-gray-500/50 flex items-center justify-center py-12" aria-labelledby="projects-heading">
+      <div className="w-[60%] h-[80%] flex flex-col">
+        <h2 id="projects-heading" className="sr-only">
+          프로젝트 목록
+        </h2>
+        <div role="region" aria-roledescription="carousel" className="flex-1 flex items-center">
           <Slider {...settings} className="w-full">
             {projects.map((project) => (
-              <div key={project.id} className="px-2">
-                <div className="bg-white rounded-lg overflow-hidden mx-2 transform transition-transform hover:scale-105" onClick={() => handleProjectClick(project.route)}>
-                  <img src={`${import.meta.env.VITE_S3_URL}${project.image}`} alt={project.title} className="w-full h-64 object-cover" />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2 font-nanumsquare">{project.title}</h3>
-                    <p className="text-gray-600 text-sm font-nexon truncate">{project.description}</p>
-                  </div>
-                </div>
+              <div key={project.id} className="outline-none py-4">
+                <article className="mx-4 bg-white rounded-2xl overflow-hidden transform transition-all">
+                  <button type="button" className="w-full flex flex-col focus:outline-none" onClick={() => handleProjectClick(project.route)} aria-label={`${project.title} 프로젝트 상세보기`}>
+                    <figure className="w-full">
+                      <div className="relative aspect-video overflow-hidden">
+                        <img src={`${import.meta.env.VITE_S3_URL}${project.image}`} alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+                      </div>
+                      <figcaption className="p-8 text-left">
+                        <h3 className="text-2xl font-bold mb-3 text-gray-900 font-nanumsquare">{project.title}</h3>
+                        <p className="text-gray-500 text-base font-nexon line-clamp-2 leading-relaxed">{project.description}</p>
+                      </figcaption>
+                    </figure>
+                  </button>
+                </article>
               </div>
             ))}
           </Slider>
         </div>
       </div>
-    </div>
+    </section>
   )
-}
+})
 
+Projects.displayName = "Projects" // 디버깅 및 개발자 도구에서 컴포넌트 이름 확인 용이
 export default Projects
