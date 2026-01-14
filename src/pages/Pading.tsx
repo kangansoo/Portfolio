@@ -248,7 +248,7 @@ const Pading = () => {
         </section>
       </main>
 
-      <ProjectFooter id={3} />
+      <ProjectFooter id={1} />
     </div>
   )
 }

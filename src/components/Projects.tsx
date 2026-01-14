@@ -8,6 +8,8 @@ import { forwardRef } from "react"
 const Projects = forwardRef<HTMLElement, any>((_, ref) => {
   const navigate = useNavigate()
 
+  const reversedProjects = [...projects].reverse()
+
   const handleProjectClick = (route: string) => {
     navigate(route)
   }
@@ -45,7 +47,7 @@ const Projects = forwardRef<HTMLElement, any>((_, ref) => {
         </h2>
         <div role="region" aria-roledescription="carousel" className="flex-1 flex items-center">
           <Slider {...settings} className="w-full">
-            {projects.map((project) => (
+            {reversedProjects.map((project) => (
               <div key={project.id} className="outline-none py-4">
                 <article className="mx-4 bg-white rounded-2xl overflow-hidden transform transition-all">
                   <button type="button" className="w-full flex flex-col focus:outline-none" onClick={() => handleProjectClick(project.route)} aria-label={`${project.title} 프로젝트 상세보기`}>
@@ -54,8 +56,8 @@ const Projects = forwardRef<HTMLElement, any>((_, ref) => {
                         <img src={`${import.meta.env.VITE_S3_URL}${project.image}`} alt="" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
                       </div>
                       <figcaption className="p-8 text-left">
-                        <h3 className="text-2xl font-bold mb-3 text-gray-900 font-nanumsquare">{project.title}</h3>
-                        <p className="text-gray-500 text-base font-nexon line-clamp-2 leading-relaxed">{project.description}</p>
+                        <h3 className="text-xl font-bold mb-3 text-gray-900 font-nanumsquare">{project.title}</h3>
+                        <p className="text-sm text-gray-500 font-nexon line-clamp-2 leading-relaxed">{project.description}</p>
                       </figcaption>
                     </figure>
                   </button>
