@@ -57,7 +57,7 @@ const Projects = forwardRef<HTMLElement, any>((_, ref) => {
                       </div>
                       <figcaption className="p-8 text-left">
                         <h3 className="text-xl font-bold mb-3 text-gray-900 font-nanumsquare">{project.title}</h3>
-                        <p className="text-sm text-gray-500 font-nexon line-clamp-2 leading-relaxed">{project.description}</p>
+                        <p className="text-sm text-gray-500 font-nexon line-clamp-2 leading-relaxed min-h-[3rem] flex items-center">{project.description}</p>
                       </figcaption>
                     </figure>
                   </button>
