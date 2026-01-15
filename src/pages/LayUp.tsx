@@ -231,7 +231,7 @@ const LayUp = () => {
         </section>
       </main>
 
-      <ProjectFooter id={1} />
+      <ProjectFooter id={3} />
     </div>
   )
 }

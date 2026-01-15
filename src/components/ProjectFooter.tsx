@@ -13,8 +13,10 @@ const ProjectFooter = ({ id }: ProjectFooterProps) => {
 
   const navigate = useNavigate()
 
-  const prevProject = projects[id - 2]
-  const nextProject = projects[id]
+  const currentIdx = projects.findIndex((project) => project.id === id)
+
+  const prevProject = projects[currentIdx + 1]
+  const nextProject = projects[currentIdx - 1]
 
   const goToPrev = () => {
     navigate(prevProject.route)
