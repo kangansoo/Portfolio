@@ -18,7 +18,7 @@ const Konciar = () => {
     { icon: <FaRegCalendarCheck />, label: "프로젝트 기간", content: "2025.12 ~ 진행 중" },
     { icon: <MdPeopleAlt />, label: "팀 구성", content: "FE 개발 1명 (기획자 협업)" },
     { icon: <IoMdPerson />, label: "참여 역할", content: "프론트엔드 리팩토링 및 서비스 고도화 주도" },
-    { icon: <HiMiniSquare3Stack3D />, label: "스택", content: "React, TypeScript, Tailwind CSS, i18next, EmailJS" },
+    { icon: <HiMiniSquare3Stack3D />, label: "스택", content: "React, Vite, TypeScript, Tailwind CSS, i18next" },
   ]
 
   // 2. 주요 기능 데이터
@@ -33,17 +33,18 @@ const Konciar = () => {
   const roles: RoleProps[] = [
     {
       title: "레거시 리팩토링",
-      img: "refactoring.png",
+      img: "viteReact.png",
       isMobile: false,
       desc: "단일 HTML 구조의 프로토타입을 React 기반의 현대적 아키텍처로 전환",
       problem: ["비구조화된 초기 코드베이스로 인한 기능 확장 및 유지보수의 한계", "복잡한 상태 관리에 따른 어려움 및 느린 개발 속도", "비시멘틱 구조로 인한 검색 엔진 최적화 및 웹 접근성 부족"],
       solution: [
+        "**Vite 도입**: 빠른 개발 서버와 빌드 속도 향상, 모듈 번들링 최적화 및 Hot Module Replacement 기반 개발 속도 향상",
         "**React 도입**: UI를 모듈화하고 재사용 가능한 디자인 시스템 구축, 상태 관리를 효율화하여 개발 생산성 향상, 실제 서비스 출시에 대비하여 다양한 기능 확장에 유연한 구조 마련",
         "**시멘틱 태그 적용**: 웹 표준 준수 및 구조화된 마크업 구현",
         "**Tailwind CSS 도입**: 유틸리티 우선 스타일링을 통해 코드량을 줄이고 일관된 모바일 최적화 레이아웃 확보",
       ],
       result: [
-        "리액트 생태계 및 상태 관리 효율화 기반으로 기존 대비 개발 속도 대폭 향상",
+        "React의 생태계 및 상태 관리 효율화 기반과 Vite를 결합하여 기존 대비 개발 속도 대폭 향상",
         "웹 표준 준수를 통한 SEO 향상 및 웹 접근성 강화",
         "확장 가능한 코드 구축으로 향후 기능 추가 및 유지보수 용이",
       ],
@@ -127,10 +128,11 @@ const Konciar = () => {
   // 4. 성과 데이터
   const achievements: string[] = [
     "**비즈니스 검증용 MVP 구축**: 백엔드 서버 없이 프론트엔드 기술만으로 실질적인 서비스 운영 및 시장성 검증 환경 마련",
-    "**리팩토링을 통한 성능 개선**: 기획자의 바이브 코딩 기반 레거시 코드를 모던 프론트엔드 구조로 개선하여 향후 확장 및 정식 출시 가능한 프로젝트 기반 확립",
-    "**애자일한 피드백 반영**: 실사용자의 이용 데이터를 분석하여 폼 구조와 UI를 3차례 이상 반복 수정하며 UX 최적화 경험",
+    "**리팩토링을 통한 개선**: 기획자의 바이브 코딩 기반 레거시 코드를 모던 프론트엔드 구조로 개선하여 향후 확장 및 정식 출시 가능한 프로젝트 기반 확립뿐 아니라 개발 속도 대폭 향상",
+    "**애자일한 피드백 반영**: 실사용자의 이용 데이터를 분석하여 폼 구조와 UI를 3차례 이상 반복 수정하며 UX 지속 개선",
     "**글로벌 대응 역량**: 다국어 지원 라이브러리를 적용하여 글로벌 사용자를 고려한 서비스 설계 및 구현 경험 축적",
     "**웹 표준 및 접근성 강화**: 시멘틱 마크업을 준수하여 정보 구조의 완성도를 높이고 접근성 강화",
+    "**SEO 강화**: light house SEO 100점 달성",
   ]
 
   return (
@@ -221,7 +223,7 @@ const Konciar = () => {
 
               <div className={`flex flex-col gap-8 ${role.isMobile ? "items-start" : ""}`}>
                 <figure className={`w-full ${role.isMobile ? "max-w-[40%]" : ""}`}>
-                  <img src={`${url}/${role.img}`} alt={`${role.title} 시연`} className="w-full rounded-sm border border-gray-200 shadow-sm" />
+                  <img src={`${url}/${role.img}`} alt={`${role.title}`} className="w-full rounded-sm border border-gray-200 shadow-sm" />
                 </figure>
 
                 <div className="w-full flex flex-col gap-6 font-nexon text-sm text-font-color">
