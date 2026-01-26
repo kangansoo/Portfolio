@@ -191,9 +191,8 @@ const Konciar = () => {
             <h3 className="text-lg font-extrabold text-font-color font-nanumsquare mb-3">프로젝트 소개</h3>
             <p className="text-sm font-nexon text-font-color leading-relaxed">
               한국의 휴대폰 번호 기반 본인 인증과 언어 장벽으로 인해 국내 로컬 서비스 이용에 어려움을 겪는 <strong>외국인 여행객을 위한 컨시어지 서비스</strong> <br />
-              실제 창업을 준비하는 팀의 기술 파트너로 참여하여, 현재 <strong>프로토타입 개발 및 비즈니스 가설 검증</strong> 단계로, <strong>실제 서비스 출시</strong>를 목표로 고도화 중입니다.
-              <br />
-              초기 HTML기반 코드를 React 아키텍처로 전면 리팩토링하여 향후 확장성을 확보했으며, 서버리스 환경 구축을 통해 운영 비용 최소화와 개발 속도 극대화를 동시에 실현하고 있습니다.
+              실제 창업 준비 팀의 개발 역할로 참여하여, 현재 <strong>프로토타입 개발 및 비즈니스 가설 검증</strong> 단계로, 개발 뿐만 아니라 바이럴 마케팅과 오프라인 프로모션에도 주도적으로 참여하며
+              비즈니스 전반에 대한 실전 감각을 익히고 있습니다.
             </p>
           </article>
 
