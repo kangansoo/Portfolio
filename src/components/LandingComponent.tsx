@@ -8,7 +8,7 @@ const LandingComponent = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(false)
-    }, 2500)
+    }, 2000)
     return () => clearTimeout(timer)
   }, [])
 
