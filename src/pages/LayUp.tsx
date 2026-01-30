@@ -41,7 +41,12 @@ const LayUp = () => {
       img: "template.gif",
       isMobile: false,
       desc: "자동 포스팅에 사용될 글의 구조와 스타일을 단계별로 정의하고 관리하는 기능",
-      problem: "세부 설정 항목이 많아 발생하는 사용자의 인지 과부하와 다단계 입력 과정에서의 데이터 유실 및 AI 데이터 생성 시의 체감 로딩 지연",
+      problem: [
+        "세부 설정 항목이 많아 발생하는 몰입도 저하 및 사용자의 인지 과부하 문제",
+        "AI 데이터 생성 시의 체감 로딩 지연",
+        "초기 로딩 시점에 모든 편집기 로직이 포함되면서 발생하는 불필요한 리소스 낭비 및 느린 로딩 속도",
+        "템플릿 단계 이동 시 반복되는 API 호출로 인한 서버 부하 및 느린 응답 속도",
+      ],
       solution: [
         "**Framer-motion 기반 Step UI**: 한 번에 나열하기엔 너무 많은 설정 항목을 4단계로 분산 설계하여 사용자의 인지 부담을 줄이고 제작 몰입도 향상",
         "**Redux-Toolkit 전역 관리**: 단계를 나누면서 발생한 데이터 파편화 문제를 해결하기 위해 전역 상태 저장소를 구축, 단계 이동 시에도 데이터 일관성 및 무결성 유지",
@@ -49,14 +54,14 @@ const LayUp = () => {
         "**SSR/CSR 분리**: 정적 콘텐츠는 서버에서 선렌더링하고 편집기 로직은 클라이언트에서 필요한 시점에 로드하여 초기 로딩 속도 최적화",
         "**React-Query 캐싱**: 템플릿 생성/수정 시 반복되는 API 호출을 캐싱하여 서버 부하를 방지하고 응답 속도 및 안정성 향상",
       ],
-      result: "복잡한 설정 과정을 직관적인 단계별 프로세스로 전환하고 전역 상태 관리를 통한 안정적인 데이터 정합성 확보 및 체감 성능 최적화 달성",
+      result: ["복잡한 설정 과정을 직관적인 단계별 프로세스로 전환하고 전역 상태 관리를 통한 데이터 정합성 확보", "체감 성능 최적화 및 사용자 몰입도 향상"],
     },
     {
       title: "이미지 드라이브 (Web)",
       img: "drive.gif",
       isMobile: false,
       desc: "SNS 포스팅용 이미지를 그룹화하고 태그 기반으로 관리하는 이미지 드라이브",
-      problem: "이미지 리스트 로딩 시 발생하는 네트워크 병목 현상과 대규모 이미지 관리의 어려움, AI의 자동 이미지 선택 프로세스에서 발생하는 업로드 결과의 불확실성",
+      problem: ["이미지 리스트 로딩 시 발생하는 네트워크 병목 현상과 대규모 이미지 관리의 어려움", "AI의 자동 이미지 선택 프로세스에서 업로드 결과에 대한 사용자의 예측 불가능성"],
       solution: [
         "**React-Query 캐싱**: 캐싱 전략과 무한 스크롤을 조합하여 대규모 자산의 중복 호출을 방지",
         "**스켈레톤 UI**: 콘텐츠 로드 전 레이아웃을 미리 확보하여 데이터 로딩 중 시각적 레이아웃 안정성 및 체감 대기 시간 개선",
@@ -76,7 +81,7 @@ const LayUp = () => {
         "**React-Query**: 불안정한 모바일 네트워크 환경에서도 이미지 업로드/수정/삭제 작업이 안정적으로 반영되도록 상태 동기화",
         "**스켈레톤 UI**: 콘텐츠 로드 전 레이아웃을 미리 확보하여 데이터 로딩 중 시각적 레이아웃 안정성 및 체감 대기 시간 개선",
       ],
-      result: "기기 제한 없는 이미지 관리 환경을 구축하여 마케팅 리소스의 관리 효율 달성",
+      result: "기기 제한 없는 이미지 관리 환경을 구축하여 마케팅 리소스의 관리 효율 개선",
     },
     {
       title: "메뉴 관리 (Mobile/PWA)",
@@ -185,14 +190,37 @@ const LayUp = () => {
               <p className="text-sm text-landing-700 mb-4 font-nexon">{role.desc}</p>
 
               <div className={`flex flex-col gap-8 ${role.isMobile ? "items-start" : ""}`}>
-                <figure className={`w-full ${role.isMobile ? "max-w-[40%]" : ""}`}>
-                  <img src={`${url}/${role.img}`} alt={`${role.title} 시연`} className="w-full rounded-sm border border-gray-200 shadow-sm" />
-                </figure>
+                <div className="flex flex-row gap-3 w-full">
+                  {role.hasVideo && (
+                    <video controls autoPlay muted loop className="flex-1 w-1/3 rounded-sm border border-gray-200">
+                      <source src={`${url}/${role.videoSrc}`} type="video/mp4" />
+                    </video>
+                  )}
+                  {role.img && (
+                    <figure className={`${role.hasVideo ? "flex-[2] w-2/3" : role.isMobile ? "max-w-[40%]" : "w-full"}`}>
+                      <img src={`${url}/${role.img}`} alt={`${role.title} 시연`} className="w-full rounded-sm border border-gray-200 shadow-sm" />
+                    </figure>
+                  )}
+                </div>
 
                 <div className="w-full flex flex-col gap-6 font-nexon text-sm text-font-color">
                   <div>
                     <h3 className="font-bold text-landing-600 mb-2">문제 상황</h3>
-                    <p className="ml-2 border-l-2 border-gray-200 pl-3">{role.problem}</p>
+                    <div className="ml-2 text-font-color">
+                      {Array.isArray(role.problem) ? (
+                        <ul className="flex flex-col gap-2">
+                          {role.problem.map((prob, j) => (
+                            <li key={j} className="list-disc ml-4 leading-relaxed">
+                              <span dangerouslySetInnerHTML={{ __html: prob.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="leading-relaxed">
+                          <span dangerouslySetInnerHTML={{ __html: role.problem.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                        </p>
+                      )}
+                    </div>
                   </div>
 
                   <div>
@@ -208,7 +236,21 @@ const LayUp = () => {
 
                   <div>
                     <h3 className="font-bold text-landing-600 mb-2">결과</h3>
-                    <p className="ml-2 bg-gray-50 p-3 rounded-md">{role.result}</p>
+                    <div className="ml-2 text-font-color">
+                      {Array.isArray(role.result) ? (
+                        <ul className="flex flex-col gap-2">
+                          {role.result.map((res, j) => (
+                            <li key={j} className="list-disc ml-4 leading-relaxed">
+                              <span dangerouslySetInnerHTML={{ __html: res.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="leading-relaxed">
+                          <span dangerouslySetInnerHTML={{ __html: role.result.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                        </p>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

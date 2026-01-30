@@ -16,17 +16,16 @@ const Konciar = () => {
   const projectInfo: ProjectInfoProps[] = [
     { icon: <MdOutlineFeaturedPlayList />, label: "한 줄 소개", content: "한국 방문 외국인을 위한 로컬 예약 및 대리 문의 컨시어지 서비스" },
     { icon: <FaRegCalendarCheck />, label: "프로젝트 기간", content: "2025.12 ~ 진행 중" },
-    { icon: <MdPeopleAlt />, label: "팀 구성", content: "FE 개발 1명 (기획자 협업)" },
-    { icon: <IoMdPerson />, label: "참여 역할", content: "프론트엔드 리팩토링 및 서비스 고도화 주도" },
+    { icon: <MdPeopleAlt />, label: "팀 구성", content: "FE 개발 1명" },
+    { icon: <IoMdPerson />, label: "참여 역할", content: "프론트엔드 리팩토링 및 서비스 고도화 주도, 바이럴 마케팅" },
     { icon: <HiMiniSquare3Stack3D />, label: "스택", content: "React, Vite, TypeScript, Tailwind CSS, i18next" },
   ]
 
   // 2. 주요 기능 데이터
   const features: FeatureProps[] = [
-    { title: "Multilingual Support", desc: "i18next 기반 영/중/일 다국어 대응을 통한 글로벌 접근성 확보" },
-    { title: "Dynamic Request Forms", desc: "식당 예약, 병원 문의 등 카테고리에 최적화된 동적 설문 시스템" },
-    { title: "Email Bridge System", desc: "서버 비용 없는 MVP 운영을 위한 실시간 메일 전송 환경 구축" },
-    { title: "Responsive Web Design", desc: "다양한 국가의 사용자가 휴대폰으로 즉각 사용할 수 있는 모바일 최적화 UI" },
+    { title: "다국어 지원", desc: "i18next 기반 영/중/일 다국어 대응" },
+    { title: "장소 검색 자동 완성", desc: "Google Place API 연동을 통한 다국어 자동완성 기능" },
+    { title: "이메일 브릿지 시스템", desc: "서버 비용 없는 MVP 운영을 위한 실시간 메일 전송 환경 구축" },
   ]
 
   // 3. 담당 역할 상세 데이터
@@ -110,19 +109,6 @@ const Konciar = () => {
       ],
       result: ["서버 구축 대비 개발 기간을 약 80% 단축하여 초기 시장 반응을 빠르게 확인할 수 있도록 기여", "서버리스 구조를 통해 서버 유지비 및 관리 리소스 없이 실시간 사용자 요청 수집 환경 구축"],
     },
-    // {
-    //   title: "피드백 기반 유저 경험 고도화 (UX)",
-    //   img: "feedback_update.gif",
-    //   isMobile: true,
-    //   desc: "실제 운영 데이터와 사용자 피드백을 반영한 지속적인 기능 개선",
-    //   problem: ["초기 폼에서 사용자들의 필수 정보(방문 인원, 알레르기 등) 입력 누락 빈번 발생", "운영자가 대리 예약을 처리할 때 가독성이 떨어지는 데이터 구조로 인해 처리 시간 지체"],
-    //   solution: [
-    //     "**동적 유효성 검사**: EmailJS 전송 전, 카테고리별 필수 항목에 대한 인터랙티브 밸리데이션 강화",
-    //     "**운영 최적화 이메일 템플릿**: 운영자가 전화 예약 시 바로 읽을 수 있도록 이메일 본문을 '대본형 구조'로 재설계",
-    //     "**입력 단계 최적화**: 피드백에 기반하여 설문 문항 순서를 재배치하고 불필요한 필드 삭제",
-    //   ],
-    //   result: "데이터 누락률 0% 달성 및 운영자 업무 처리 시간 평균 30% 단축",
-    // },
   ]
 
   // 4. 성과 데이터
