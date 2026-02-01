@@ -61,7 +61,7 @@ const Konciar = () => {
       solution: [
         "**i18next & i18next-http-backend 도입**: 번역 데이터를 소스 코드와 완전히 분리하고, 필요한 언어 팩만 런타임에 비동기로 로드(Lazy Loading) 하는 구조",
         "**언어 데이터의 에셋화**: 향후 코드 수정 없이 JSON 파일 교체만으로 무중단 번역 업데이트 가능, 개발자가 아닌 기획자도 직접 번역 파일 관리 가능",
-        "사용자 친화적 언어 감지: i18next-browser-languagedetector를 연동하여 브라우저 설정에 따른 자동 언어 대응 및 실시간 전환 기능 구현",
+        "**사용자 친화적 언어 감지**: i18next-browser-languagedetector를 연동하여 브라우저 설정에 따른 자동 언어 대응 및 실시간 전환 기능 구현",
       ],
       result: [
         "번역 문구 수정 시 전체 빌드/배포 과정 생략으로 운영 효율 극대화",
@@ -176,9 +176,9 @@ const Konciar = () => {
           <article className="mb-12">
             <h3 className="text-lg font-extrabold text-font-color font-nanumsquare mb-3">프로젝트 소개</h3>
             <p className="text-sm font-nexon text-font-color leading-relaxed">
-              한국의 휴대폰 번호 기반 본인 인증과 언어 장벽으로 인해 국내 로컬 서비스 이용에 어려움을 겪는 <strong>외국인 여행객을 위한 컨시어지 서비스</strong> <br />
-              실제 창업 준비 팀의 개발 역할로 참여하여, 현재 <strong>프로토타입 개발 및 비즈니스 가설 검증</strong> 단계로, 개발 뿐만 아니라 바이럴 마케팅과 오프라인 프로모션에도 주도적으로 참여하며
-              비즈니스 전반에 대한 실전 감각을 익히고 있습니다.
+              한국의 휴대폰 번호 기반 본인 인증과 언어 장벽으로 인해 국내 로컬 서비스 이용에 어려움을 겪는 외국인 여행객을 위한 컨시어지 서비스 <br />
+              실제 창업 준비 팀의 개발 역할로 참여하여, 현재 프로토타입 개발 완료 후 비즈니스 가설 검증 단계로, 개발 뿐만 아니라 바이럴 마케팅과 오프라인 프로모션에도 주도적으로 참여하며 비즈니스
+              전반에 대한 실전 감각을 익히고 있습니다.
             </p>
           </article>
 
