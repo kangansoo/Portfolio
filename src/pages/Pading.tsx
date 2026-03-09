@@ -34,8 +34,10 @@ const Pading = () => {
   // 3. 담당 역할 상세 데이터
   const roles: RoleProps[] = [
     {
-      title: "프로젝트 및 레이아웃 설계",
-      img: "project.png",
+      title: "프로젝트 UI/UX 설계",
+      isMultiImg: true,
+      isCol: true,
+      imgs: ["pading_mainpage.png", "project.png"],
       isMobile: false,
       desc: "실시간 화상회의, 채팅 및 동시 편집이 가능한 웹 IDE",
       problem: [
@@ -47,7 +49,11 @@ const Pading = () => {
         "**Resizable Box 적용**: 사용자가 마우스 드래그로 각 영역의 크기를 조절할 수 있는 유연한 레이아웃 구축",
         "**사용자 친화적 UI**: 기존 IDE를 참고하여 기능을 배치하는 등 학습 비용을 최소화하는 직관적 UI 설계",
       ],
-      result: ["레이아웃 기반의 작업 영역 분리를 통해 코드 충돌 발생 빈도를 낮추고 팀 간 개발 병목 현상 제거", "쉽고 빠르게 적응할 수 있는 UI로 사용자의 학습 비용 최소화"],
+      result: [
+        "레이아웃 기반의 작업 영역 분리를 통해 코드 충돌 발생 빈도를 낮추고 팀 간 개발 병목 현상 제거",
+        "쉽고 빠르게 적응할 수 있는 UI로 사용자의 학습 비용 최소화",
+        "프로젝트의 UI/UX 설계를 전담하며, 팀원들이 각자의 역할에 집중할 수 있도록 기능별로 독립된 레이아웃 구조를 설계하고 구현하는 역량 향상",
+      ],
     },
     {
       title: "화상회의 시스템",
@@ -171,10 +177,15 @@ const Pading = () => {
               <p className="text-sm text-landing-700 mb-4 font-nexon">{role.desc}</p>
 
               <div className={`flex flex-col gap-8 ${role.isMobile ? "items-start" : ""}`}>
-                <div className="flex flex-row gap-3 w-full">
+                <div className={`flex gap-3 w-full ${role.isCol ? "flex-col" : "flex-row"}`}>
                   {role.isMultiImg ? (
                     role.imgs?.map((img, idx) => (
-                      <img key={idx} src={`${url}/${img}`} className={`rounded-sm border border-gray-200 shadow-sm ${idx === 1 ? "w-1/5" : "flex-1"}`} alt={`${role.title} 시연 ${idx + 1}`} />
+                      <img
+                        key={idx}
+                        src={`${url}/${img}`}
+                        className={`rounded-sm border border-gray-200 shadow-sm ${role.isCol ? "w-full" : idx === 1 ? "w-1/5" : "flex-1"}`}
+                        alt={`${role.title} 시연 ${idx + 1}`}
+                      />
                     ))
                   ) : (
                     <figure className={`w-full ${role.isMobile ? "max-w-[40%]" : ""}`}>
