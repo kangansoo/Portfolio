@@ -4,9 +4,26 @@ import { HiMiniSquare3Stack3D } from "react-icons/hi2"
 import { IoMdPerson } from "react-icons/io"
 import ProjectFooter from "@/components/ProjectFooter"
 import type { FeatureProps, ProjectInfoProps, RoleProps } from "@/types"
+import { useLocation } from "react-router-dom"
+import { useEffect, useRef } from "react"
 
 const NewKiz = () => {
   const url = import.meta.env.VITE_S3_URL
+
+  // 자기소개에서 넘어와 설명 섹션으로 이동하기 위한 훅과 로직
+  const location = useLocation()
+  const algorithmSectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    // 2. 페이지 진입 시 state에 scrollTo 신호가 있는지 확인
+    if (location.state?.scrollTo === "algorithm-section" && algorithmSectionRef.current) {
+      // 3. 해당 Ref 지점으로 부드럽게 스크롤
+      algorithmSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
+
+      // 스크롤 후 state 초기화
+      window.history.replaceState({}, document.title)
+    }
+  }, [location])
 
   const openLink = (href: string) => {
     window.open(href, "_blank", "noopener,noreferrer")
@@ -41,7 +58,7 @@ const NewKiz = () => {
       solution: [
         "**FSD(Feature-Sliced Design) 채택**: 관심사 분리를 기반으로 모듈 간 결합도를 낮추고 독립적인 개발 환경 구축, 코드 가독성 및 팀 협업 효율성 증대",
         "**PWA(Progressive Web App)**: 모바일 앱과 유사한 UX를 제공하기 위한 PWA 설계를 주도하여 홈 화면 추가 및 오프라인 접근성 확보",
-        "**접근성 중심 UI 설계**: 주 사용자(어린이)를 고려한 직관적인 색상 선정 및 반응형 웹 구현",
+        "**사용자 중심 UI 설계**: 주 사용자(어린이)를 고려한 직관적인 색상 선정 및 반응형 웹 구현",
       ],
       result: ["아키텍처 개선을 통해 신규 기능 개발 속도 및 협업 용이성 향상", "모바일 사용자 경험 개선 및 접근성 강화"],
     },
@@ -52,14 +69,23 @@ const NewKiz = () => {
       hasVideo: true,
       isMobile: false,
       desc: "WebSocket 기반 실시간 멀티플레이어 퀴즈 게임",
-      problem: ["다양한 디바이스 해상도 차이로 인한 캐릭터 위치 불일치 현상", "다수 유저의 위치 데이터를 매 프레임 전송 시 발생하는 서버 부하"],
+      problem: [
+        "WebSocket의 브라우저 호환성 문제 및 구현 복잡성",
+        "다양한 디바이스 해상도 차이로 인한 캐릭터 위치 불일치 현상",
+        "다수 유저의 위치 데이터를 매 프레임 전송 시 발생하는 서버 부하",
+        "게임 도중 캐릭터 스프라이트 렌더링 끊김 현상",
+      ],
       solution: [
         "**Stomp, Sock.js**: STOMP 프로토콜의 Pub/Sub 모델을 활용하여 데이터 규격을 표준화하고 안정적인 실시간 통신 환경 구축을 위한 웹소켓 라이브러리 활용",
         "**Min-Max Scaling**: 기기별 상대 좌표를 0~1 사이의 절대값으로 변환하는 알고리즘을 활용하여 해상도에 독립적인 일관된 게임 환경 구축",
-        "**네트워크 최적화**: 모든 프레임이 아닌 임계값 기반의 동적 전송 로직 구현 및 동적 전송 주기 조절, **보간법**을 적용하여 자연스러운 움직임 구현",
+        "**네트워크 최적화**: 모든 프레임이 아닌 임계값 기반의 동적 전송 로직 구현 및 동적 전송 주기 조절, 보간법을 적용하여 자연스러운 움직임 구현",
         "**리소스 프리로딩/캐싱**: 캐릭터 스프라이트 이미지를 사전에 로드하여 게임 도중 발생하는 렌더링 끊김 현상 방지",
       ],
-      result: ["기기간 좌표 정합성 확보", "네트워크 통신 안정화 및 협업 용이성 확보", "위치 전송 빈도 최적화를 통해 네트워크 트래픽 부하 약 60% 절감 등 부드러운 게임 경험 제공"],
+      result: [
+        "네트워크 통신 안정화 및 협업 용이성 향상",
+        "실시간 OX 퀴즈 게임 참여 기기간 좌표 정합성 확보",
+        "위치 전송 빈도 최적화를 통해 네트워크 트래픽 부하 약 60% 절감과 끊김 현상 없는 부드러운 게임 경험 제공",
+      ],
     },
     {
       title: "카테고리 시스템 고도화",
@@ -77,7 +103,7 @@ const NewKiz = () => {
     "**실시간 통신 최적화**: Stomp 기반 게임 통신 환경에서 보간법과 데이터 전송 최적화를 통해 네트워크 비용 60% 절감",
     "**확장/유지보수에 유연한 아키텍처 구축**: FSD 아키텍처 도입을 주도하여 기능 확장 시에도 코드 일관성 및 높은 유지보수성 유지",
     "**모바일 웹 경험 개선**: PWA 및 반응형 설계를 통해 다양한 디바이스 환경에서 끊김 없는 사용자 경험 제공",
-    "**사용자 중심 UI/UX**: 어린이 타겟에 특화된 직관적인 디자인 시스템과 접근성 향상을 위한 최적화 레이아웃 구현",
+    "**사용자 중심 UI/UX**: 어린이 타겟에 특화된 직관적인 디자인 시스템과 접근성 향상을 위한 최적화 레이아웃 구현 및 부드러운 게임 경험 제공",
     "**분석적 문제 해결 역량 향상**: Min-Max Scaling 등 수학적 접근을 통해 기기 간의 실시간 동기화 오차 문제 해결",
   ]
 
@@ -149,78 +175,81 @@ const NewKiz = () => {
             맡은 역할
           </h2>
 
-          {roles.map((role, i) => (
-            <article key={i} className="mb-20">
-              <h2 className="font-nanumsquare text-xl font-extrabold text-font-color mb-2">{role.title}</h2>
-              <p className="text-sm text-landing-700 mb-4 font-nexon">{role.desc}</p>
+          {roles.map((role, i) => {
+            const isAlgorithmSection = role.title === "실시간 OX 퀴즈 게임"
+            return (
+              <article key={i} className={`mb-20 ${isAlgorithmSection ? "scroll-mt-8" : ""}`} ref={isAlgorithmSection ? algorithmSectionRef : null}>
+                <h2 className="font-nanumsquare text-xl font-extrabold text-font-color mb-2">{role.title}</h2>
+                <p className="text-sm text-landing-700 mb-4 font-nexon">{role.desc}</p>
 
-              <div className={`flex flex-col gap-8 ${role.isMobile ? "items-start" : ""}`}>
-                <div className="flex flex-row gap-3 w-full">
-                  {role.hasVideo && (
-                    <video controls autoPlay muted loop className="flex-1 w-1/3 rounded-sm border border-gray-200">
-                      <source src={`${url}/${role.videoSrc}`} type="video/mp4" />
-                    </video>
-                  )}
-                  {role.img && (
-                    <figure className={`${role.hasVideo ? "flex-[2] w-2/3" : role.isMobile ? "max-w-[40%]" : "w-full"}`}>
-                      <img src={`${url}/${role.img}`} alt={`${role.title} 시연`} className="w-full rounded-sm border border-gray-200 shadow-sm" />
-                    </figure>
-                  )}
-                </div>
+                <div className={`flex flex-col gap-8 ${role.isMobile ? "items-start" : ""}`}>
+                  <div className="flex flex-row gap-3 w-full">
+                    {role.hasVideo && (
+                      <video controls autoPlay muted loop className="flex-1 w-1/3 rounded-sm border border-gray-200">
+                        <source src={`${url}/${role.videoSrc}`} type="video/mp4" />
+                      </video>
+                    )}
+                    {role.img && (
+                      <figure className={`${role.hasVideo ? "flex-[2] w-2/3" : role.isMobile ? "max-w-[40%]" : "w-full"}`}>
+                        <img src={`${url}/${role.img}`} alt={`${role.title} 시연`} className="w-full rounded-sm border border-gray-200 shadow-sm" />
+                      </figure>
+                    )}
+                  </div>
 
-                <div className="w-full flex flex-col gap-6 font-nexon text-sm text-font-color">
-                  <div>
-                    <h3 className="font-bold text-landing-600 mb-2">문제 상황</h3>
-                    <div className="ml-2 text-font-color">
-                      {Array.isArray(role.problem) ? (
-                        <ul className="flex flex-col gap-2">
-                          {role.problem.map((prob, j) => (
-                            <li key={j} className="list-disc ml-4 leading-relaxed">
-                              <span dangerouslySetInnerHTML={{ __html: prob.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p className="leading-relaxed">
-                          <span dangerouslySetInnerHTML={{ __html: role.problem.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
-                        </p>
-                      )}
+                  <div className="w-full flex flex-col gap-6 font-nexon text-sm text-font-color">
+                    <div>
+                      <h3 className="font-bold text-landing-600 mb-2">문제 상황</h3>
+                      <div className="ml-2 text-font-color">
+                        {Array.isArray(role.problem) ? (
+                          <ul className="flex flex-col gap-2">
+                            {role.problem.map((prob, j) => (
+                              <li key={j} className="list-disc ml-4 leading-relaxed">
+                                <span dangerouslySetInnerHTML={{ __html: prob.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="leading-relaxed">
+                            <span dangerouslySetInnerHTML={{ __html: role.problem.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="font-bold text-landing-600 mb-2">해결 방법</h3>
+                      <ul className="ml-5 flex flex-col gap-2">
+                        {role.solution.map((sol, j) => (
+                          <li key={j} className="list-disc leading-relaxed">
+                            <span dangerouslySetInnerHTML={{ __html: sol.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="font-bold text-landing-600 mb-2">결과</h3>
+                      <div className="ml-2 text-font-color">
+                        {Array.isArray(role.result) ? (
+                          <ul className="flex flex-col gap-2">
+                            {role.result.map((res, j) => (
+                              <li key={j} className="list-disc ml-4 leading-relaxed">
+                                <span dangerouslySetInnerHTML={{ __html: res.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="leading-relaxed">
+                            <span dangerouslySetInnerHTML={{ __html: role.result.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </div>
-
-                  <div>
-                    <h3 className="font-bold text-landing-600 mb-2">해결 방법</h3>
-                    <ul className="ml-5 flex flex-col gap-2">
-                      {role.solution.map((sol, j) => (
-                        <li key={j} className="list-disc leading-relaxed">
-                          <span dangerouslySetInnerHTML={{ __html: sol.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="font-bold text-landing-600 mb-2">결과</h3>
-                    <div className="ml-2 text-font-color">
-                      {Array.isArray(role.result) ? (
-                        <ul className="flex flex-col gap-2">
-                          {role.result.map((res, j) => (
-                            <li key={j} className="list-disc ml-4 leading-relaxed">
-                              <span dangerouslySetInnerHTML={{ __html: res.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p className="leading-relaxed">
-                          <span dangerouslySetInnerHTML={{ __html: role.result.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
-                        </p>
-                      )}
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            )
+          })}
         </section>
 
         {/* 성과 */}

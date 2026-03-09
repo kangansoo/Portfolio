@@ -5,9 +5,26 @@ import { RiAwardFill } from "react-icons/ri"
 import { IoMdPerson } from "react-icons/io"
 import ProjectFooter from "@/components/ProjectFooter"
 import type { FeatureProps, ProjectInfoProps, RoleProps } from "@/types"
+import { useLocation } from "react-router-dom"
+import { useEffect, useRef } from "react"
 
 const LayUp = () => {
   const url = import.meta.env.VITE_S3_URL
+
+  // 자기소개에서 넘어와 설명 섹션으로 이동하기 위한 훅과 로직
+  const location = useLocation()
+  const pwaSectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    // 2. 페이지 진입 시 state에 scrollTo 신호가 있는지 확인
+    if (location.state?.scrollTo === "pwa-section" && pwaSectionRef.current) {
+      // 3. 해당 Ref 지점으로 부드럽게 스크롤
+      pwaSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
+
+      // 스크롤 후 state 초기화
+      window.history.replaceState({}, document.title)
+    }
+  }, [location])
 
   const openLink = (href: string) => {
     window.open(href, "_blank", "noopener,noreferrer")
@@ -184,78 +201,81 @@ const LayUp = () => {
             맡은 역할
           </h2>
 
-          {roles.map((role, i) => (
-            <article key={i} className="mb-20">
-              <h2 className="font-nanumsquare text-xl font-extrabold text-font-color mb-2">{role.title}</h2>
-              <p className="text-sm text-landing-700 mb-4 font-nexon">{role.desc}</p>
+          {roles.map((role, i) => {
+            const isPwaSection = role.title === "이미지 드라이브 (Mobile/PWA)"
+            return (
+              <article key={i} className={`mb-20 ${isPwaSection ? "scroll-mt-8" : ""}`} ref={isPwaSection ? pwaSectionRef : null}>
+                <h2 className="font-nanumsquare text-xl font-extrabold text-font-color mb-2">{role.title}</h2>
+                <p className="text-sm text-landing-700 mb-4 font-nexon">{role.desc}</p>
 
-              <div className={`flex flex-col gap-8 ${role.isMobile ? "items-start" : ""}`}>
-                <div className="flex flex-row gap-3 w-full">
-                  {role.hasVideo && (
-                    <video controls autoPlay muted loop className="flex-1 w-1/3 rounded-sm border border-gray-200">
-                      <source src={`${url}/${role.videoSrc}`} type="video/mp4" />
-                    </video>
-                  )}
-                  {role.img && (
-                    <figure className={`${role.hasVideo ? "flex-[2] w-2/3" : role.isMobile ? "max-w-[40%]" : "w-full"}`}>
-                      <img src={`${url}/${role.img}`} alt={`${role.title} 시연`} className="w-full rounded-sm border border-gray-200 shadow-sm" />
-                    </figure>
-                  )}
-                </div>
+                <div className={`flex flex-col gap-8 ${role.isMobile ? "items-start" : ""}`}>
+                  <div className="flex flex-row gap-3 w-full">
+                    {role.hasVideo && (
+                      <video controls autoPlay muted loop className="flex-1 w-1/3 rounded-sm border border-gray-200">
+                        <source src={`${url}/${role.videoSrc}`} type="video/mp4" />
+                      </video>
+                    )}
+                    {role.img && (
+                      <figure className={`${role.hasVideo ? "flex-[2] w-2/3" : role.isMobile ? "max-w-[40%]" : "w-full"}`}>
+                        <img src={`${url}/${role.img}`} alt={`${role.title} 시연`} className="w-full rounded-sm border border-gray-200 shadow-sm" />
+                      </figure>
+                    )}
+                  </div>
 
-                <div className="w-full flex flex-col gap-6 font-nexon text-sm text-font-color">
-                  <div>
-                    <h3 className="font-bold text-landing-600 mb-2">문제 상황</h3>
-                    <div className="ml-2 text-font-color">
-                      {Array.isArray(role.problem) ? (
-                        <ul className="flex flex-col gap-2">
-                          {role.problem.map((prob, j) => (
-                            <li key={j} className="list-disc ml-4 leading-relaxed">
-                              <span dangerouslySetInnerHTML={{ __html: prob.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p className="leading-relaxed">
-                          <span dangerouslySetInnerHTML={{ __html: role.problem.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
-                        </p>
-                      )}
+                  <div className="w-full flex flex-col gap-6 font-nexon text-sm text-font-color">
+                    <div>
+                      <h3 className="font-bold text-landing-600 mb-2">문제 상황</h3>
+                      <div className="ml-2 text-font-color">
+                        {Array.isArray(role.problem) ? (
+                          <ul className="flex flex-col gap-2">
+                            {role.problem.map((prob, j) => (
+                              <li key={j} className="list-disc ml-4 leading-relaxed">
+                                <span dangerouslySetInnerHTML={{ __html: prob.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="leading-relaxed">
+                            <span dangerouslySetInnerHTML={{ __html: role.problem.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="font-bold text-landing-600 mb-2">해결 방법</h3>
+                      <ul className="ml-5 flex flex-col gap-2">
+                        {role.solution.map((sol, j) => (
+                          <li key={j} className="list-disc leading-relaxed">
+                            <span dangerouslySetInnerHTML={{ __html: sol.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="font-bold text-landing-600 mb-2">결과</h3>
+                      <div className="ml-2 text-font-color">
+                        {Array.isArray(role.result) ? (
+                          <ul className="flex flex-col gap-2">
+                            {role.result.map((res, j) => (
+                              <li key={j} className="list-disc ml-4 leading-relaxed">
+                                <span dangerouslySetInnerHTML={{ __html: res.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="leading-relaxed">
+                            <span dangerouslySetInnerHTML={{ __html: role.result.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </div>
-
-                  <div>
-                    <h3 className="font-bold text-landing-600 mb-2">해결 방법</h3>
-                    <ul className="ml-5 flex flex-col gap-2">
-                      {role.solution.map((sol, j) => (
-                        <li key={j} className="list-disc leading-relaxed">
-                          <span dangerouslySetInnerHTML={{ __html: sol.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="font-bold text-landing-600 mb-2">결과</h3>
-                    <div className="ml-2 text-font-color">
-                      {Array.isArray(role.result) ? (
-                        <ul className="flex flex-col gap-2">
-                          {role.result.map((res, j) => (
-                            <li key={j} className="list-disc ml-4 leading-relaxed">
-                              <span dangerouslySetInnerHTML={{ __html: res.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p className="leading-relaxed">
-                          <span dangerouslySetInnerHTML={{ __html: role.result.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
-                        </p>
-                      )}
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            )
+          })}
         </section>
 
         {/* 성과 */}
