@@ -35,6 +35,7 @@ const NewKiz = () => {
     {
       title: "PWA 기반 프로젝트 및 아키텍처 설계",
       isMobile: false,
+      img: "FSD.jpg",
       desc: "확장성과 유지보수성을 고려한 프론트엔드 설계 및 모바일 접근성 강화",
       problem: ["MVP 이후 개발 단계의 기능 확장 및 유지보수의 어려움 발생", "모바일 사용자의 접근성 및 앱 수준의 UX 부족"],
       solution: [
