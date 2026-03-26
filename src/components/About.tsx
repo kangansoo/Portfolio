@@ -38,7 +38,11 @@ const About = forwardRef<HTMLElement, any>((_, ref) => {
             이나 실시간 데이터 정합성을 위한{" "}
             <Strong fontSize="md" onClick={handleAlgorithmClick}>
               알고리즘 적용
-            </Strong>{" "}
+            </Strong>
+            , 개발 생산성 극대화를 위한{" "}
+            <Strong fontSize="md" onClick={handlePwaClick}>
+               AI 도구 도입
+            </Strong>
             등 문제 상황에 적절한 기술들을 적용하며 해결책을 제시해 왔습니다. <br />팀 내에서는 긴밀하게 소통하며 더 좋은 방향이 있다면 달갑게 수용하고, 함께 최선의 결과물을 만들어내는 과정에 즐거움을
             느낍니다.
           </p>

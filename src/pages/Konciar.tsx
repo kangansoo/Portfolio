@@ -14,7 +14,7 @@ const Konciar = () => {
 
   // 1. 상단 기본 정보 데이터
   const projectInfo: ProjectInfoProps[] = [
-    { icon: <MdOutlineFeaturedPlayList />, label: "한 줄 소개", content: "한국 방문 외국인을 위한 로컬 예약 및 대리 문의 컨시어지 서비스" },
+    { icon: <MdOutlineFeaturedPlayList />, label: "한 줄 소개", content: "방한 외국인 여행객을 위한 로컬 예약 및 대리 문의 컨시어지 서비스" },
     { icon: <FaRegCalendarCheck />, label: "프로젝트 기간", content: "2025.12 ~ 진행 중" },
     { icon: <MdPeopleAlt />, label: "팀 구성", content: "FE 개발 1명" },
     { icon: <IoMdPerson />, label: "참여 역할", content: "프론트엔드 리팩토링 및 서비스 고도화 주도, 바이럴 마케팅" },
@@ -176,8 +176,8 @@ const Konciar = () => {
           <article className="mb-12">
             <h3 className="text-lg font-extrabold text-font-color font-nanumsquare mb-3">프로젝트 소개</h3>
             <p className="text-sm font-nexon text-font-color leading-relaxed">
-              한국의 휴대폰 번호 기반 본인 인증과 언어 장벽으로 인해 국내 로컬 서비스 이용에 어려움을 겪는 외국인 여행객을 위한 컨시어지 서비스 <br />
-              실제 창업 준비 팀의 개발 역할로 참여하여, 현재 프로토타입 개발 완료 후 비즈니스 가설 검증 단계로, 개발 뿐만 아니라 바이럴 마케팅과 오프라인 프로모션에도 주도적으로 참여하며 비즈니스
+              한국의 통신/금융 기반 본인 인증과 언어 장벽으로 인해 국내 로컬 서비스 이용에 어려움을 겪는 외국인 여행객을 위한 컨시어지 서비스 <br />
+              실제 창업 팀의 개발 역할로 참여하였고, 현재 프로토타입 개발 완료 후 비즈니스 가설 검증 단계로, 개발 뿐만 아니라 바이럴 마케팅과 오프라인 프로모션에도 주도적으로 참여하며 비즈니스
               전반에 대한 실전 감각을 익히고 있습니다.
             </p>
           </article>
