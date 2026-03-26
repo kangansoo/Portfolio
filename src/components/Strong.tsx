@@ -7,9 +7,9 @@ interface StrongProps {
 const Strong = ({ children, fontSize, onClick }: StrongProps) => {
   const style = `text-font-hover text-${fontSize} font-medium cursor-pointer underline`
   return (
-    <strong className={style} onClick={onClick}>
+    <button className={style} onClick={onClick}>
       {children}
-    </strong>
+    </button>
   )
 }
 
