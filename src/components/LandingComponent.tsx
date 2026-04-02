@@ -22,8 +22,11 @@ const LandingComponent = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
         >
-          <GradientText className="text-5xl font-nanumsquare font-bold" isAnimated={true}>
-            강안수's Portfolio
+          <GradientText className="text-3xl md:text-5xl font-nanumsquare font-bold text-center" isAnimated={true}>
+            <>
+              강안수's <br className="md:hidden" />
+              Portfolio
+            </>
           </GradientText>
         </motion.div>
       )}

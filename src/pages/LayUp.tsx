@@ -1,5 +1,5 @@
 import { MdOutlineFeaturedPlayList, MdPeopleAlt } from "react-icons/md"
-import { FaRegCalendarCheck, FaGithub } from "react-icons/fa"
+import { FaRegCalendarCheck, FaGithub, FaInstagram } from "react-icons/fa"
 import { HiMiniSquare3Stack3D } from "react-icons/hi2"
 import { RiAwardFill } from "react-icons/ri"
 import { IoMdPerson } from "react-icons/io"
@@ -38,6 +38,8 @@ const LayUp = () => {
     { icon: <IoMdPerson />, label: "참여 역할", content: "FE 개발" },
     { icon: <HiMiniSquare3Stack3D />, label: "스택", content: "Next.js, React, TypeScript, Redux-ToolKit, react-query, Tailwind CSS, vite, Cursor AI" },
     { icon: <RiAwardFill />, label: "수상", content: "SSAFY 2학기 자율 프로젝트 우수상" },
+    { icon: <FaGithub />, label: "Git Hub", content: "바로 가기", link: "https://github.com/kangansoo/LayUp" },
+    { icon: <FaInstagram />, label: "포스팅 결과물", content: "바로 가기", link: "https://www.instagram.com/geogeum_coffee" },
   ]
 
   // 2. 주요 기능 데이터
@@ -129,7 +131,7 @@ const LayUp = () => {
         <img src={`${url}/Logo.png`} className="w-full h-full object-cover border-b border-gray-300" alt="LAY UP 로고" />
       </header>
 
-      <main className="mt-10 max-w-[50%] w-full flex flex-col mb-20">
+      <main className="mt-10 w-[92%] md:max-w-[80%] lg:max-w-[50%] flex flex-col mb-20">
         {/* 프로젝트 기본 정보 */}
         <section aria-labelledby="project-title">
           <h1 id="project-title" className="font-nanumsquare text-3xl font-extrabold text-font-color uppercase">
@@ -139,34 +141,21 @@ const LayUp = () => {
           <dl className="my-5 flex flex-col gap-3">
             {projectInfo.map((info, idx) => (
               <div key={idx} className="flex flex-row items-center justify-between">
-                <dt className="flex flex-row items-center w-40 gap-2 text-landing-500 text-sm font-nexon">
+                <dt className="flex flex-row items-center w-28 md:w-32 lg:w-40 gap-2 text-landing-500 text-sm font-nexon">
                   {info.icon}
                   <span>{info.label}</span>
                 </dt>
-                <dd className="flex-1 text-landing-700 text-sm font-nexon">{info.content}</dd>
+                <dd className="flex-1 text-landing-700 text-sm font-nexon">
+                  {info.link ? (
+                    <button onClick={() => openLink(info.link!)} className="underline underline-offset-4 hover:text-font-hover cursor-pointer transition-colors">
+                      {info.content}
+                    </button>
+                  ) : (
+                    info.content
+                  )}
+                </dd>
               </div>
             ))}
-            {/* 외부 링크 */}
-            <div className="flex flex-row items-center justify-between">
-              <dt className="flex flex-row items-center w-40 gap-2 text-landing-500 text-sm font-nexon">
-                <FaGithub /> <span>Git Hub</span>
-              </dt>
-              <dd className="flex-1 text-landing-700 text-sm font-nexon">
-                <button onClick={() => openLink("https://github.com/kangansoo/LayUp")} className="underline underline-offset-4 hover:text-font-hover cursor-pointer transition-colors">
-                  바로 가기
-                </button>
-              </dd>
-            </div>
-            {/* <div className="flex flex-row items-center justify-between">
-              <dt className="flex flex-row items-center w-40 gap-2 text-landing-500 text-sm font-nexon">
-                <FaInstagram /> <span>포스팅 결과물</span>
-              </dt>
-              <dd className="flex-1 text-landing-700 text-sm font-nexon">
-                <button onClick={() => openLink("https://www.instagram.com/geogeum_coffee")} className="underline underline-offset-4 hover:text-font-hover cursor-pointer transition-colors">
-                  바로 가기
-                </button>
-              </dd>
-            </div> */}
           </dl>
         </section>
 
@@ -210,14 +199,14 @@ const LayUp = () => {
                 <p className="text-sm text-landing-700 mb-4 font-nexon">{role.desc}</p>
 
                 <div className={`flex flex-col gap-8 ${role.isMobile ? "items-start" : ""}`}>
-                  <div className="flex flex-row gap-3 w-full">
+                  <div className="flex flex-col md:flex-row gap-3 w-full">
                     {role.hasVideo && (
-                      <video controls autoPlay muted loop className="flex-1 w-1/3 rounded-sm border border-gray-200">
+                      <video controls autoPlay muted loop className="flex-1 w-full md:w-1/3 rounded-sm border border-gray-200">
                         <source src={`${url}/${role.videoSrc}`} type="video/mp4" />
                       </video>
                     )}
                     {role.img && (
-                      <figure className={`${role.hasVideo ? "flex-[2] w-2/3" : role.isMobile ? "max-w-[40%]" : "w-full"}`}>
+                      <figure className={`${role.hasVideo ? "flex-[2] w-full md:w-2/3" : role.isMobile ? "max-w-[70%] md:max-w-[40%]" : "w-full"}`}>
                         <img src={`${url}/${role.img}`} alt={`${role.title} 시연`} className="w-full rounded-sm border border-gray-200 shadow-sm" />
                       </figure>
                     )}
@@ -248,7 +237,7 @@ const LayUp = () => {
                       <ul className="ml-5 flex flex-col gap-2">
                         {role.solution.map((sol, j) => (
                           <li key={j} className="list-disc leading-relaxed">
-                            <span dangerouslySetInnerHTML={{ __html: sol.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                            <span dangerouslySetInnerHTML={{ __html: sol.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>").replace(/: /, ": <br />") }} />
                           </li>
                         ))}
                       </ul>

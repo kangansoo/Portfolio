@@ -19,7 +19,7 @@ const Exprience = forwardRef<HTMLElement, any>((_, ref) => {
 
   return (
     <section ref={ref} className="w-full pt-10 pb-20 flex justify-center items-center select-none" aria-labelledby="exp-title">
-      <div className="w-[60%] flex flex-col justify-center">
+      <div className="w-[92%] md:w-[60%] flex flex-col justify-center">
         <h2 id="exp-title" className="font-nanumsquare text-2xl font-bold text-font-color">
           Experience
         </h2>
@@ -27,9 +27,9 @@ const Exprience = forwardRef<HTMLElement, any>((_, ref) => {
           {expData.map((exp, index) => (
             <li key={index}>
               <article>
-                <header className="flex items-baseline gap-2 mb-3">
+                <header className="flex flex-col md:flex-row items-baseline gap-2 mb-3">
                   <h3 className="text-lg text-font-color">{exp.organization}</h3>
-                  <time className="text-sm opacity-90">{exp.period}</time>
+                  <time className="text-sm opacity-90 pl-1 md:pl-0">{exp.period}</time>
                 </header>
 
                 <ul className="ml-5 flex flex-col gap-4">

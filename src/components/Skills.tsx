@@ -18,7 +18,7 @@ const Skills = forwardRef<HTMLElement, any>((_, ref) => {
 
   return (
     <section ref={ref} className="w-full py-10 flex justify-center items-center select-none" aria-labelledby="skills-title">
-      <div className="w-[60%] flex flex-col justify-center">
+      <div className="w-[92%] md:w-[60%] flex flex-col justify-center">
         <h2 id="skills-title" className="font-nanumsquare text-2xl font-bold text-font-color">
           Skills
         </h2>

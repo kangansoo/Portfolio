@@ -4,6 +4,7 @@ export interface ProjectInfoProps {
   icon: ReactNode // 리액트 아이콘 컴포넌트
   label: string // "한 줄 소개", "팀 구성" 등
   content: string // 실제 내용
+  link?: string
 }
 
 // 2. 주요 기능 아이템 타입

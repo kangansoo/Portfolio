@@ -1,12 +1,14 @@
+import type { ReactNode } from "react"
+
 interface GradientTextProps {
-  children: string
+  children: ReactNode
   className?: string
   isAnimated?: boolean
 }
 
 const GradientText = ({ children, className = "", isAnimated = false }: GradientTextProps) => {
   return (
-    <div className={`relative inline-block ${className}`} data-text={children}>
+    <div className={`relative inline-block ${className}`}>
       {/* 배경 텍스트 (그라디언트 테두리) */}
       <div
         className={`

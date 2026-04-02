@@ -19,6 +19,8 @@ const Konciar = () => {
     { icon: <MdPeopleAlt />, label: "팀 구성", content: "FE 개발 1명" },
     { icon: <IoMdPerson />, label: "참여 역할", content: "프론트엔드 리팩토링 및 서비스 고도화 주도, 바이럴 마케팅" },
     { icon: <HiMiniSquare3Stack3D />, label: "스택", content: "React, Vite, TypeScript, Tailwind CSS, i18next" },
+    { icon: <FaGithub />, label: "Git Hub", content: "바로 가기", link: "https://github.com/Konciar/konciar" },
+    { icon: <MdOutlineWebAsset />, label: "서비스", content: "바로 가기", link: "https://konciar.com" },
   ]
 
   // 2. 주요 기능 데이터
@@ -127,7 +129,7 @@ const Konciar = () => {
         <img src={`${url}/konciarBackground.png`} className="w-full h-full object-cover border-b border-gray-300" alt="Konciar 배경" />
       </header>
 
-      <main className="mt-10 max-w-[50%] w-full flex flex-col mb-20">
+      <main className="mt-10 w-[92%] md:max-w-[80%] lg:max-w-[50%] flex flex-col mb-20">
         {/* 프로젝트 기본 정보 */}
         <section aria-labelledby="project-title">
           <h1 id="project-title" className="font-nanumsquare text-3xl font-extrabold text-font-color">
@@ -137,33 +139,21 @@ const Konciar = () => {
           <dl className="my-5 flex flex-col gap-3">
             {projectInfo.map((info, idx) => (
               <div key={idx} className="flex flex-row items-center justify-between">
-                <dt className="flex flex-row items-center w-40 gap-2 text-landing-500 text-sm font-nexon">
+                <dt className="flex flex-row items-center w-28 md:w-32 lg:w-40 gap-2 text-landing-500 text-sm font-nexon">
                   {info.icon}
                   <span>{info.label}</span>
                 </dt>
-                <dd className="flex-1 text-landing-700 text-sm font-nexon">{info.content}</dd>
+                <dd className="flex-1 text-landing-700 text-sm font-nexon">
+                  {info.link ? (
+                    <button onClick={() => openLink(info.link!)} className="underline underline-offset-4 hover:text-font-hover cursor-pointer transition-colors">
+                      {info.content}
+                    </button>
+                  ) : (
+                    info.content
+                  )}
+                </dd>
               </div>
             ))}
-            <div className="flex flex-row items-center justify-between">
-              <dt className="flex flex-row items-center w-40 gap-2 text-landing-500 text-sm font-nexon">
-                <FaGithub /> <span>Git Hub</span>
-              </dt>
-              <dd className="flex-1 text-landing-700 text-sm font-nexon">
-                <button onClick={() => openLink("https://github.com/Konciar/konciar")} className="underline underline-offset-4 hover:text-font-hover cursor-pointer transition-colors">
-                  바로 가기
-                </button>
-              </dd>
-            </div>
-            <div className="flex flex-row items-center justify-between">
-              <dt className="flex flex-row items-center w-40 gap-2 text-landing-500 text-sm font-nexon">
-                <MdOutlineWebAsset /> <span>서비스</span>
-              </dt>
-              <dd className="flex-1 text-landing-700 text-sm font-nexon">
-                <button onClick={() => openLink("https://konciar.com")} className="underline underline-offset-4 hover:text-font-hover cursor-pointer transition-colors">
-                  바로 가기
-                </button>
-              </dd>
-            </div>
           </dl>
         </section>
 
@@ -207,7 +197,7 @@ const Konciar = () => {
               <p className="text-sm text-landing-700 mb-4 font-nexon">{role.desc}</p>
 
               <div className={`flex flex-col gap-8 ${role.isMobile ? "items-start" : ""}`}>
-                <figure className={`w-full ${role.isMobile ? "max-w-[40%]" : ""}`}>
+                <figure className={`w-full ${role.isMobile ? "max-w-[70%] md:max-w-[40%]" : ""}`}>
                   <img src={`${url}/${role.img}`} alt={`${role.title}`} className="w-full rounded-sm border border-gray-200 shadow-sm" />
                 </figure>
 
@@ -234,7 +224,7 @@ const Konciar = () => {
                     <ul className="ml-5 flex flex-col gap-2">
                       {role.solution.map((sol, j) => (
                         <li key={j} className="list-disc leading-relaxed">
-                          <span dangerouslySetInnerHTML={{ __html: sol.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                          <span dangerouslySetInnerHTML={{ __html: sol.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>").replace(/: /, ": <br />") }} />
                         </li>
                       ))}
                     </ul>
