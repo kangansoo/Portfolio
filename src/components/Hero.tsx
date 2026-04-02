@@ -34,16 +34,23 @@ const Hero = ({ showLanding }: HeroProps) => {
   }, [showLanding, animationStarted])
 
   return (
-    <section className="w-full py-30 flex flex-col justify-center items-center text-font-color font-nexon font-normal text-xl" aria-label="자기소개 섹션">
-      <h1>안녕하세요, 강안수입니다.</h1>
-      <div className="mt-4 relative">
-        <div
-          ref={typingRef}
-          className={`inline-block typewriter-cursor ${!animationStarted ? "invisible" : "visible"}`}
-          aria-live="polite" // 알림의 우선 순위 : polite - 용자가 현재 수행 중인 동작(다른 텍스트 읽기 등)이 끝날 때까지 기다렸다가 변화된 내용을 읽어줌
-          aria-atomic="true" // 전체 읽기 : true - 변화된 전체 내용을 읽어줌, false - 변화된 부분만 읽어줌
-        >
-          {!animationStarted && fullText}
+    <section className="w-full py-12 md:py-30 flex flex-col justify-center items-center text-font-color font-nexon font-normal" aria-label="자기소개 섹션">
+      <h1 className="text-md md:text-xl">안녕하세요, 강안수입니다.</h1>
+      <div className="mt-4 relative px-8 text-center">
+        {/* 레이아웃 시프트 방지용 공간 */}
+        <div className="invisible select-none leading-relaxed" aria-hidden="true">
+          {fullText}
+        </div>
+        {/* 실제 보일 애니메이션을 위에서 정의한 공간에 겹쳐서 렌더링 */}
+        <div className="absolute top-0 left-0 w-full h-full px-8 flex flex-col items-center">
+          <div
+            ref={typingRef}
+            className={`inline-block text-md md:text-xl typewriter-cursor leading-relaxed ${!animationStarted ? "invisible" : "visible"}`}
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {!animationStarted && fullText}
+          </div>
         </div>
       </div>
     </section>

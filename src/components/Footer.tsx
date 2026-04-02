@@ -49,9 +49,9 @@ const Footer = () => {
   }
 
   return (
-    <footer className="w-full py-6 flex flex-row justify-center items-center bg-landing-700">
+    <footer className="w-full py-8 md:py-6 flex flex-row justify-center items-center bg-landing-700">
       <h2 className="sr-only">Home Page Footer</h2>
-      <div className="w-[60%] h-[80%] flex flex-row justify-start items-center gap-7 text-gray-500 font-nexon">
+      <div className="w-[92%] md:w-[60%] flex flex-col md:flex-row md:justify-start items-start md:items-center gap-4 md:gap-7 text-gray-500 font-nexon">
         <section
           aria-labelledby="EmailAddress"
           className="text-xs cursor-pointer hover:animate-pulse-color flex flex-row justify-center items-center gap-2"
