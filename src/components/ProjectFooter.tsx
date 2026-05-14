@@ -50,7 +50,7 @@ const ProjectFooter = ({ id }: ProjectFooterProps) => {
         >
           {prevProject ? (
             <button
-              className="group flex flex-row items-center cursor-pointer hover:text-font-hover transition-colors duration-300 ease-in-out whitespace-nowrap"
+              className="group flex flex-row items-center cursor-pointer hover:text-point transition-colors duration-300 ease-in-out whitespace-nowrap"
               onClick={goToPrev}
             >
               <GrFormPrevious className="text-2xl transition-transform duration-200 ease-in-out group-hover:-translate-x-1 -translate-y-px shrink-0" />
@@ -69,7 +69,7 @@ const ProjectFooter = ({ id }: ProjectFooterProps) => {
 
         {/* 홈 버튼 영역 */}
         <div className="flex flex-col justify-center items-center px-4">
-          <button className="cursor-pointer flex items-center justify-center hover:text-font-hover transition-colors duration-300 ease-in-out text-2xl" onClick={goToHome}>
+          <button className="cursor-pointer flex items-center justify-center hover:text-point transition-colors duration-300 ease-in-out text-2xl" onClick={goToHome}>
             <AiFillHome />
           </button>
         </div>
@@ -82,7 +82,7 @@ const ProjectFooter = ({ id }: ProjectFooterProps) => {
         >
           {nextProject ? (
             <div
-              className="group flex flex-row items-center cursor-pointer hover:text-font-hover transition-colors duration-300 ease-in-out whitespace-nowrap"
+              className="group flex flex-row items-center cursor-pointer hover:text-point transition-colors duration-300 ease-in-out whitespace-nowrap"
               onClick={goToNext}
             >
               <span className="hidden xs:inline">다음 프로젝트</span>

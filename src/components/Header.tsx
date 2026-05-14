@@ -8,7 +8,7 @@ interface HeaderProps {
 
 const Header = ({ onLogoClick, onProjectsClick, onAboutClick, onSkillsClick, onExpClick }: HeaderProps) => {
   const navItemClasses =
-    "relative cursor-pointer select-none pb-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-font-hover after:transition-all after:duration-300 hover:after:w-full hover:text-font-hover"
+    "relative cursor-pointer select-none pb-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-point after:transition-all after:duration-300 hover:after:w-full hover:text-point"
 
   const navItems = [
     { label: "projects", onClick: onProjectsClick },

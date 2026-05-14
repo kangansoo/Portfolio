@@ -125,7 +125,7 @@ const Pading = () => {
                 </dt>
                 <dd className="flex-1 text-landing-700 text-sm font-nexon">
                   {info.link ? (
-                    <button onClick={() => openLink(info.link!)} className="underline underline-offset-4 hover:text-font-hover cursor-pointer transition-colors">
+                    <button onClick={() => openLink(info.link!)} className="underline underline-offset-4 hover:text-point cursor-pointer transition-colors">
                       {info.content}
                     </button>
                   ) : (
