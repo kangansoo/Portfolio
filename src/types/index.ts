@@ -1,5 +1,14 @@
 import type { ReactNode } from "react"
 
+export type ChatState = "default" | "expanded"
+
+export interface ChatMessage {
+  id: string
+  role: "user" | "assistant"
+  content: string
+  timestamp: Date
+}
+
 export interface ProjectInfoProps {
   icon: ReactNode // 리액트 아이콘 컴포넌트
   label: string // "한 줄 소개", "팀 구성" 등
