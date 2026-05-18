@@ -70,7 +70,7 @@ const Projects = forwardRef<HTMLElement, any>((_, ref) => {
   }
 
   return (
-    <section ref={ref} className="w-full bg-blue-gray-500/50 flex items-center justify-center py-12" aria-labelledby="projects-heading">
+    <section ref={ref} className="w-full bg-sub/20 flex items-center justify-center py-12" aria-labelledby="projects-heading">
       <div className="w-[92%] md:w-[60%] flex flex-col relative">
         <h2 id="projects-heading" className="sr-only">
           프로젝트 목록

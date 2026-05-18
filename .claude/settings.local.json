@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(Start-Sleep -Seconds 4)",
+      "Bash(Get-Content \"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Admin-Desktop-ansoo-portfolio\\\\ccaf9761-e102-44b8-be05-223563ed0855\\\\tasks\\\\bezo008qy.output\" -ErrorAction SilentlyContinue)",
+      "Bash(Get-Content \"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Admin-Desktop-ansoo-portfolio\\\\ccaf9761-e102-44b8-be05-223563ed0855\\\\tasks\\\\bezo008qy.output\")",
+      "Bash(Remove-Item *)",
+      "Bash(npm install *)"
+    ]
+  }
+}

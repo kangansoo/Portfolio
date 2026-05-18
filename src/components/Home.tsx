@@ -8,6 +8,7 @@ import Skills from "@/components/Skills"
 import Exprience from "@/components/Exprience"
 import Footer from "@/components/Footer"
 import About from "@/components/About"
+import AiChat from "@/components/AiChat"
 import { useScrollLock } from "@/hooks/useScrollLock"
 import { useState, useEffect, useRef } from "react"
 import ScrollReveal from "@/components/ScrollReveal"
@@ -81,6 +82,7 @@ function Home() {
         </ScrollReveal>
         <Footer />
       </main>
+      <AiChat showLanding={showLanding} />
     </div>
   )
 }
