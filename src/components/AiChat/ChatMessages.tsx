@@ -9,19 +9,11 @@ interface ChatMessagesProps {
 
 const LoadingAvatar = () => (
   <div className="flex items-start">
-    <div className="relative flex-shrink-0 w-11 h-11">
-      <img src="/images/profile.jpg" alt="profile" className="absolute inset-0 w-full h-full object-cover rounded-full" />
-      {/* overflow-hidden 없이 mask만으로 링 처리 — 외곽을 transparent로 페이드해 계단 현상 제거 */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: "conic-gradient(from 0deg, #4875eb, #6366f1, #8b5cf6, #c026d3, #e11d48, #8b5cf6, #4875eb)",
-          WebkitMaskImage: "radial-gradient(circle closest-side, transparent 84%, black 88%, transparent 96%)",
-          maskImage: "radial-gradient(circle closest-side, transparent 84%, black 88%, transparent 96%)",
-        }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
-      />
+    <div className="relative flex-shrink-0" style={{ width: "40px", height: "40px" }}>
+      <div className="ai-loading-ring" />
+      <div className="absolute rounded-full overflow-hidden bg-white z-10" style={{ inset: "2px" }}>
+        <img src="/images/profile.jpg" alt="profile" className="w-full h-full object-cover opacity-100" />
+      </div>
     </div>
   </div>
 )

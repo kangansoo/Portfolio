@@ -73,7 +73,7 @@ const ChatInput = ({
         placeholder={placeholder}
         rows={1}
         disabled={isLoading}
-        className="flex-1 resize-none bg-transparent text-sm text-gray-700 placeholder-gray-400 focus:outline-none leading-6 font-pretendard"
+        className="flex-1 resize-none bg-transparent text-sm text-gray-900 placeholder-gray-600 focus:outline-none leading-6 font-pretendard"
         style={{ maxHeight: "108px" }}
         aria-label="메시지 입력"
       />

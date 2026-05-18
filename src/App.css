@@ -183,6 +183,29 @@
   animation: blink-caret 0.8s step-end infinite;
 }
 
+/* AI Chat loading spinner — Gemini style */
+.ai-loading-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #4875eb;
+  animation:
+    ai-spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite,
+    ai-color 6s linear infinite;
+}
+
+@keyframes ai-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes ai-color {
+  0%, 100% { border-top-color: #4875eb; }  /* 파랑 */
+  33%       { border-top-color: #ae86ff; }  /* 보라 */
+  66%       { border-top-color: #f472b6; }  /* 핑크 */
+}
+
 html {
   scroll-behavior: smooth;
 }

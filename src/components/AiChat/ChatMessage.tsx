@@ -6,9 +6,6 @@ interface ChatMessageProps {
   message: ChatMessageType
 }
 
-const aiAvatarStyle = {
-  border: "1px solid rgba(139, 170, 255, 0.3)",
-}
 
 const aiBubbleStyle = {
   background: "rgba(220, 230, 255, 0.35)",
@@ -16,7 +13,7 @@ const aiBubbleStyle = {
 }
 
 const userBubbleStyle = {
-  background: "linear-gradient(135deg, #4875eb 0%, #7b9fff 100%)",
+  background: "linear-gradient(135deg, #3560d4 0%, #5e7ee8 100%)",
 }
 
 // 마크다운 요소별 스타일
@@ -86,10 +83,10 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
 
   return (
     <div className="flex items-start gap-2.5">
-      <div className="flex-shrink-0 w-11 h-11 rounded-full overflow-hidden" style={aiAvatarStyle}>
-        <img src="/images/profile.jpg" alt="profile" className="w-full h-full object-cover" />
+      <div className="flex-shrink-0 w-9 h-9 rounded-full overflow-hidden bg-white">
+        <img src="/images/profile.jpg" alt="profile" className="w-full h-full object-cover opacity-100" />
       </div>
-      <div className="max-w-[78%] rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-gray-800" style={aiBubbleStyle}>
+      <div className="max-w-[78%] rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-gray-900" style={aiBubbleStyle}>
         <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
           {message.content}
         </ReactMarkdown>
