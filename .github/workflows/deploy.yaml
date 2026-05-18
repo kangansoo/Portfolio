@@ -39,6 +39,7 @@ jobs:
         env:
           CI: false
           VITE_S3_URL: ${{ secrets.VITE_S3_URL }}
+          VITE_AGENT_API_URL: ${{ secrets.VITE_AGENT_API_URL }}
 
       - name: S3 업로드
         run: aws s3 sync dist/ s3://ansooportfoliobucket --delete --acl public-read
