@@ -10,7 +10,7 @@ const Skills = forwardRef<HTMLElement>((_, ref) => {
     {
       title: "Experienced",
       items:
-        "Vue.js / Spring / Python / scikit-learn / Numpy / Pandas / MySQL / Claude code",
+        "Vue.js / Spring / Python / scikit-learn / Numpy / Pandas / MySQL / AI-assisted Development(Claude Code, Cursor AI)",
     },
     {
       title: "Etc",
