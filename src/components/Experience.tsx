@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 
-const Exprience = forwardRef<HTMLElement>((_, ref) => {
+const Experience = forwardRef<HTMLElement>((_, ref) => {
   const expData = [
     {
       organization: "삼성 청년 SW 아카데미",
@@ -74,5 +74,5 @@ const Exprience = forwardRef<HTMLElement>((_, ref) => {
   );
 });
 
-Exprience.displayName = "Exprience";
-export default Exprience;
+Experience.displayName = "Experience";
+export default Experience;
