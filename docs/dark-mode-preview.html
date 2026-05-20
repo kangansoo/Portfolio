@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="ko" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Mode Preview — Portfolio</title>
+    <style>
+      /* ── 색상 토큰 ── */
+      :root {
+        --color-main-bg: #f8f8f8;
+        --color-font-color: #3a3c3c;
+        --color-point: #4875eb;
+        --color-brand-blue: #8baaff;
+        --color-brand-purple: #ae86ff;
+        --color-sub: #e8eeff;
+      }
+      html.dark {
+        --color-main-bg: #111318;
+        --color-font-color: #eaecf4;
+        --color-point: #7fa2ff;
+        --color-brand-blue: #8baaff;
+        --color-brand-purple: #c4a8ff;
+        --color-sub: #1e2230;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
+        background: var(--color-main-bg);
+        color: var(--color-font-color);
+        transition:
+          background 0.3s,
+          color 0.3s;
+        min-height: 100vh;
+      }
+
+      /* ── 토글 버튼 (고정) ── */
+      #toggle-btn {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        z-index: 9999;
+        padding: 8px 18px;
+        border-radius: 999px;
+        border: 1px solid var(--color-point);
+        background: var(--color-point);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+        letter-spacing: 0.02em;
+      }
+      #toggle-btn:hover {
+        opacity: 0.85;
+      }
+
+      /* ── 레이아웃 ── */
+      section {
+        padding: 48px 0;
+      }
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .section-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--color-font-color);
+        margin-bottom: 24px;
+        letter-spacing: -0.01em;
+      }
+      .label {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--color-point);
+        background: color-mix(in srgb, var(--color-point) 12%, transparent);
+        padding: 3px 10px;
+        border-radius: 999px;
+        margin-bottom: 10px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      /* ═══════════════════════════
+     HEADER
+  ════════════════════════════ */
+      #comp-header {
+        background: #fff;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 0 24px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        transition:
+          background 0.3s,
+          border-color 0.3s;
+      }
+      html.dark #comp-header {
+        background: #16191f;
+        border-bottom-color: #374151;
+      }
+      .nav-logo {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--color-font-color);
+      }
+      .nav-links {
+        display: flex;
+        gap: 28px;
+      }
+      .nav-link {
+        font-size: 13px;
+        color: var(--color-font-color);
+        opacity: 0.7;
+        text-decoration: none;
+        position: relative;
+        padding-bottom: 3px;
+        transition: opacity 0.2s;
+      }
+      .nav-link.active {
+        opacity: 1;
+        color: var(--color-point);
+      }
+      .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--color-point);
+        border-radius: 1px;
+      }
+
+      /* ═══════════════════════════
+     HERO
+  ════════════════════════════ */
+      #comp-hero {
+        padding: 64px 0 48px;
+      }
+      .hero-sub {
+        font-size: 13px;
+        color: var(--color-point);
+        font-weight: 600;
+        margin-bottom: 10px;
+        letter-spacing: 0.06em;
+      }
+      .hero-title {
+        font-size: 36px;
+        font-weight: 800;
+        color: var(--color-font-color);
+        line-height: 1.2;
+        margin-bottom: 14px;
+      }
+      .hero-title .cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1em;
+        background: var(--color-point);
+        margin-left: 2px;
+        vertical-align: middle;
+        animation: blink 1s step-end infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      .hero-desc {
+        font-size: 15px;
+        color: var(--color-font-color);
+        opacity: 0.7;
+        line-height: 1.7;
+        max-width: 480px;
+      }
+
+      /* ═══════════════════════════
+     PROJECTS
+  ════════════════════════════ */
+      #comp-projects {
+        background: color-mix(in srgb, var(--color-sub) 20%, transparent);
+        transition: background 0.3s;
+      }
+      html.dark #comp-projects {
+        background: color-mix(in srgb, #4875eb 10%, transparent);
+      }
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .project-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 20px;
+        border: 1px solid #f0f0f0;
+        transition:
+          background 0.3s,
+          border-color 0.3s;
+      }
+      html.dark .project-card {
+        background: #1e2230;
+        border-color: transparent;
+      }
+      .project-card-thumb {
+        height: 100px;
+        border-radius: 10px;
+        background: linear-gradient(
+          135deg,
+          var(--color-brand-blue) 0%,
+          var(--color-brand-purple) 100%
+        );
+        margin-bottom: 14px;
+        opacity: 0.55;
+      }
+      html.dark .project-card-thumb {
+        opacity: 0.4;
+      }
+      .project-card-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 6px;
+        transition: color 0.3s;
+      }
+      html.dark .project-card-title {
+        color: #f3f4f6;
+      }
+      .project-card-desc {
+        font-size: 12px;
+        color: #6b7280;
+        line-height: 1.5;
+        transition: color 0.3s;
+      }
+      html.dark .project-card-desc {
+        color: #9ca3af;
+      }
+      .slider-arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid #e5e7eb;
+        color: #4b5563;
+        font-size: 14px;
+        margin-top: 16px;
+        cursor: pointer;
+        transition:
+          background 0.3s,
+          border-color 0.3s,
+          color 0.3s;
+      }
+      html.dark .slider-arrow {
+        background: rgba(31, 41, 55, 0.8);
+        border-color: #4b5563;
+        color: #d1d5db;
+      }
+
+      /* ═══════════════════════════
+     ABOUT / SKILLS / EXPERIENCE
+  ════════════════════════════ */
+      #comp-about .desc {
+        font-size: 15px;
+        color: var(--color-font-color);
+        line-height: 1.8;
+        max-width: 640px;
+      }
+      #comp-about .desc strong {
+        color: var(--color-point);
+        opacity: 0.8;
+        font-weight: 600;
+      }
+      .skill-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .skill-pill {
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        background: color-mix(
+          in srgb,
+          var(--color-brand-blue) 15%,
+          transparent
+        );
+        color: var(--color-point);
+        border: 1px solid
+          color-mix(in srgb, var(--color-brand-blue) 30%, transparent);
+      }
+      .exp-item {
+        display: flex;
+        gap: 16px;
+        padding: 16px 0;
+        border-bottom: 1px solid
+          color-mix(in srgb, var(--color-font-color) 12%, transparent);
+      }
+      .exp-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--color-point);
+        margin-top: 6px;
+        flex-shrink: 0;
+      }
+      .exp-company {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--color-font-color);
+      }
+      .exp-role {
+        font-size: 12px;
+        color: var(--color-font-color);
+        opacity: 0.6;
+        margin-top: 2px;
+      }
+      html.dark .hero-desc   { opacity: 1; color: #9ba5c0; }
+      html.dark .exp-role    { opacity: 1; color: #8a93ae; }
+      html.dark #comp-about .desc strong { opacity: 1; }
+
+      /* ═══════════════════════════
+     FOOTER
+  ════════════════════════════ */
+      #comp-footer {
+        background: #3a3c3c;
+        padding: 32px 24px;
+        text-align: center;
+        transition: background 0.3s;
+      }
+      html.dark #comp-footer {
+        background: #0d1117;
+      }
+      #comp-footer p {
+        color: #6b7280;
+        font-size: 12px;
+        line-height: 1.8;
+      }
+
+      /* ═══════════════════════════
+     AI CHAT PANEL
+  ════════════════════════════ */
+      #comp-chat-section {
+        padding: 48px 0;
+      }
+      .chat-demo {
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+      .chat-demo-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 8px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        opacity: 0.5;
+      }
+      .chat-panel {
+        width: 320px;
+        border-radius: 20px;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+      }
+
+      /* Light panel */
+      .chat-panel.light-panel {
+        background: rgba(200, 215, 255, 0.12);
+        border: 1px solid rgba(200, 220, 255, 0.35);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(18px);
+      }
+      /* Dark panel */
+      .chat-panel.dark-panel {
+        background: rgba(20, 35, 70, 0.55);
+        border: 1px solid rgba(80, 120, 255, 0.25);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(18px);
+      }
+
+      /* Panel header */
+      .chat-header {
+        padding: 12px 16px 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid rgba(150, 180, 255, 0.15);
+      }
+      .chat-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #8baaff, #ae86ff);
+        flex-shrink: 0;
+      }
+      .chat-title {
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .light-panel .chat-title {
+        color: #1e293b;
+      }
+      .dark-panel .chat-title {
+        color: #e2e8f0;
+      }
+      .chat-close {
+        margin-left: auto;
+        font-size: 16px;
+        opacity: 0.5;
+        cursor: pointer;
+      }
+
+      /* Messages */
+      .chat-messages {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      /* AI bubble */
+      .bubble-ai {
+        max-width: 85%;
+        padding: 10px 14px;
+        border-radius: 14px 14px 14px 4px;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .light-panel .bubble-ai {
+        background: rgba(220, 230, 255, 0.35);
+        border: 1px solid rgba(139, 170, 255, 0.25);
+        color: #111827;
+      }
+      .dark-panel .bubble-ai {
+        background: rgba(30, 50, 100, 0.5);
+        border: 1px solid rgba(80, 120, 255, 0.3);
+        color: #f1f5f9;
+      }
+
+      /* User bubble */
+      .bubble-user {
+        max-width: 85%;
+        padding: 10px 14px;
+        border-radius: 14px 14px 4px 14px;
+        font-size: 13px;
+        line-height: 1.6;
+        align-self: flex-end;
+        background: linear-gradient(135deg, #3560d4, #5e7ee8);
+        color: #fff;
+      }
+
+      /* Input box */
+      .chat-input-area {
+        padding: 10px 16px 14px;
+      }
+      .chat-input-box {
+        border-radius: 12px;
+        padding: 10px 14px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .light-panel .chat-input-box {
+        background: rgba(190, 200, 225, 0.22);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        color: #111827;
+      }
+      .dark-panel .chat-input-box {
+        background: rgba(15, 25, 55, 0.4);
+        border: 1px solid rgba(80, 120, 255, 0.3);
+        color: #f1f5f9;
+      }
+      .chat-placeholder {
+        opacity: 0.5;
+        font-size: 12px;
+      }
+      .light-panel .chat-placeholder {
+        color: #4b5563;
+      }
+      .dark-panel .chat-placeholder {
+        color: #9ca3af;
+      }
+      .send-btn-inactive {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+      }
+      .light-panel .send-btn-inactive {
+        background: rgba(180, 185, 210, 0.45);
+      }
+      .dark-panel .send-btn-inactive {
+        background: rgba(60, 70, 100, 0.5);
+      }
+
+      /* Markdown demo */
+      .md-demo {
+        padding: 16px;
+      }
+      .md-demo strong {
+        font-weight: 700;
+      }
+      .light-panel .md-demo strong {
+        color: #111827;
+      }
+      .dark-panel .md-demo strong {
+        color: #f3f4f6;
+      }
+      .md-demo em {
+        font-style: italic;
+      }
+      .light-panel .md-demo em {
+        color: #374151;
+      }
+      .dark-panel .md-demo em {
+        color: #d1d5db;
+      }
+      .md-demo blockquote {
+        border-left: 3px solid;
+        padding-left: 10px;
+        margin: 8px 0;
+        font-size: 12px;
+      }
+      .light-panel .md-demo blockquote {
+        border-color: #93c5fd;
+        color: #4b5563;
+      }
+      .dark-panel .md-demo blockquote {
+        border-color: #3b82f6;
+        color: #9ca3af;
+      }
+      .md-demo code {
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-family: monospace;
+      }
+      .light-panel .md-demo code {
+        background: rgba(255, 255, 255, 0.5);
+        color: #374151;
+      }
+      .dark-panel .md-demo code {
+        background: rgba(0, 0, 0, 0.3);
+        color: #d1d5db;
+      }
+      .md-demo a {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 12px;
+      }
+      .light-panel .md-demo a {
+        color: #4875eb;
+      }
+      .dark-panel .md-demo a {
+        color: #8baaff;
+      }
+
+      /* ── 패널 배경 보조 ── */
+      .panel-bg {
+        padding: 24px;
+        border-radius: 20px;
+      }
+      .light-bg {
+        background: #dce8ff;
+      }
+      .dark-bg {
+        background: #0a0f1e;
+      }
+
+      /* ── 구분선 ── */
+      hr.divider {
+        border: none;
+        border-top: 1px solid
+          color-mix(in srgb, var(--color-font-color) 12%, transparent);
+        margin: 8px 0 32px;
+      }
+
+      /* live switch panel — dark mode only shows when toggle is dark */
+      .live-section {
+        padding: 48px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="toggle-btn" onclick="toggleDark()">🌙 다크 모드</button>
+
+    <!-- ══════════════════════════════
+     HEADER
+═══════════════════════════════ -->
+    <header id="comp-header">
+      <span class="nav-logo">Kang Ansoo</span>
+      <nav class="nav-links">
+        <a href="#" class="nav-link active">Home</a>
+        <a href="#" class="nav-link">Projects</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">Skills</a>
+        <a href="#" class="nav-link">Contact</a>
+      </nav>
+    </header>
+
+    <!-- ══════════════════════════════
+     HERO
+═══════════════════════════════ -->
+    <section id="comp-hero">
+      <div class="container">
+        <div class="label">Frontend Developer</div>
+        <h1 class="hero-title">
+          안녕하세요, 강안수입니다<span class="cursor"></span>
+        </h1>
+        <p class="hero-desc">
+          사용자 경험을 중심으로 생각하는 프론트엔드 개발자입니다. React와
+          TypeScript로 정교한 인터페이스를 만들어냅니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════
+     PROJECTS
+═══════════════════════════════ -->
+    <section id="comp-projects">
+      <div class="container">
+        <p class="section-title">Projects</p>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-card-thumb"></div>
+            <p class="project-card-title">Portfolio Website</p>
+            <p class="project-card-desc">
+              React + TypeScript 기반 개인 포트폴리오 웹사이트
+            </p>
+          </div>
+          <div class="project-card">
+            <div
+              class="project-card-thumb"
+              style="background: linear-gradient(135deg, #a78bfa, #f472b6)"
+            ></div>
+            <p class="project-card-title">AI Chat Agent</p>
+            <p class="project-card-desc">
+              Gemini API 기반 스트리밍 채팅 에이전트
+            </p>
+          </div>
+          <div class="project-card">
+            <div
+              class="project-card-thumb"
+              style="background: linear-gradient(135deg, #34d399, #60a5fa)"
+            ></div>
+            <p class="project-card-title">Dashboard UI</p>
+            <p class="project-card-desc">데이터 시각화 대시보드 인터페이스</p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px">
+          <button class="slider-arrow">&#8592;</button>
+          <button class="slider-arrow">&#8594;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════
+     ABOUT
+═══════════════════════════════ -->
+    <section id="comp-about">
+      <div class="container">
+        <p class="section-title">About</p>
+        <p class="desc">
+          저는 <strong>사용자 경험을 최우선으로 생각하는 개발자</strong>입니다.
+          <strong>React</strong>와 <strong>TypeScript</strong>를 주력으로
+          사용하며, 복잡한 UI도 직관적으로 만들어내는 것을 즐깁니다.
+        </p>
+        <hr class="divider" />
+        <p class="section-title">Skills</p>
+        <div class="skill-pills">
+          <span class="skill-pill">React</span>
+          <span class="skill-pill">TypeScript</span>
+          <span class="skill-pill">Tailwind CSS</span>
+          <span class="skill-pill">Framer Motion</span>
+          <span class="skill-pill">Vite</span>
+          <span class="skill-pill">Node.js</span>
+          <span class="skill-pill">Figma</span>
+        </div>
+        <hr class="divider" />
+        <p class="section-title">Experience</p>
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div>
+            <p class="exp-company">Frontend Developer</p>
+            <p class="exp-role">2023 – Present · 프리랜서</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div>
+            <p class="exp-company">UI/UX Engineer</p>
+            <p class="exp-role">2021 – 2023 · XX Company</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════
+     AI CHAT — 라이트 vs 다크 고정 비교
+═══════════════════════════════ -->
+    <section id="comp-chat-section">
+      <div class="container">
+        <p class="section-title">AI Chat — 글래스모피즘 비교</p>
+        <p style="font-size: 13px; opacity: 0.6; margin-bottom: 24px">
+          좌: 라이트 고정 / 우: 다크 고정 (토글과 무관하게 항상 표시)
+        </p>
+        <div class="chat-demo">
+          <!-- Light (고정) -->
+          <div>
+            <p class="chat-demo-label">Light</p>
+            <div class="panel-bg light-bg">
+              <div class="chat-panel light-panel">
+                <div class="chat-header">
+                  <div class="chat-avatar"></div>
+                  <span class="chat-title">Ansoo AI</span>
+                  <span class="chat-close">✕</span>
+                </div>
+                <div class="chat-messages">
+                  <div class="bubble-ai">
+                    안녕하세요! 강안수에 대해 궁금한 점이 있으신가요?
+                  </div>
+                  <div class="bubble-user">어떤 프로젝트를 해왔나요?</div>
+                  <div class="bubble-ai">
+                    <div class="md-demo" style="padding: 0">
+                      <strong>주요 프로젝트</strong>는 다음과 같아요.<br />
+                      <em>AI Chat</em>과
+                      <blockquote>포트폴리오 사이트 개발</blockquote>
+                      <code>React + TypeScript</code> 스택을 사용했으며,
+                      <a href="#">자세히 보기</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="chat-input-area">
+                  <div class="chat-input-box">
+                    <span class="chat-placeholder">메시지를 입력하세요</span>
+                    <div class="send-btn-inactive">➤</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dark (고정) -->
+          <div>
+            <p class="chat-demo-label">Dark</p>
+            <div class="panel-bg dark-bg">
+              <div class="chat-panel dark-panel">
+                <div class="chat-header">
+                  <div class="chat-avatar"></div>
+                  <span class="chat-title">Ansoo AI</span>
+                  <span class="chat-close">✕</span>
+                </div>
+                <div class="chat-messages">
+                  <div class="bubble-ai">
+                    안녕하세요! 강안수에 대해 궁금한 점이 있으신가요?
+                  </div>
+                  <div class="bubble-user">어떤 프로젝트를 해왔나요?</div>
+                  <div class="bubble-ai">
+                    <div class="md-demo" style="padding: 0">
+                      <strong>주요 프로젝트</strong>는 다음과 같아요.<br />
+                      <em>AI Chat</em>과
+                      <blockquote>포트폴리오 사이트 개발</blockquote>
+                      <code>React + TypeScript</code> 스택을 사용했으며,
+                      <a href="#">자세히 보기</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="chat-input-area">
+                  <div class="chat-input-box">
+                    <span class="chat-placeholder">메시지를 입력하세요</span>
+                    <div class="send-btn-inactive">➤</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════
+     FOOTER
+═══════════════════════════════ -->
+    <footer id="comp-footer">
+      <p>© 2026 Kang Ansoo. All rights reserved.</p>
+      <p style="margin-top: 4px">sharedev2026@gmail.com</p>
+    </footer>
+
+    <script>
+      function toggleDark() {
+        const html = document.documentElement;
+        const btn = document.getElementById("toggle-btn");
+        if (html.classList.contains("dark")) {
+          html.classList.remove("dark");
+          btn.textContent = "🌙 다크 모드";
+        } else {
+          html.classList.add("dark");
+          btn.textContent = "☀️ 라이트 모드";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -7,7 +7,24 @@
       "Bash(Get-Content \"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Admin-Desktop-ansoo-portfolio\\\\ccaf9761-e102-44b8-be05-223563ed0855\\\\tasks\\\\bezo008qy.output\" -ErrorAction SilentlyContinue)",
       "Bash(Get-Content \"C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Admin-Desktop-ansoo-portfolio\\\\ccaf9761-e102-44b8-be05-223563ed0855\\\\tasks\\\\bezo008qy.output\")",
       "Bash(Remove-Item *)",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(npx vite *)",
+      "mcp__plugin_playwright_playwright__browser_wait_for",
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "Bash(netstat -ano)",
+      "Bash(python -m http.server 7788)",
+      "Bash(npx *)",
+      "Bash(Start-Sleep -Seconds 3)",
+      "Bash(Invoke-WebRequest -Uri \"http://localhost:7788/dark-mode-preview.html\" -UseBasicParsing)",
+      "Bash(Select-Object -ExpandProperty StatusCode)",
+      "PowerShell(Start-Process -NoNewWindow -FilePath \"npx\" -ArgumentList \"--yes\", \"http-server\", \"C:\\\\project\\\\Portfolio\\\\docs\", \"-p\", \"7788\", \"--cors\" -PassThru | Select-Object -ExpandProperty Id)",
+      "PowerShell($job = Start-Job -ScriptBlock { node -e \"const http=require\\('http'\\),fs=require\\('fs'\\),path=require\\('path'\\);const base='C:/project/Portfolio/docs';http.createServer\\(\\(req,res\\)=>{const fp=path.join\\(base,req.url==='/'?'dark-mode-preview.html':req.url\\);fs.readFile\\(fp,\\(e,d\\)=>{if\\(e\\){res.writeHead\\(404\\);res.end\\(\\);}else{const ct=fp.endsWith\\('.html'\\)?'text/html':'text/plain';res.writeHead\\(200,{'Content-Type':ct}\\);res.end\\(d\\);}}\\);}\\).listen\\(7788,\\(\\)=>console.log\\('ok'\\)\\);\" }; Start-Sleep 2; $job.Id)",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri \"http://localhost:7788/dark-mode-preview.html\" -UseBasicParsing -TimeoutSec 3; $r.StatusCode } catch { $_.Exception.Message })",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5174)",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "mcp__plugin_playwright_playwright__browser_resize",
+      "Bash(git *)"
     ]
   }
 }

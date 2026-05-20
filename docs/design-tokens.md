@@ -1,0 +1,105 @@
+# Design Tokens
+
+> 소스: `src/App.css` `@theme` 블록 + 다크모드 오버라이드(`html.dark`)
+
+---
+
+## 폰트
+
+| Tailwind 클래스 | font-family | 제공 방식 | 사용 위치 |
+|----------------|-------------|----------|----------|
+| `font-pretendard` | Pretendard | 로컬 (`public/fonts/*.woff2`) | 기본 본문, 대부분의 UI |
+| `font-nanumsquare` | NanumSquare | CDN | 프로젝트 카드 제목, 섹션 제목 |
+| `font-nexon` | NexonLv1Gothic | CDN | 카드 설명, 경력 본문 등 부가 텍스트 |
+
+**Pretendard 지원 웨이트**: 100 · 200 · 300 · 400 · 500 · 600 · 700 · 800 · 900
+
+---
+
+## 색상 토큰
+
+### 페이지 배경
+
+| 토큰 | 라이트 | 다크 |
+|------|--------|------|
+| `--color-main-bg` | `#f8f8f8` | `#111318` |
+
+---
+
+### 글자 색 (의미 토큰)
+
+| 토큰 | Tailwind 클래스 | 라이트 | 다크 | 용도 |
+|------|----------------|--------|------|------|
+| `--color-font-color` | `text-font-color` | `#3a3c3c` | `#eaecf4` | **전체 기본 텍스트** |
+| `--color-point` | `text-point` | `#4875eb` | `#7fa2ff` | 강조 텍스트, 링크, nav 밑줄 |
+| `--color-sub` | `text-sub` | `#4682b4` | — | 서브 포인트 |
+
+---
+
+### Landing 스케일 (어두운 뉴트럴 계열)
+
+| 토큰 | Tailwind 클래스 | 값 | 용도 |
+|------|----------------|----|------|
+| `--color-landing-100` | `text-landing-100` | `#e4e5e5` | — |
+| `--color-landing-300` | `text-landing-300` | `#a2a3a3` | — |
+| `--color-landing-500` | `text-landing-500` | `#646666` | 상세 페이지 메타 정보 (기간 등) |
+| `--color-landing-700` | `text-landing-700` | `#3a3c3c` | 상세 페이지 본문 (`font-color`와 동일 값) |
+| `--color-landing-900` | `text-landing-900` | `#1f2121` | — |
+
+> **⚠️ 주의**: `text-landing-600`은 4개 상세 페이지 전체에서 사용 중이나 `@theme`에 정의되지 않아 **색이 적용되지 않음**. `--color-landing-600` 추가 필요.
+
+---
+
+### Gray 스케일
+
+| 토큰 | Tailwind 클래스 | 값 | 실제 사용 위치 |
+|------|----------------|----|--------------|
+| `--color-gray-50` | `text-gray-50` | `#fafafa` | — |
+| `--color-gray-100` | `text-gray-100` | `#f5f5f5` | — |
+| `--color-gray-200` | `text-gray-200` | `#eeeeee` | — |
+| `--color-gray-300` | `text-gray-300` | `#e0e0e0` | 다크모드 아이콘 색 |
+| `--color-gray-400` | `text-gray-400` | `#bdbdbd` | 다크모드 placeholder |
+| `--color-gray-500` | `text-gray-500` | `#9e9e9e` | 프로젝트 카드 설명, Footer, 채팅 헤더 |
+| `--color-gray-600` | `text-gray-600` | `#757575` | 캐러셀 화살표, Footer 링크 |
+| `--color-gray-700` | `text-gray-700` | `#616161` | ProjectFooter, 채팅 메시지 |
+| `--color-gray-800` | `text-gray-800` | `#424242` | 채팅 메시지 본문 |
+| `--color-gray-900` | `text-gray-900` | `#212121` | 프로젝트 카드 제목, 채팅 입력 |
+
+---
+
+### Blue Gray 스케일
+
+| 토큰 | 값 |
+|------|----|
+| `--color-blue-gray-50` | `#eceff1` |
+| `--color-blue-gray-100` | `#cfd8dc` |
+| `--color-blue-gray-200` | `#b0bec5` |
+| `--color-blue-gray-300` | `#90a4ae` |
+| `--color-blue-gray-400` | `#78909c` |
+| `--color-blue-gray-500` | `#607d8b` |
+| `--color-blue-gray-600` | `#546e7a` |
+| `--color-blue-gray-700` | `#455a64` |
+| `--color-blue-gray-800` | `#37474f` |
+| `--color-blue-gray-900` | `#263238` |
+
+> 현재 컴포넌트에서 직접 사용되지 않음. 향후 확장용.
+
+---
+
+### 브랜드 / 포인트
+
+| 토큰 | Tailwind 클래스 | 값 | 용도 |
+|------|----------------|----|------|
+| `--color-brand-blue` | `text-brand-blue` | `#8baaff` | 그라디언트 시작색 |
+| `--color-brand-purple` | `text-brand-purple` | `#ae86ff` | 그라디언트 끝색, AI 로딩 링 |
+| `--color-brand-light` | `text-brand-light` | `#e0e7ff` | 브랜드 연한 파랑 |
+
+---
+
+### 프로젝트 전용 색상
+
+| 토큰 | Tailwind 클래스 | 값 | 용도 |
+|------|----------------|----|------|
+| `--color-perplexity` | `text-perplexity` | `#31b8c6` | 퍼플렉시티 민트 |
+| `--color-nexon-green` | `text-nexon-green` | `#b4e114` | 넥슨 브랜드 그린 |
+| `--color-nexon-navy` | `text-nexon-navy` | `#0a3255` | 넥슨 브랜드 네이비 |
