@@ -6,26 +6,19 @@ interface ChatMessageProps {
   message: ChatMessageType
 }
 
-
-const aiBubbleStyle = {
-  background: "rgba(220, 230, 255, 0.35)",
-  border: "1px solid rgba(139, 170, 255, 0.25)",
-}
-
 const userBubbleStyle = {
   background: "linear-gradient(135deg, #3560d4 0%, #5e7ee8 100%)",
 }
 
-// 마크다운 요소별 스타일
 const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components"] = {
   p: ({ children }) => (
     <p className="leading-relaxed mb-2 last:mb-0 font-pretendard">{children}</p>
   ),
   strong: ({ children }) => (
-    <strong className="font-semibold text-gray-900">{children}</strong>
+    <strong className="font-semibold text-gray-900 dark:text-gray-100">{children}</strong>
   ),
   em: ({ children }) => (
-    <em className="italic text-gray-700">{children}</em>
+    <em className="italic text-gray-700 dark:text-gray-300">{children}</em>
   ),
   ul: ({ children }) => (
     <ul className="list-disc list-inside mb-2 last:mb-0 space-y-1 font-pretendard">{children}</ul>
@@ -40,20 +33,20 @@ const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components
     const isBlock = className?.includes("language-")
     if (isBlock) {
       return (
-        <code className="block bg-white/50 rounded-lg px-3 py-2 my-2 text-xs font-mono text-gray-800 overflow-x-auto">
+        <code className="block bg-white/50 dark:bg-black/30 rounded-lg px-3 py-2 my-2 text-xs font-mono text-gray-800 dark:text-gray-300 overflow-x-auto">
           {children}
         </code>
       )
     }
     return (
-      <code className="bg-white/50 rounded px-1.5 py-0.5 text-xs font-mono text-gray-800">
+      <code className="bg-white/50 dark:bg-black/30 rounded px-1.5 py-0.5 text-xs font-mono text-gray-800 dark:text-gray-300">
         {children}
       </code>
     )
   },
   pre: ({ children }) => <pre className="overflow-x-auto">{children}</pre>,
   blockquote: ({ children }) => (
-    <blockquote className="border-l-2 border-blue-300 pl-3 my-2 text-gray-600 italic">
+    <blockquote className="border-l-2 border-blue-300 dark:border-blue-500 pl-3 my-2 text-gray-600 dark:text-gray-400 italic">
       {children}
     </blockquote>
   ),
@@ -61,11 +54,11 @@ const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components
   h2: ({ children }) => <h2 className="text-sm font-bold mb-1.5 font-pretendard">{children}</h2>,
   h3: ({ children }) => <h3 className="text-sm font-semibold mb-1 font-pretendard">{children}</h3>,
   a: ({ href, children }) => (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="text-[#4875eb] underline underline-offset-2 hover:text-[#ae86ff] transition-colors">
+    <a href={href} target="_blank" rel="noopener noreferrer" className="text-[#4875eb] dark:text-[#8baaff] underline underline-offset-2 hover:text-[#ae86ff] dark:hover:text-[#c4a8ff] transition-colors">
       {children}
     </a>
   ),
-  hr: () => <hr className="border-blue-200/50 my-3" />,
+  hr: () => <hr className="border-blue-200/50 dark:border-blue-700/50 my-3" />,
 }
 
 const ChatMessage = ({ message }: ChatMessageProps) => {
@@ -83,10 +76,10 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
 
   return (
     <div className="flex items-start gap-2.5">
-      <div className="flex-shrink-0 w-9 h-9 rounded-full overflow-hidden bg-white">
+      <div className="flex-shrink-0 w-9 h-9 rounded-full overflow-hidden bg-white dark:bg-gray-800">
         <img src="/images/profile.jpg" alt="profile" className="w-full h-full object-cover opacity-100" />
       </div>
-      <div className="max-w-[78%] rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-gray-900" style={aiBubbleStyle}>
+      <div className="ai-bubble max-w-[78%] rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-gray-900 dark:text-gray-100">
         <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
           {message.content}
         </ReactMarkdown>
