@@ -6,17 +6,6 @@
 
 ## 후속 작업 후보 (우선순위 미정)
 
-### 코드 스플리팅 적용 (선택)
-
-현재 JS 번들 638.92 kB (gzip 203.85 kB) — Vite 500 kB 권장 초과 경고 발생.
-`React.lazy()` + `Suspense`로 `ProjectDetail` 지연 로딩 시 초기 번들 ~20~40 kB 감소 예상.
-
-```tsx
-// App.tsx
-const ProjectDetail = React.lazy(() => import('@/pages/ProjectDetail'))
-// <Suspense fallback={...}> 래핑 필요
-```
-
 ### Konciar 데이터 정리
 
 - `src/data/projectDetails/konciar.tsx` — `img: "emailImage.png "` trailing space 제거

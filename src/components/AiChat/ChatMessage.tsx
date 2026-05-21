@@ -1,5 +1,5 @@
-import ReactMarkdown from "react-markdown"
-import remarkGfm from "remark-gfm"
+import { lazy, Suspense } from "react"
+import type { Components } from "react-markdown"
 import type { ChatMessage as ChatMessageType } from "@/types"
 
 interface ChatMessageProps {
@@ -10,7 +10,8 @@ const userBubbleStyle = {
   background: "linear-gradient(135deg, #3560d4 0%, #5e7ee8 100%)",
 }
 
-const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components"] = {
+// import type only — compile-time, no runtime bundle impact
+const markdownComponents: Components = {
   p: ({ children }) => (
     <p className="leading-relaxed mb-2 last:mb-0 font-pretendard">{children}</p>
   ),
@@ -61,6 +62,21 @@ const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components
   hr: () => <hr className="border-blue-200/50 dark:border-blue-700/50 my-3" />,
 }
 
+// react-markdown + remark-gfm lazy load — assistant 답변 수신 시에만 필요
+const AssistantBubble = lazy(async () => {
+  const [{ default: ReactMarkdown }, { default: remarkGfm }] = await Promise.all([
+    import("react-markdown"),
+    import("remark-gfm"),
+  ])
+  return {
+    default: ({ content }: { content: string }) => (
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+        {content}
+      </ReactMarkdown>
+    ),
+  }
+})
+
 const ChatMessage = ({ message }: ChatMessageProps) => {
   const isUser = message.role === "user"
 
@@ -80,9 +96,9 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
         <img src="/images/profile.jpg" alt="profile" className="w-full h-full object-cover opacity-100" />
       </div>
       <div className="ai-bubble max-w-[78%] rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-font-title">
-        <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
-          {message.content}
-        </ReactMarkdown>
+        <Suspense fallback={null}>
+          <AssistantBubble content={message.content} />
+        </Suspense>
       </div>
     </div>
   )

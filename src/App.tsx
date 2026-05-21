@@ -1,13 +1,17 @@
+import { lazy, Suspense } from "react"
 import { Routes, Route } from "react-router-dom"
-import Home from "@/components/Home"
-import ProjectDetail from "@/pages/ProjectDetail"
+
+const Home = lazy(() => import("@/components/Home"))
+const ProjectDetail = lazy(() => import("@/pages/ProjectDetail"))
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/project/:id" element={<ProjectDetail />} />
-    </Routes>
+    <Suspense fallback={null}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/project/:id" element={<ProjectDetail />} />
+      </Routes>
+    </Suspense>
   )
 }
 

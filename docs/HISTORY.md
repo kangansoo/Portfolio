@@ -4,6 +4,18 @@
 
 ---
 
+## 2026-05-21 — JS 번들 최적화 (코드 스플리팅 + manualChunks)
+
+- **라우트 lazy split** (`App.tsx`): `Home`, `ProjectDetail`을 `React.lazy()` + `Suspense`로 전환 → ProjectDetail 청크 분리
+- **`react-markdown` lazy** (`ChatMessage.tsx`): `AssistantBubble` 컴포넌트 내부에서 `react-markdown` + `remark-gfm` dynamic import — AI 답변 수신 시에만 로드
+- **manualChunks** (`vite.config.ts`): `react-vendor` (react/react-dom/react-router-dom), `motion` (framer-motion) 분리 → 캐시 효율 향상
+- 홈 초기 JS 로드: **638.92 kB → 309.96 kB (↓ 51%)**, gzip **203.85 kB → 102.29 kB (↓ 50%)**
+- 최대 단일 청크: **638.92 kB → 176.65 kB (↓ 72%)**, Vite 500 kB 경고 해소
+- defer된 코드: markdown 체인 291 kB + ProjectDetail 40 kB = **330 kB** (총 번들의 52%)
+- 성과 지표 상세: `docs/performance-indicators.md` 3절 참조
+
+---
+
 ## 2026-05-21 — 버그 수정 및 개선
 
 - **다크모드 FOUC 방지**: `index.html` `<head>` 최상단에 블로킹 인라인 스크립트 추가 — localStorage → `prefers-color-scheme` 순으로 초기값 적용, 첫 방문 시 시스템 설정 자동 반영

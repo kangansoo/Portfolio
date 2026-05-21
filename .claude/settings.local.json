@@ -24,7 +24,10 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5174)",
       "mcp__plugin_playwright_playwright__browser_snapshot",
       "mcp__plugin_playwright_playwright__browser_resize",
-      "Bash(git *)"
+      "Bash(git *)",
+      "mcp__ide__getDiagnostics",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
+      "Bash(powershell *)"
     ]
   }
 }
