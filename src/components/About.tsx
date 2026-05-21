@@ -25,10 +25,10 @@ const About = forwardRef<HTMLElement>((_, ref) => {
         About My Values
       </h2>
       <div className="w-[92%] md:w-[60%] h-[80%] flex flex-col justify-center">
-        <h2 className="font-nanumsquare text-2xl font-bold text-font-color">
+        <h2 className="font-nanumsquare text-2xl font-bold text-font-title">
           About
         </h2>
-        <div className="w-full flex flex-col font-nexon text-font-color/80 text-sm mt-5">
+        <div className="w-full flex flex-col font-nexon text-font-body text-sm mt-5">
           <p>
             개발자로서 사용자 경험을 가장 중요한 가치로 여기며, 마주한 문제를
             해결하기 위해 적절한 기술을 유연하게 도입하는 데 강점이 있습니다.{" "}

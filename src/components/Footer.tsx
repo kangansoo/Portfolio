@@ -49,12 +49,12 @@ const Footer = () => {
   }
 
   return (
-    <footer className="w-full py-8 md:py-6 flex flex-row justify-center items-center bg-landing-700">
+    <footer className="w-full py-8 md:py-10 flex flex-col justify-center items-center bg-landing-700 dark:bg-[#0d1117] transition-colors duration-300">
       <h2 className="sr-only">Home Page Footer</h2>
-      <div className="w-[92%] md:w-[60%] flex flex-col md:flex-row md:justify-start items-start md:items-center gap-4 md:gap-7 text-gray-500 font-nexon">
+      <div className="flex flex-col items-center gap-4 text-font-caption font-nexon">
         <section
           aria-labelledby="EmailAddress"
-          className="text-xs cursor-pointer hover:animate-pulse-color flex flex-row justify-center items-center gap-2"
+          className="text-xs cursor-pointer hover:animate-pulse-color flex flex-row items-center gap-2"
           onClick={() => copyToClipboard("ansoo971@gmail.com", "email")}
         >
           <h3 id="EmailAddress" className="sr-only">
@@ -63,7 +63,7 @@ const Footer = () => {
           <MdEmail />
           <p>{copiedType === "email" ? "✓ 복사됨!" : "ansoo971@gmail.com"}</p>
         </section>
-        <section aria-labelledby="GithubAccount" className="text-xs cursor-pointer hover:animate-pulse-color flex flex-row justify-center items-center gap-2" onClick={() => openGithub()}>
+        <section aria-labelledby="GithubAccount" className="text-xs cursor-pointer hover:animate-pulse-color flex flex-row items-center gap-2" onClick={() => openGithub()}>
           <h3 id="GithubAccount" className="sr-only">
             Github account
           </h3>

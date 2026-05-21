@@ -1,0 +1,106 @@
+import { MdOutlineFeaturedPlayList, MdPeopleAlt } from "react-icons/md"
+import { FaRegCalendarCheck, FaGithub, FaInstagram } from "react-icons/fa"
+import { HiMiniSquare3Stack3D } from "react-icons/hi2"
+import { RiAwardFill } from "react-icons/ri"
+import { IoMdPerson } from "react-icons/io"
+import type { ProjectDetailData } from "@/types"
+
+export const layupData: ProjectDetailData = {
+  title: "LAY UP",
+  headerImage: "/Logo.png",
+  headerAlt: "LAY UP 로고",
+  footerId: 3,
+  intro:
+    "입력된 사업체 정보와 템플릿을 기반으로 SNS 자동 포스팅부터 주간 성과 및 월간 트렌드 분석 리포트까지 제공하는 SNS 마케팅 자동화 서비스",
+  scrollAnchor: {
+    stateKey: "pwa-section",
+    roleTitle: "이미지 드라이브 (Mobile/PWA)",
+  },
+  projectInfo: [
+    { icon: <MdOutlineFeaturedPlayList />, label: "한 줄 소개", content: "소상공인을 위한 AI 기반 SNS 마케팅 자동화 서비스" },
+    { icon: <FaRegCalendarCheck />, label: "프로젝트 기간", content: "2025.04 ~ 2025.05 (6주)" },
+    { icon: <MdPeopleAlt />, label: "팀 구성", content: "BE 3명, FE 3명" },
+    { icon: <IoMdPerson />, label: "참여 역할", content: "FE 개발" },
+    { icon: <HiMiniSquare3Stack3D />, label: "스택", content: "Next.js, React, TypeScript, Redux-ToolKit, react-query, Tailwind CSS, vite, Cursor AI" },
+    { icon: <RiAwardFill />, label: "수상", content: "SSAFY 2학기 자율 프로젝트 우수상" },
+    { icon: <FaGithub />, label: "Git Hub", content: "바로 가기", link: "https://github.com/kangansoo/LayUp" },
+    { icon: <FaInstagram />, label: "포스팅 결과물", content: "바로 가기", link: "https://www.instagram.com/geogeum_coffee" },
+  ],
+  features: [
+    { title: "Auto Posting", desc: "템플릿과 주기를 설정해두면 등록된 사업체 정보를 기반으로 AI가 글을 생성해서 자동으로 포스팅" },
+    { title: "Manual Posting", desc: "주제만 작성하면 사업체 정보를 기반으로 AI가 글을 생성하고 포스팅" },
+    { title: "이미지 드라이브", desc: "모바일과 연동되어 촬영한 이미지를 저장하고 그룹화 가능" },
+    { title: "템플릿", desc: "글 흐름, 글 스타일, 이미지 그룹 등을 기반으로 템플릿 생성" },
+    { title: "사업체 정보 관리", desc: "등록한 사업체의 정보 관리 기능" },
+    { title: "모바일 메뉴 관리", desc: "등록된 사업체(카페, 식당 등)의 메뉴 관리 기능" },
+    { title: "리포트", desc: "주 1회 마케팅 성과 리포트, 월 1회 트렌드 리서치 리포트 제공" },
+  ],
+  roles: [
+    {
+      title: "템플릿 편집기",
+      img: "template.gif",
+      isMobile: false,
+      desc: "자동 포스팅에 사용될 글의 구조와 스타일을 단계별로 정의하고 관리하는 기능",
+      problem: [
+        "복잡한 세부 설정 항목으로 인한 발생하는 몰입도 저하 및 사용자 이탈 우려",
+        "AI 데이터 생성 시의 체감 로딩 지연",
+        "초기 로딩 시점에 모든 편집기 로직이 포함되면서 발생하는 불필요한 리소스 낭비 및 느린 초기 로딩 속도",
+        "템플릿 단계 이동 시 반복되는 API 호출로 인한 서버 부하 및 느린 응답 속도",
+      ],
+      solution: [
+        "**Framer-motion 기반 Step UI**: 복잡한 설정 항목을 논리적 흐름으로 분할 설계하여 초기 이탈 요인을 해소하고 제작 몰입도 향상",
+        "**Redux-Toolkit 전역 관리**: 단계를 나누면서 발생한 데이터 파편화 문제를 해결하기 위해 전역 상태 저장소를 구축, 단계 이동 시에도 데이터 일관성 및 무결성 유지",
+        "**Streaming 도입**: AI 데이터 생성 시 전체 응답을 기다리지 않고 생성되는 대로 화면에 뿌려주는 스트리밍 처리를 통해 사용자의 지루함과 체감 대기 시간 해소",
+        "**Dynamic Import**: 초기 로딩 시점에 코드 분할을 통해 편집기 관련 로직을 제외하고, 사용자가 편집기에 진입하는 시점에 필요한 모듈을 동적으로 불러오는 방식으로 초기 로딩 최적화",
+        "**React-Query 캐싱**: 템플릿 생성/수정 시 반복되는 API 호출을 캐싱하여 서버 부하를 방지하고 응답 속도 및 안정성 향상",
+      ],
+      result: ["복잡한 설정 과정을 직관적인 단계별 프로세스로 전환하고 전역 상태 관리를 통한 데이터 정합성 확보", "초기 로딩 성능 최적화 및 사용자 몰입도 향상"],
+    },
+    {
+      title: "이미지 드라이브 (Web)",
+      img: "drive.gif",
+      isMobile: false,
+      desc: "SNS 포스팅용 이미지를 그룹화하고 태그 기반으로 관리하는 이미지 드라이브",
+      problem: ["이미지 리스트 로딩 시 발생하는 네트워크 병목 현상과 대규모 이미지 관리의 어려움", "AI의 자동 이미지 선택 프로세스에서 업로드 결과에 대한 사용자의 예측 불가능성"],
+      solution: [
+        "**React-Query 캐싱**: 캐싱 전략과 무한 스크롤을 조합하여 대규모 자산의 중복 호출을 방지",
+        "**스켈레톤 UI**: 콘텐츠 로드 전 레이아웃을 미리 확보하여 데이터 로딩 중 시각적 레이아웃 안정성 및 체감 대기 시간 개선",
+        "**태그 기반 예측 가능성 향상**: 이미지 업로드 시 설명 태그를 부여하여 AI의 자동 선택 기준을 명확히 함으로써 사용자가 포스팅 결과를 사전에 예측하고 제어할 수 있는 구조 설계",
+        "**SSR/CSR 분리**: 서비스의 초기 성능 및 SEO 최적화",
+      ],
+      result: "이미지 로딩 성능 최적화를 통해 리소스 탐색 속도를 개선하고 시각적으로 안정적인 UX 제공",
+    },
+    {
+      title: "이미지 드라이브 (Mobile/PWA)",
+      img: "mobile_drive.gif",
+      isMobile: true,
+      desc: "모바일 환경에서 촬영한 이미지를 실시간으로 업로드하고 관리할 수 있는 이미지 드라이브",
+      problem: ["접근성이 낮은 PC 웹 환경의 한계", "한정된 개발 일정으로 인해 추가 기능 구현에 대한 일정 지연 우려"],
+      solution: [
+        "**PWA 도입**: 별도의 앱 설치 없이도 홈 화면 추가 및 앱과 유사한 인터페이스를 제공하여 현장 촬영 이미지의 접근성 및 업로드 편의성 극대화",
+        "**Cursor AI 도입**: 리소스 한계로 인해 MVP 이후로 논의되던 PWA 도입을 Cursor AI 도입을 통한 개발 생산성 극대화로 해결",
+        "**React-Query**: 불안정한 모바일 네트워크 환경에서도 이미지 업로드/수정/삭제 작업이 안정적으로 반영되도록 상태 동기화",
+        "**스켈레톤 UI**: 콘텐츠 로드 전 레이아웃을 미리 확보하여 데이터 로딩 중 시각적 레이아웃 안정성 및 체감 대기 시간 개선",
+      ],
+      result: "기기 제한 없는 이미지 관리 환경을 구축하여 마케팅 리소스의 관리 효율 개선 및 개발 생산성 극대화",
+    },
+    {
+      title: "메뉴 관리 (Mobile/PWA)",
+      img: "mobile_menu.gif",
+      isMobile: true,
+      desc: "식당, 카페 등 오프라인 매장의 메뉴 정보를 실시간으로 수정하고 동기화하는 관리 기능",
+      problem: "접근성이 낮은 PC 웹 환경의 한계",
+      solution: ["**PWA 기반 실시간 관리**: 별도의 스토어 설치 없이 홈 화면 앱을 통해 현장에서 메뉴 품절이나 가격 변동 사항을 즉각적으로 처리할 수 있는 높은 접근성 확보"],
+      result: "모바일 최적화 인터페이스와 실시간 데이터 동기화를 통해 오프라인 사업체의 운영 효율성 향상",
+    },
+  ],
+  achievements: [
+    "**사용자 체감 성능 극대화**: Next.js의 dynamic과 코드 스플리팅을 적용하여 로딩 속도를 최적화하고 AI 데이터 생성 시 실시간 피드백 제공",
+    "**체계적인 상태 관리**: Redux-Toolkit과 React-Query를 통해 관심사를 분리하고 전역 상태 및 데이터 통신을 효율화하여 안정적인 경험 구현",
+    "**모바일 접근성 강화**: PWA 도입으로 PC 웹의 한계를 극복하고 현장에서 즉시 활용 가능한 실시간 관리 환경 구축",
+    "**몰입감 있는 UX 설계**: 스켈레톤 UI와 Framer-motion을 활용하여 시각적 안정성 확보 및 단계별 프로세스의 인지 부하 감소",
+    "**AI 예측성 강화**: 이미지 태그 시스템을 통해 AI 선택의 불확실성을 해결하고 사용자 예측 가능성 향상",
+    "**개발 효율성 극대화**: Cursor AI 및 최신 스택을 활용하여 유지보수성이 높은 코드 품질 유지 및 생산성 향상",
+    "**코드 품질 향상**: 관심사를 명확히 분리하고 복잡한 비즈니스 로직을 Custom Hooks로 캡슐화하여 코드의 재사용성과 유지보수성을 극대화",
+  ],
+}

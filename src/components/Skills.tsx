@@ -27,14 +27,16 @@ const Skills = forwardRef<HTMLElement>((_, ref) => {
       <div className="w-[92%] md:w-[60%] flex flex-col justify-center">
         <h2
           id="skills-title"
-          className="font-nanumsquare text-2xl font-bold text-font-color"
+          className="font-nanumsquare text-2xl font-bold text-font-title"
         >
           Skills
         </h2>
-        <dl className="w-full flex flex-col font-nexon text-font-color/80">
+        <dl className="w-full flex flex-col font-nexon text-font-body">
           {skillCategories.map((category) => (
             <div key={category.title} className="mt-6">
-              <dt className="font-semibold mb-2 uppercase">{category.title}</dt>
+              <dt className="font-semibold mb-2 uppercase text-font-sub">
+                {category.title}
+              </dt>
               <dd className="text-sm leading-relaxed tracking-wide">
                 {category.items}
               </dd>

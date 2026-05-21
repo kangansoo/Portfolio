@@ -5,16 +5,18 @@ import Header from "@/components/Header"
 import Hero from "@/components/Hero"
 import Projects from "@/components/Projects"
 import Skills from "@/components/Skills"
-import Exprience from "@/components/Exprience"
+import Experience from "@/components/Experience"
 import Footer from "@/components/Footer"
 import About from "@/components/About"
 import AiChat from "@/components/AiChat"
 import { useScrollLock } from "@/hooks/useScrollLock"
+import { useDarkMode } from "@/hooks/useDarkMode"
 import { useState, useEffect, useRef } from "react"
 import ScrollReveal from "@/components/ScrollReveal"
 
 function Home() {
   const [showLanding, setShowLanding] = useState<boolean>(true)
+  const { isDark, toggle: toggleDark } = useDarkMode()
 
   const projectsRef = useRef<HTMLDivElement>(null)
   const aboutRef = useRef<HTMLDivElement>(null)
@@ -65,6 +67,8 @@ function Home() {
         onAboutClick={() => scrollToSection(aboutRef)}
         onSkillsClick={() => scrollToSection(skillsRef)}
         onExpClick={() => scrollToSection(expRef)}
+        isDark={isDark}
+        onToggleDark={toggleDark}
       />
       <main className="w-full min-h-screen flex flex-col bg-main-bg">
         <Hero showLanding={showLanding} />
@@ -78,7 +82,7 @@ function Home() {
           <Skills ref={skillsRef} />
         </ScrollReveal>
         <ScrollReveal direction="up" delay={0.3}>
-          <Exprience ref={expRef} />
+          <Experience ref={expRef} />
         </ScrollReveal>
         <Footer />
       </main>

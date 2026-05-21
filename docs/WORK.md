@@ -4,19 +4,12 @@
 
 ---
 
-## [AI Chat] 추가 개선 검토 항목
+## 후속 작업 후보 (우선순위 미정)
 
-현재 v5 세부 개선이 완료된 상태. 다음 개선 가능 항목들을 검토 중.
+### Konciar 데이터 정리
 
-### 진행 중 / 완료 항목
-- [x] 모바일 반응형 채팅 UI 보완 (`useExpandedHeight` 훅, touchstart, bottom 동적 처리)
-- [ ] 채팅 에러 상태 UI 개선 — 기획 완료(`docs/ai-chat-v6-improvement-plan.md`), 구현 예정
+- `src/data/projectDetails/konciar.tsx` — `img: "emailImage.png "` trailing space 제거
 
----
+### plan 문서 보관 여부 결정
 
-## 문서 정리
-
-- [x] `CLAUDE.md` 프로젝트 루트에 생성 (2025-05-15)
-- [x] `docs/HISTORY.md` 정비 (v1~v5 완료 항목 정리)
-- [x] `docs/WORK.md` 정비 (이 파일)
-- [ ] 완료된 plan 문서들(`ai-chat-*-plan.md`) 보관 여부 결정
+- `docs/ai-chat-*-plan.md` 파일들 — 완료된 기획 문서, 삭제 또는 archive 폴더 이동

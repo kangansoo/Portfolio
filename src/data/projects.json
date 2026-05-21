@@ -4,27 +4,27 @@
     "title": "Pading",
     "image": "/pading.png",
     "description": "협업을 위한 웹 IDE 및 관리 시스템",
-    "route": "/pading"
+    "route": "/project/pading"
   },
   {
     "id": 2,
     "title": "뉴키즈",
     "image": "/main.png",
     "description": "어린이를 위한 뉴스 플랫폼",
-    "route": "/newkiz"
+    "route": "/project/newkiz"
   },
   {
     "id": 3,
     "title": "LAY UP",
     "image": "/Logo.png",
     "description": "소상공인을 위한 AI 기반 SNS 마케팅 자동화 서비스",
-    "route": "/layup"
+    "route": "/project/layup"
   },
   {
     "id": 4,
     "title": "Konciar",
     "image": "/konciarBackground.png",
     "description": "한국 방문 외국인을 위한 로컬 예약 및 대리 문의 컨시어지 서비스",
-    "route": "/konciar"
+    "route": "/project/konciar"
   }
 ]

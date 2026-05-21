@@ -37,4 +37,26 @@ export interface RoleProps {
   isMultiImg?: boolean // 다중 이미지 모드 여부
   isMobile?: boolean // 모바일 레이아웃 적용 여부
   isCol?: boolean // 컬럼 레이아웃 적용 여부
+  isRow?: boolean // 모바일에서도 항상 가로 배치
+}
+
+// 4. 프로젝트 상세 페이지 데이터 타입
+export interface ProjectDetailData {
+  title: string
+  headerImage: string
+  headerAlt: string
+  footerId: number
+  intro: string
+  projectInfo: ProjectInfoProps[]
+  features: FeatureProps[]
+  roles: RoleProps[]
+  achievements: string[]
+  scrollAnchor?: {
+    stateKey: string
+    roleTitle: string
+  }
+  // h1 제목 uppercase 적용 여부 (기본 true)
+  uppercaseTitle?: boolean
+  // 루트 래퍼에 dark:bg-black/10 오버레이 적용 여부 (기본 false)
+  darkBgOverlay?: boolean
 }

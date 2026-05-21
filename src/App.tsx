@@ -1,19 +1,17 @@
+import { lazy, Suspense } from "react"
 import { Routes, Route } from "react-router-dom"
-import Home from "@/components/Home"
-import LayUp from "@/pages/LayUp"
-import NewKiz from "@/pages/NewKiz"
-import Pading from "@/pages/Pading"
-import Konciar from "@/pages/Konciar"
+
+const Home = lazy(() => import("@/components/Home"))
+const ProjectDetail = lazy(() => import("@/pages/ProjectDetail"))
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/layup" element={<LayUp />} />
-      <Route path="/newkiz" element={<NewKiz />} />
-      <Route path="/pading" element={<Pading />} />
-      <Route path="/konciar" element={<Konciar />} />
-    </Routes>
+    <Suspense fallback={null}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/project/:id" element={<ProjectDetail />} />
+      </Routes>
+    </Suspense>
   )
 }
 
