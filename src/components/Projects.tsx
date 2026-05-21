@@ -11,7 +11,7 @@ const CustomNextArrow = (props: {
   const { onClick } = props;
   return (
     <button
-      className="absolute right-[-50px] top-1/2 -translate-y-1/2 z-10 w-6 h-6 flex items-center justify-center bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 rounded-full shadow-md cursor-pointer transition-all border border-gray-200 dark:border-gray-800 hidden md:flex"
+      className="absolute right-[-50px] top-1/2 -translate-y-1/2 z-10 w-6 h-6 items-center justify-center bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 rounded-full shadow-md cursor-pointer transition-all border border-gray-200 dark:border-gray-800 hidden md:flex"
       onClick={onClick}
       aria-label="다음 프로젝트"
     >
@@ -26,7 +26,7 @@ const CustomPrevArrow = (props: {
   const { onClick } = props;
   return (
     <button
-      className="absolute left-[-50px] top-1/2 -translate-y-1/2 z-10 w-6 h-6 flex items-center justify-center bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 rounded-full shadow-md cursor-pointer transition-all border border-gray-200 dark:border-gray-800 hidden md:flex"
+      className="absolute left-[-50px] top-1/2 -translate-y-1/2 z-10 w-6 h-6 items-center justify-center bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 rounded-full shadow-md cursor-pointer transition-all border border-gray-200 dark:border-gray-800 hidden md:flex"
       onClick={onClick}
       aria-label="이전 프로젝트"
     >
