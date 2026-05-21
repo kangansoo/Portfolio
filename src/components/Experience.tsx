@@ -38,16 +38,16 @@ const Experience = forwardRef<HTMLElement>((_, ref) => {
       <div className="w-[92%] md:w-[60%] flex flex-col justify-center">
         <h2
           id="exp-title"
-          className="font-nanumsquare text-2xl font-bold text-font-color"
+          className="font-nanumsquare text-2xl font-bold text-font-title"
         >
           Experience
         </h2>
-        <ol className="w-full flex flex-col font-nexon text-font-color/80 mt-5 gap-8">
+        <ol className="w-full flex flex-col font-nexon text-font-sub mt-5 gap-8">
           {expData.map((exp, index) => (
             <li key={index}>
               <article>
                 <header className="flex flex-col md:flex-row items-baseline gap-2 mb-3">
-                  <h3 className="text-lg text-font-color">
+                  <h3 className="text-lg text-font-title">
                     {exp.organization}
                   </h3>
                   <time className="text-sm opacity-90 pl-1 md:pl-0">

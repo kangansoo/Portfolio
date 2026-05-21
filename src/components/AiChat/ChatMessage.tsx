@@ -15,10 +15,10 @@ const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components
     <p className="leading-relaxed mb-2 last:mb-0 font-pretendard">{children}</p>
   ),
   strong: ({ children }) => (
-    <strong className="font-semibold text-gray-900 dark:text-gray-100">{children}</strong>
+    <strong className="font-semibold text-font-title">{children}</strong>
   ),
   em: ({ children }) => (
-    <em className="italic text-gray-700 dark:text-gray-300">{children}</em>
+    <em className="italic text-font-sub">{children}</em>
   ),
   ul: ({ children }) => (
     <ul className="list-disc list-inside mb-2 last:mb-0 space-y-1 font-pretendard">{children}</ul>
@@ -33,20 +33,20 @@ const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components
     const isBlock = className?.includes("language-")
     if (isBlock) {
       return (
-        <code className="block bg-white/50 dark:bg-black/30 rounded-lg px-3 py-2 my-2 text-xs font-mono text-gray-800 dark:text-gray-300 overflow-x-auto">
+        <code className="block bg-white/50 dark:bg-black/30 rounded-lg px-3 py-2 my-2 text-xs font-mono text-font-body overflow-x-auto">
           {children}
         </code>
       )
     }
     return (
-      <code className="bg-white/50 dark:bg-black/30 rounded px-1.5 py-0.5 text-xs font-mono text-gray-800 dark:text-gray-300">
+      <code className="bg-white/50 dark:bg-black/30 rounded px-1.5 py-0.5 text-xs font-mono text-font-body">
         {children}
       </code>
     )
   },
   pre: ({ children }) => <pre className="overflow-x-auto">{children}</pre>,
   blockquote: ({ children }) => (
-    <blockquote className="border-l-2 border-blue-300 dark:border-blue-500 pl-3 my-2 text-gray-600 dark:text-gray-400 italic">
+    <blockquote className="border-l-2 border-blue-300 dark:border-blue-500 pl-3 my-2 text-font-caption italic">
       {children}
     </blockquote>
   ),
@@ -79,7 +79,7 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
       <div className="flex-shrink-0 w-9 h-9 rounded-full overflow-hidden bg-white dark:bg-gray-800">
         <img src="/images/profile.jpg" alt="profile" className="w-full h-full object-cover opacity-100" />
       </div>
-      <div className="ai-bubble max-w-[78%] rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-gray-900 dark:text-gray-100">
+      <div className="ai-bubble max-w-[78%] rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-font-title">
         <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
           {message.content}
         </ReactMarkdown>

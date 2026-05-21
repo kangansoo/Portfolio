@@ -60,7 +60,7 @@ const ChatInput = ({
         placeholder={placeholder}
         rows={1}
         disabled={isLoading}
-        className="flex-1 resize-none bg-transparent text-sm text-gray-900 dark:text-gray-100 placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none leading-6 font-pretendard"
+        className="flex-1 resize-none bg-transparent text-sm text-font-body placeholder-font-caption focus:outline-none leading-6 font-pretendard"
         style={{ maxHeight: "108px" }}
         aria-label="메시지 입력"
       />
@@ -70,7 +70,7 @@ const ChatInput = ({
           className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-xl transition-colors duration-200 hover:bg-white/40 dark:hover:bg-white/10 cursor-pointer"
           aria-label="채팅 최대화"
         >
-          <LuChevronUp className="text-gray-400 dark:text-gray-500 text-base" />
+          <LuChevronUp className="text-font-caption text-base" />
         </button>
       )}
       <button
@@ -91,7 +91,7 @@ const ChatInput = ({
         <div className="ai-input-box rounded-2xl px-4 py-3">
           {inputRow}
         </div>
-        <p className="text-xs text-gray-400 dark:text-gray-500 mt-2 text-center font-pretendard select-none">
+        <p className="text-xs text-font-caption mt-2 text-center font-pretendard select-none">
           Enter로 전송 &middot; Shift+Enter로 줄바꿈
         </p>
       </div>

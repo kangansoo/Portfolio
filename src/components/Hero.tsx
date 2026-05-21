@@ -35,7 +35,7 @@ const Hero = ({ showLanding }: HeroProps) => {
 
   return (
     <section
-      className="w-full py-12 md:py-30 flex flex-col justify-center items-center text-font-color"
+      className="w-full py-12 md:py-30 flex flex-col justify-center items-center text-font-title"
       aria-label="자기소개 섹션"
     >
       <div className="w-[92%] md:w-[60%] flex flex-col items-start">
@@ -62,7 +62,7 @@ const Hero = ({ showLanding }: HeroProps) => {
           <div className="absolute top-0 left-0 w-full h-full flex flex-col items-start">
             <div
               ref={typingRef}
-              className={`inline-block text-sm md:text-base typewriter-cursor leading-relaxed font-nexon text-font-color/60 ${!animationStarted ? "invisible" : "visible"}`}
+              className={`inline-block text-sm md:text-base typewriter-cursor leading-relaxed font-nexon text-font-body ${!animationStarted ? "invisible" : "visible"}`}
               aria-live="polite"
               aria-atomic="true"
             >

@@ -145,6 +145,10 @@
 
   /* 요소 별 색 */
   --color-font-color: var(--color-landing-700);
+  --color-font-title: #3a3c3c;
+  --color-font-body: #3a3c3c;
+  --color-font-sub: #646666;
+  --color-font-caption: #9e9e9e;
 
   /* hover:깜빡이는 효과 */
   --animate-pulse-color: pulse-color 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -184,6 +188,10 @@
 html.dark {
   --color-main-bg: #111318;
   --color-font-color: #eaecf4;
+  --color-font-title: #eaecf4;
+  --color-font-body: #ccd0db;
+  --color-font-sub: #b4bbd0;
+  --color-font-caption: #a4adc6;
   --color-point: #7fa2ff;
   background-color: var(--color-main-bg);
 }

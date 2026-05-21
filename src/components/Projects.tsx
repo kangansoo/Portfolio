@@ -11,11 +11,11 @@ const CustomNextArrow = (props: {
   const { onClick } = props;
   return (
     <button
-      className="absolute right-[-50px] top-1/2 -translate-y-1/2 z-10 w-6 h-6 flex items-center justify-center bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 rounded-full shadow-md cursor-pointer transition-all border border-gray-200 dark:border-gray-600 hidden md:flex"
+      className="absolute right-[-50px] top-1/2 -translate-y-1/2 z-10 w-6 h-6 flex items-center justify-center bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 rounded-full shadow-md cursor-pointer transition-all border border-gray-200 dark:border-gray-800 hidden md:flex"
       onClick={onClick}
       aria-label="다음 프로젝트"
     >
-      <span className="text-gray-600 dark:text-gray-300 text-xs">❯</span>
+      <span className="text-font-caption text-xs">❯</span>
     </button>
   );
 };
@@ -26,11 +26,11 @@ const CustomPrevArrow = (props: {
   const { onClick } = props;
   return (
     <button
-      className="absolute left-[-50px] top-1/2 -translate-y-1/2 z-10 w-6 h-6 flex items-center justify-center bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 rounded-full shadow-md cursor-pointer transition-all border border-gray-200 dark:border-gray-600 hidden md:flex"
+      className="absolute left-[-50px] top-1/2 -translate-y-1/2 z-10 w-6 h-6 flex items-center justify-center bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 rounded-full shadow-md cursor-pointer transition-all border border-gray-200 dark:border-gray-800 hidden md:flex"
       onClick={onClick}
       aria-label="이전 프로젝트"
     >
-      <span className="text-gray-600 dark:text-gray-300 text-xs">❮</span>
+      <span className="text-font-caption text-xs">❮</span>
     </button>
   );
 };
@@ -104,10 +104,10 @@ const Projects = forwardRef<HTMLElement, unknown>((_, ref) => {
                         <div className="absolute inset-0 bg-black/0 dark:bg-black/10 pointer-events-none transition-colors duration-300" />
                       </div>
                       <figcaption className="p-2 md:p-6 text-left flex-1 flex flex-col">
-                        <h3 className="text-lg md:text-xl font-bold md:mb-2 text-gray-900 dark:text-gray-100 font-nanumsquare">
+                        <h3 className="text-lg md:text-xl font-bold md:mb-2 text-font-title font-nanumsquare">
                           {project.title}
                         </h3>
-                        <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 font-nexon line-clamp-3 leading-relaxed">
+                        <p className="text-xs md:text-sm text-font-caption font-nexon line-clamp-3 leading-relaxed">
                           {project.description}
                         </p>
                       </figcaption>
