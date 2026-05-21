@@ -61,7 +61,7 @@ const Header = ({
           <button
             type="button"
             onClick={onToggleDark}
-            className="flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 text-font-title"
+            className="flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 text-font-title hover:text-point"
             aria-label={isDark ? "라이트 모드로 전환" : "다크 모드로 전환"}
           >
             {isDark ? (

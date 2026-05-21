@@ -37,7 +37,7 @@ const ProjectFooter = ({ id }: ProjectFooterProps) => {
   )
 
   return (
-    <div className="w-full h-20 flex flex-row justify-center items-center bg-main-bg mt-10 border-t-1 border-gray-200">
+    <div className="w-full h-20 flex flex-row justify-center items-center bg-main-bg mt-10 border-t-1 border-gray-200 dark:border-gray-800">
       <div className="w-[92%] md:w-1/2 flex flex-row justify-between items-center font-nexon text-sm text-font-sub">
         {/* 이전 프로젝트 영역 */}
         <div className="flex-1 flex flex-col items-start h-full justify-center">
