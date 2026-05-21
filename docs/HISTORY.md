@@ -4,6 +4,17 @@
 
 ---
 
+## 2026-05-21 — 버그 수정 및 개선
+
+- **다크모드 FOUC 방지**: `index.html` `<head>` 최상단에 블로킹 인라인 스크립트 추가 — localStorage → `prefers-color-scheme` 순으로 초기값 적용, 첫 방문 시 시스템 설정 자동 반영
+- **Pading 화상회의 시스템 모바일 레이아웃**: `isRow` 플래그 추가로 모바일에서도 `flex-row` 유지, 두 번째 이미지 `w-1/5` 고정
+- **ProjectDetail 렌더링 통일**: 문제상황/해결방법/결과 배열 여부 무관하게 `list-disc` 통일
+- **tsconfig 경고 수정**: `baseUrl` deprecated → `paths`를 `./src/*` 상대경로로 변경 (TS 6.0 대응)
+- **Projects CustomArrow 수정**: `flex`/`hidden` Tailwind display 충돌 제거
+- **기존 상세 페이지 파일 삭제 완료**: `src/pages/LayUp.tsx` 등 4개 — 리팩토링 이후 미사용 파일 정리
+
+---
+
 ## 2026-05-20 — 프로젝트 상세 페이지 리팩토링 (템플릿 통합)
 
 - 4개 상세 페이지(LayUp, NewKiz, Pading, Konciar)의 동일 JSX 구조를 `ProjectDetail.tsx` 단일 템플릿으로 통합
@@ -130,13 +141,3 @@
 - 글로벌 커스텀 스크롤바 (`style/CustomScroll.css`)
 - 헤더 스크롤 이동 기능 + 페이지 이동 시 최상단 유지
 - LayUp 상세 페이지 완성
-
----
-
-## 문서 정리
-
-- [x] `CLAUDE.md` 프로젝트 루트에 생성 (2026-05-15)
-- [x] `docs/HISTORY.md` 날짜별 재정비 (2026-05-20)
-- [x] `docs/WORK.md` 정비
-- [x] `docs/design-tokens.md` 생성 — `@theme` 전체 토큰 + 폰트 색 사용 현황 (2026-05-20)
-- [ ] 완료된 plan 문서들(`ai-chat-*-plan.md`) 보관 여부 결정
