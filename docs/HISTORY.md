@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-05-26 — AI Chat 글래스모피즘 배포 버그 수정
+
+- **증상**: 로컬(dev)에서는 정상, 배포(prod)에서 AI Chat 패널이 완전 투명 — blur 없이 배경이 그대로 비쳐 보임
+- **원인**: `React.lazy + Suspense` 도입(`0755b57`) 후 Framer Motion의 `will-change: transform`이 애니메이션 완료 후에도 유지됨 → 부모 `motion.div`가 GPU 레이어(stacking context)를 영구 생성 → 자식 `.ai-panel`의 `backdrop-filter`가 빈 레이어 내부만 블러해 투명하게 보임
+- **수정**: `src/components/AiChat/index.tsx` — 외부 `motion.div`(opacity+y 담당) 제거, 모든 애니메이션(`opacity`, `y`, `height`)을 `.ai-panel` 요소 자체에 통합. 자기 자신이 GPU 레이어를 만드는 건 `backdrop-filter`를 깨지 않음
+- 상세 분석: `docs/DEBUG.md` 참조
+
+---
+
 ## 2026-05-21 — JS 번들 최적화 (코드 스플리팅 + manualChunks)
 
 - **라우트 lazy split** (`App.tsx`): `Home`, `ProjectDetail`을 `React.lazy()` + `Suspense`로 전환 → ProjectDetail 청크 분리
