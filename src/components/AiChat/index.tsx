@@ -74,25 +74,25 @@ const AiChat = ({ showLanding = false }: { showLanding?: boolean }) => {
       className="fixed left-0 right-0 z-50 flex justify-center pointer-events-none"
       style={{ bottom: bottomOffset }}
     >
-      <motion.div
-        className={isVisible ? "pointer-events-auto" : "pointer-events-none"}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-        transition={{ duration: 0.4, ease: EASE }}
-      >
         <motion.div
           ref={panelRef}
-          className="ai-panel relative overflow-hidden flex flex-col"
+          className={`ai-panel relative overflow-hidden flex flex-col ${isVisible ? "pointer-events-auto" : "pointer-events-none"}`}
           style={{
             borderRadius: "20px",
             width: "560px",
             maxWidth: "calc(100vw - 24px)",
           }}
+          initial={{ opacity: 0, y: 20, height: DEFAULT_HEIGHT }}
           animate={{
+            opacity: isVisible ? 1 : 0,
+            y: isVisible ? 0 : 20,
             height: chatState === "expanded" ? expandedHeight : DEFAULT_HEIGHT,
           }}
-          initial={false}
-          transition={{ duration: 0.35, ease: EASE }}
+          transition={{
+            opacity: { duration: 0.4, ease: EASE },
+            y: { duration: 0.4, ease: EASE },
+            height: { duration: 0.35, ease: EASE },
+          }}
         >
           {/* 상단 수평 하이라이트 선 */}
           <div className="ai-highlight-top absolute top-0 left-0 right-0 h-px pointer-events-none z-10" />
@@ -143,7 +143,6 @@ const AiChat = ({ showLanding = false }: { showLanding?: boolean }) => {
             }
           />
         </motion.div>
-      </motion.div>
     </div>
   );
 };
