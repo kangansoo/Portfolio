@@ -27,7 +27,12 @@
       "Bash(git *)",
       "mcp__ide__getDiagnostics",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
-      "Bash(powershell *)"
+      "Bash(powershell *)",
+      "WebFetch(domain:stackoverflow.com)",
+      "WebSearch",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:weblog.west-wind.com)",
+      "Bash(start *)"
     ]
   }
 }
