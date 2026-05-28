@@ -4,6 +4,14 @@
 
 ---
 
+## 2026-05-28 — AI Chat 말풍선 색상 조정
+
+- `.ai-bubble` 라이트: 단색 → `linear-gradient(135deg, rgba(242,245,255,1), rgba(237,242,255,1))`
+- `.ai-bubble` 다크: 단색 → `linear-gradient(135deg, #1a2230, rgba(30,30,34,0.9))`
+- 유저 버블: `#3560d4→#5e7ee8` → `rgba(84,122,227)→rgba(102,131,227)` (채도 낮춤)
+
+---
+
 ## 2026-05-28 — AI Chat backdrop-filter 배포 버그 완전 수정
 
 - **증상**: PC Chrome 배포 환경에서 AI Chat 패널 backdrop-filter 효과 없음 (로컬·Safari는 정상)

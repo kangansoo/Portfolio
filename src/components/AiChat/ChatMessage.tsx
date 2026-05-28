@@ -7,7 +7,7 @@ interface ChatMessageProps {
 }
 
 const userBubbleStyle = {
-  background: "linear-gradient(135deg, #3560d4 0%, #5e7ee8 100%)",
+  background: "linear-gradient(135deg, rgba(84, 122, 227, 1), rgba(102, 131, 227, 1))",
 }
 
 // import type only — compile-time, no runtime bundle impact
