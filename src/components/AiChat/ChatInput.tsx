@@ -14,7 +14,7 @@ interface ChatInputProps {
 }
 
 const sendActiveStyle = {
-  background: "linear-gradient(135deg, #4875eb 0%, #ae86ff 100%)",
+  background: "linear-gradient(135deg, var(--color-point) 0%, var(--color-brand-purple) 100%)",
 }
 
 const ChatInput = ({

@@ -4,6 +4,30 @@
 
 ---
 
+## 2026-05-28 — 미사용 색상 토큰 삭제 (App.css)
+
+- `--color-blue-gray-*` 10개 전체 삭제 (미사용, 확장용으로만 남아 있던 스케일)
+- `--color-landing-100/300/500/700` 삭제, `--color-landing-900`만 유지 (`LandingComponent` 사용)
+- `--color-font-color` @theme + html.dark 삭제 (레거시, 시맨틱 토큰으로 대체됨)
+- `--color-brand-light`, `--color-sub` 삭제 (미사용)
+- `--color-perplexity`, `--color-nexon-green`, `--color-nexon-navy` 삭제 (미사용)
+- design-tokens.md 동기화
+
+---
+
+## 2026-05-28 — 브랜드 색상 토큰 정리 및 하드코딩 교체
+
+- `App.css` `@theme`에 `--color-brand-pink: #f472b6` 추가
+- `html.dark`에 다크 오버라이드 추가: `--color-brand-blue: #7a9ce8`, `--color-brand-purple: #c4a8ff`, `--color-brand-pink: #e06aaa`
+- `@keyframes ai-color` 3개 하드코딩 색 → `var(--color-point)`, `var(--color-brand-purple)`, `var(--color-brand-pink)` 교체
+- `@keyframes ai-color-dark` 제거 — `ai-color` CSS 변수가 다크모드 자동 대응하므로 통합
+- `html.dark .ai-loading-ring` 블록 제거 (동일 이유)
+- `.ai-loading-ring` 초기 `border-top-color: #4875eb` → `var(--color-point)`
+- `ChatMessage.tsx` 링크 색상 4개 하드코딩 → `text-point`, `dark:text-brand-blue`, `hover:text-brand-purple`, `dark:hover:text-brand-purple`
+- `ChatInput.tsx` gradient 하드코딩 → `var(--color-point)`, `var(--color-brand-purple)`
+
+---
+
 ## 2026-05-28 — AI Chat 말풍선 색상 조정
 
 - `.ai-bubble` 라이트: 단색 → `linear-gradient(135deg, rgba(242,245,255,1), rgba(237,242,255,1))`

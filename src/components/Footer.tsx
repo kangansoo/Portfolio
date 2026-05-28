@@ -49,7 +49,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="w-full py-8 md:py-10 flex flex-col justify-center items-center bg-landing-700 dark:bg-[#0d1117] transition-colors duration-300">
+    <footer className="w-full py-8 md:py-10 flex flex-col justify-center items-center bg-footer-bg transition-colors duration-300">
       <h2 className="sr-only">Home Page Footer</h2>
       <div className="flex flex-col items-center gap-4 text-font-caption font-nexon">
         <section

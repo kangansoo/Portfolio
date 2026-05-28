@@ -76,7 +76,7 @@ const Projects = forwardRef<HTMLElement, unknown>((_, ref) => {
   return (
     <section
       ref={ref}
-      className="w-full bg-sub/20 dark:bg-[#4875eb]/10 flex items-center justify-center py-12"
+      className="w-full bg-projects-section-bg flex items-center justify-center py-12"
       aria-labelledby="projects-heading"
     >
       <div className="w-[92%] md:w-[60%] flex flex-col relative">
@@ -87,7 +87,7 @@ const Projects = forwardRef<HTMLElement, unknown>((_, ref) => {
           <Slider {...settings} className="w-full">
             {reversedProjects.map((project) => (
               <div key={project.id} className="outline-none py-4 px-2">
-                <article className="bg-white dark:bg-[#1e2230] rounded-2xl overflow-hidden transform transition-all h-full aspect-square md:aspect-auto md:min-h-[400px]">
+                <article className="bg-sub-bg rounded-2xl overflow-hidden transform transition-all h-full aspect-square md:aspect-auto md:min-h-[400px]">
                   <button
                     type="button"
                     className="w-full h-full flex flex-col focus:outline-none"
