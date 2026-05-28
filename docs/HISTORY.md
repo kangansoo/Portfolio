@@ -4,6 +4,18 @@
 
 ---
 
+## 2026-05-28 — AI Chat backdrop-filter 배포 버그 완전 수정
+
+- **증상**: PC Chrome 배포 환경에서 AI Chat 패널 backdrop-filter 효과 없음 (로컬·Safari는 정상)
+- **원인 1**: Tailwind v4 PostCSS가 빌드 시 CSS class의 `backdrop-filter` 속성을 제거 → Tailwind universal selector의 `backdrop-filter: var(--tw-backdrop-blur,)`(빈 값)에 의해 덮어씌워짐
+- **원인 2**: 외부 `div.fixed` 래퍼가 Chrome에서 compositor layer로 분리 → 내부 `motion.div`의 `backdrop-filter`가 레이어 투명 배경만 블러처리
+- **수정 1**: `src/components/AiChat/index.tsx` — `backdropFilter`를 JSX inline style로 이동 (PostCSS 우회), 외부 `div.fixed` 래퍼 제거 후 `motion.div` 자체에 `position: fixed` 적용 (`left: 50%` + `x: "-50%"` 센터링)
+- **수정 2**: `App.css` import를 `Home.tsx`(lazy) → `main.tsx`(entry)로 이동 — FOUC 방지 및 초기 CSS 번들에 전역 스타일 포함
+- CSS 분리 변경: entry CSS 0 kB → 39.45 kB (App.css 포함), lazy Home CSS 53.14 kB → 13.69 kB
+- 상세 분석: `docs/DEBUG.md` 2026-05-28 섹션 참조
+
+---
+
 ## 2026-05-26 — AI Chat 글래스모피즘 배포 버그 수정
 
 - **증상**: 로컬(dev)에서는 정상, 배포(prod)에서 AI Chat 패널이 완전 투명 — blur 없이 배경이 그대로 비쳐 보임

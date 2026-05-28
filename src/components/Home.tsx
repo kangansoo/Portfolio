@@ -1,4 +1,3 @@
-import "@/App.css"
 import "@/style/CustomScroll.css"
 import LandingComponent from "@/components/LandingComponent"
 import Header from "@/components/Header"
