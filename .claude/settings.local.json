@@ -32,7 +32,8 @@
       "WebSearch",
       "WebFetch(domain:medium.com)",
       "WebFetch(domain:weblog.west-wind.com)",
-      "Bash(start *)"
+      "Bash(start *)",
+      "Bash(npm audit *)"
     ]
   }
 }
