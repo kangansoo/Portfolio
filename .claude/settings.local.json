@@ -33,7 +33,10 @@
       "WebFetch(domain:medium.com)",
       "WebFetch(domain:weblog.west-wind.com)",
       "Bash(start *)",
-      "Bash(npm audit *)"
+      "Bash(npm audit *)",
+      "Bash(Get-ChildItem \"C:\\\\project\\\\Portfolio\" -Filter \".env*\")",
+      "Bash(Select-Object Name)",
+      "mcp__plugin_playwright_playwright__browser_press_key"
     ]
   }
 }

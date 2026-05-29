@@ -11,7 +11,7 @@ const About = forwardRef<HTMLElement>((_, ref) => {
 
   return (
     <section
-      className="w-full flex justify-center items-center select-none pt-20 pb-10"
+      className="w-full flex justify-center items-center pt-20 pb-10"
       ref={ref}
       aria-labelledby="about-heading"
     >
@@ -31,15 +31,15 @@ const About = forwardRef<HTMLElement>((_, ref) => {
             <Strong fontSize="md" onClick={handlePwaClick}>
               PWA 도입
             </Strong>
-              이나 다양한 기기 해상도 환경에서 발생한 실시간 게임 캐릭터 좌표 불일치 문제를{" "}
+              , 다양한 기기 해상도 환경에서 발생한 실시간 게임 캐릭터 좌표 불일치 문제 해결을 위한{" "}
             <Strong fontSize="md" onClick={handleAlgorithmClick}>
               Min-Max Scaling
             </Strong>
-            으로 해결, 비즈니스 검증과 사용자 중심의 UX 설계를 위한{" "}
+              {" "}알고리즘 채택, 비즈니스 검증과 사용자 중심의 UX 설계를 위한{" "}
             <Strong fontSize="md" onClick={handleInterviewClick}>
               길거리 인터뷰
             </Strong>
-            {" "}등 사용자 경험 개선을 위한 문제 해결에 집중해왔습니다. <br />
+              를 진행하는 등 사용자 경험 개선을 위한 문제 해결에 집중해왔습니다. <br />
             <br />최근에는 AI 도구를 활용하며 코드 구현을 넘어 제품 전체의 가치를 함께 만들어가는 개발자로 성장하고자 합니다.
           </p>
         </div>
