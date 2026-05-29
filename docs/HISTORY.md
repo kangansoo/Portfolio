@@ -4,6 +4,16 @@
 
 ---
 
+## 2026-05-29 — 프로젝트 상세 페이지 위로가기 버튼 추가
+
+- `src/components/ScrollToTopButton.tsx` 신규 생성
+  - `fixed right-4 bottom-24` (footer 80px + 여백 16px)
+  - `scrollY > 300` 초과 시 노출
+  - 클릭 시 `scrollTo({ top: 0, behavior: 'smooth' })`
+- `ProjectDetail.tsx`에 `<ScrollToTopButton />` 추가
+
+---
+
 ## 2026-05-28 — 미사용 색상 토큰 삭제 (App.css)
 
 - `--color-blue-gray-*` 10개 전체 삭제 (미사용, 확장용으로만 남아 있던 스케일)

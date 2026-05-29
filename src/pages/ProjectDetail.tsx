@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 import ProjectFooter from "@/components/ProjectFooter"
+import ScrollToTopButton from "@/components/ScrollToTopButton"
 import type { ProjectDetailData, RoleProps } from "@/types"
 import { layupData } from "@/data/projectDetails/layup"
 import { newkizData } from "@/data/projectDetails/newkiz"
@@ -241,6 +242,7 @@ const ProjectDetail = () => {
       </main>
 
       <ProjectFooter id={data.footerId} />
+      <ScrollToTopButton />
     </div>
   )
 }
