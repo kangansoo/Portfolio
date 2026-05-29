@@ -95,14 +95,15 @@
   --font-nanumsquare: "NanumSquare", sans-serif;
   --font-nexon: "NexonLv1Gothic";
   /* --color-landing: #1f2121; */
-  --color-main-bg: #f8f8f8;
 
-  /* Landing Color Scale */
-  --color-landing-100: #e4e5e5;
-  --color-landing-300: #a2a3a3;
-  --color-landing-500: #646666;
-  --color-landing-700: #3a3c3c;
-  --color-landing-900: #1f2121;
+  /* 배경 색 */
+  --color-main-bg: #f8f8f8;
+  --color-sub-bg: #ffffff;
+  --color-projects-section-bg: #d4e0ea;
+  --color-footer-bg: #1f2121;
+
+  /* Landing Color */
+  --color-landing: #1f2121;
 
   /* Gray Scale */
   --color-gray-50: #fafafa;
@@ -116,35 +117,15 @@
   --color-gray-800: #424242;
   --color-gray-900: #212121;
 
-  /* Blue Gray Scale */
-  --color-blue-gray-50: #eceff1;
-  --color-blue-gray-100: #cfd8dc;
-  --color-blue-gray-200: #b0bec5;
-  --color-blue-gray-300: #90a4ae;
-  --color-blue-gray-400: #78909c;
-  --color-blue-gray-500: #607d8b;
-  --color-blue-gray-600: #546e7a;
-  --color-blue-gray-700: #455a64;
-  --color-blue-gray-800: #37474f;
-  --color-blue-gray-900: #263238;
-
   /* gradient */
   --color-brand-blue: #8baaff;
   --color-brand-purple: #ae86ff;
-  --color-brand-light: #e0e7ff;
+  --color-brand-pink: #f472b6;
 
-  /* sub color */
-  --color-sub: #4682b4;
+  /* point */
   --color-point: #4875eb;
 
-  /* 퍼플렉시티 민트 */
-  --color-perplexity: #31b8c6;
-  /* 넥슨 그린, 네이비 */
-  --color-nexon-green: #b4e114;
-  --color-nexon-navy: #0a3255;
-
   /* 요소 별 색 */
-  --color-font-color: var(--color-landing-700);
   --color-font-title: #3a3c3c;
   --color-font-body: #3a3c3c;
   --color-font-sub: #646666;
@@ -186,13 +167,18 @@
 
 /* ── Dark mode 색상 토큰 오버라이드 ── */
 html.dark {
-  --color-main-bg: #111318;
-  --color-font-color: #eaecf4;
+  --color-main-bg: #1f2121;
+  --color-sub-bg: #25272A;
+  --color-footer-bg: #1a1919;
+  --color-projects-section-bg: #2f3336;
   --color-font-title: #eaecf4;
   --color-font-body: #ccd0db;
   --color-font-sub: #b4bbd0;
   --color-font-caption: #a4adc6;
   --color-point: #7fa2ff;
+  --color-brand-blue: #7a9ce8;
+  --color-brand-purple: #c4a8ff;
+  --color-brand-pink: #e06aaa;
   background-color: var(--color-main-bg);
 }
 
@@ -210,7 +196,7 @@ html.dark {
   inset: 0;
   border-radius: 50%;
   border: 2px solid transparent;
-  border-top-color: #4875eb;
+  border-top-color: var(--color-point);
   animation:
     ai-spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite,
     ai-color 6s linear infinite;
@@ -228,13 +214,13 @@ html.dark {
 @keyframes ai-color {
   0%,
   100% {
-    border-top-color: #4875eb;
+    border-top-color: var(--color-point);
   } /* 파랑 */
   33% {
-    border-top-color: #ae86ff;
+    border-top-color: var(--color-brand-purple);
   } /* 보라 */
   66% {
-    border-top-color: #f472b6;
+    border-top-color: var(--color-brand-pink);
   } /* 핑크 */
 }
 
@@ -348,11 +334,11 @@ html.dark .ai-corner-br {
 }
 
 .ai-bubble {
-  background: rgba(220, 230, 255, 0.35);
+  background: linear-gradient(135deg, rgba(242, 245, 255, 0.9), rgba(237, 242, 255, 0.9));
   border: 1px solid rgba(139, 170, 255, 0.25);
 }
 html.dark .ai-bubble {
-  background: rgba(30, 30, 34, 0.6);
+  background: linear-gradient(135deg, rgba(51, 51, 58, 0.9), rgba(30,30,34,0.9));
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -378,26 +364,6 @@ html.dark .ai-input-box {
 }
 html.dark .ai-send-inactive {
   background: rgba(50, 50, 55, 0.6);
-}
-
-/* AI Chat 로딩 스피너 — 다크 모드 색상 */
-@keyframes ai-color-dark {
-  0%,
-  100% {
-    border-top-color: #7fa2ff;
-  }
-  33% {
-    border-top-color: #c4a8ff;
-  }
-  66% {
-    border-top-color: #f472b6;
-  }
-}
-html.dark .ai-loading-ring {
-  border-top-color: #7fa2ff;
-  animation:
-    ai-spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite,
-    ai-color-dark 6s linear infinite;
 }
 
 html {

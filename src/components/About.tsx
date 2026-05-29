@@ -5,15 +5,9 @@ import { useNavigate } from "react-router-dom";
 const About = forwardRef<HTMLElement>((_, ref) => {
   const navigate = useNavigate();
 
-  // /layup 페이지로 이동하면서 scrollTo라는 상태값 전달
-  const handlePwaClick = () => {
-    navigate("/layup", { state: { scrollTo: "pwa-section" } });
-  };
-
-  // /newkiz 페이지로 이동하면서 scrollTo라는 상태값 전달
-  const handleAlgorithmClick = () => {
-    navigate("/newkiz", { state: { scrollTo: "algorithm-section" } });
-  };
+  const handlePwaClick = () => navigate("/project/layup#pwa-section");
+  const handleAlgorithmClick = () => navigate("/project/newkiz#algorithm-section");
+  const handleInterviewClick = () => navigate("/project/konciar");
 
   return (
     <section
@@ -30,24 +24,23 @@ const About = forwardRef<HTMLElement>((_, ref) => {
         </h2>
         <div className="w-full flex flex-col font-nexon text-font-body text-sm mt-5">
           <p>
-            개발자로서 사용자 경험을 가장 중요한 가치로 여기며, 마주한 문제를
-            해결하기 위해 적절한 기술을 유연하게 도입하는 데 강점이 있습니다.{" "}
+            사용자 경험을 가장 중요한 가치로 여기며, 기술 자체보다 "왜 이 기능이 필요한가", "어떻게 하면 더 나은 경험을 만들 수 있나"를 고민하는 개발자입니다.
+            {" "}
             <br />
-            <br /> 사용자 접근성 개선을 위한{" "}
+            <br />그 과정에서 사용자 편의성 개선을 위한{" "}
             <Strong fontSize="md" onClick={handlePwaClick}>
               PWA 도입
             </Strong>
-            이나 실시간 데이터 정합성을 위한{" "}
+              이나 다양한 기기 해상도 환경에서 발생한 실시간 게임 캐릭터 좌표 불일치 문제를{" "}
             <Strong fontSize="md" onClick={handleAlgorithmClick}>
-              알고리즘 적용
+              Min-Max Scaling
             </Strong>
-            , 개발 생산성 극대화를 위한{" "}
-            <Strong fontSize="md" onClick={handlePwaClick}>
-              AI 도구 도입
+            으로 해결, 비즈니스 검증과 사용자 중심의 UX 설계를 위한{" "}
+            <Strong fontSize="md" onClick={handleInterviewClick}>
+              길거리 인터뷰
             </Strong>
-            등 문제 상황에 적절한 기술들을 적용하며 해결해 왔습니다. <br />
-            <br />팀 내에서는 긴밀하게 소통하며 더 좋은 방향이 있다면 달갑게
-            수용하고, 함께 최선의 결과물을 만들어내는 과정에 즐거움을 느낍니다.
+            {" "}등 사용자 경험 개선을 위한 문제 해결에 집중해왔습니다. <br />
+            <br />최근에는 AI 도구를 활용하며 코드 구현을 넘어 제품 전체의 가치를 함께 만들어가는 개발자로 성장하고자 합니다.
           </p>
         </div>
       </div>

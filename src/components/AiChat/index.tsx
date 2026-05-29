@@ -70,21 +70,22 @@ const AiChat = ({ showLanding = false }: { showLanding?: boolean }) => {
   if (showLanding) return null;
 
   return (
-    <div
-      className="fixed left-0 right-0 z-50 flex justify-center pointer-events-none"
-      style={{ bottom: bottomOffset }}
-    >
         <motion.div
           ref={panelRef}
-          className={`ai-panel relative overflow-hidden flex flex-col ${isVisible ? "pointer-events-auto" : "pointer-events-none"}`}
+          className={`ai-panel fixed z-50 overflow-hidden flex flex-col ${isVisible ? "pointer-events-auto" : "pointer-events-none"}`}
           style={{
+            left: "50%",
+            bottom: bottomOffset,
             borderRadius: "20px",
             width: "560px",
             maxWidth: "calc(100vw - 24px)",
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
           }}
-          initial={{ opacity: 0, y: 20, height: DEFAULT_HEIGHT }}
+          initial={{ opacity: 0, x: "-50%", y: 20, height: DEFAULT_HEIGHT }}
           animate={{
             opacity: isVisible ? 1 : 0,
+            x: "-50%",
             y: isVisible ? 0 : 20,
             height: chatState === "expanded" ? expandedHeight : DEFAULT_HEIGHT,
           }}
@@ -143,7 +144,6 @@ const AiChat = ({ showLanding = false }: { showLanding?: boolean }) => {
             }
           />
         </motion.div>
-    </div>
   );
 };
 

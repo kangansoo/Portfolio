@@ -30,7 +30,7 @@ const Header = ({
   ];
 
   return (
-    <header className="w-full border-b-1 border-gray-300 dark:border-gray-900 flex flex-row items-center justify-center h-12 top-0 sticky z-40 bg-white dark:bg-[#16191f] shadow-md transition-colors duration-300">
+    <header className="w-full border-b-1 border-gray-300 dark:border-gray-900 flex flex-row items-center justify-center h-12 top-0 sticky z-40 bg-sub-bg shadow-md transition-colors duration-300">
       <div className="w-[90%] md:w-[80%] h-full flex flex-row justify-between items-center text-font-title font-bold">
         <strong
           className="cursor-pointer select-none hover:animate-pulse-color text-lg"

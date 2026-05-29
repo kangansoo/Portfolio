@@ -4,6 +4,60 @@
 
 ---
 
+## 2026-05-29 — 프로젝트 상세 페이지 위로가기 버튼 추가
+
+- `src/components/ScrollToTopButton.tsx` 신규 생성
+  - `fixed right-4 bottom-24` (footer 80px + 여백 16px)
+  - `scrollY > 300` 초과 시 노출
+  - 클릭 시 `scrollTo({ top: 0, behavior: 'smooth' })`
+- `ProjectDetail.tsx`에 `<ScrollToTopButton />` 추가
+
+---
+
+## 2026-05-28 — 미사용 색상 토큰 삭제 (App.css)
+
+- `--color-blue-gray-*` 10개 전체 삭제 (미사용, 확장용으로만 남아 있던 스케일)
+- `--color-landing-100/300/500/700` 삭제, `--color-landing-900`만 유지 (`LandingComponent` 사용)
+- `--color-font-color` @theme + html.dark 삭제 (레거시, 시맨틱 토큰으로 대체됨)
+- `--color-brand-light`, `--color-sub` 삭제 (미사용)
+- `--color-perplexity`, `--color-nexon-green`, `--color-nexon-navy` 삭제 (미사용)
+- design-tokens.md 동기화
+
+---
+
+## 2026-05-28 — 브랜드 색상 토큰 정리 및 하드코딩 교체
+
+- `App.css` `@theme`에 `--color-brand-pink: #f472b6` 추가
+- `html.dark`에 다크 오버라이드 추가: `--color-brand-blue: #7a9ce8`, `--color-brand-purple: #c4a8ff`, `--color-brand-pink: #e06aaa`
+- `@keyframes ai-color` 3개 하드코딩 색 → `var(--color-point)`, `var(--color-brand-purple)`, `var(--color-brand-pink)` 교체
+- `@keyframes ai-color-dark` 제거 — `ai-color` CSS 변수가 다크모드 자동 대응하므로 통합
+- `html.dark .ai-loading-ring` 블록 제거 (동일 이유)
+- `.ai-loading-ring` 초기 `border-top-color: #4875eb` → `var(--color-point)`
+- `ChatMessage.tsx` 링크 색상 4개 하드코딩 → `text-point`, `dark:text-brand-blue`, `hover:text-brand-purple`, `dark:hover:text-brand-purple`
+- `ChatInput.tsx` gradient 하드코딩 → `var(--color-point)`, `var(--color-brand-purple)`
+
+---
+
+## 2026-05-28 — AI Chat 말풍선 색상 조정
+
+- `.ai-bubble` 라이트: 단색 → `linear-gradient(135deg, rgba(242,245,255,1), rgba(237,242,255,1))`
+- `.ai-bubble` 다크: 단색 → `linear-gradient(135deg, #1a2230, rgba(30,30,34,0.9))`
+- 유저 버블: `#3560d4→#5e7ee8` → `rgba(84,122,227)→rgba(102,131,227)` (채도 낮춤)
+
+---
+
+## 2026-05-28 — AI Chat backdrop-filter 배포 버그 완전 수정
+
+- **증상**: PC Chrome 배포 환경에서 AI Chat 패널 backdrop-filter 효과 없음 (로컬·Safari는 정상)
+- **원인 1**: Tailwind v4 PostCSS가 빌드 시 CSS class의 `backdrop-filter` 속성을 제거 → Tailwind universal selector의 `backdrop-filter: var(--tw-backdrop-blur,)`(빈 값)에 의해 덮어씌워짐
+- **원인 2**: 외부 `div.fixed` 래퍼가 Chrome에서 compositor layer로 분리 → 내부 `motion.div`의 `backdrop-filter`가 레이어 투명 배경만 블러처리
+- **수정 1**: `src/components/AiChat/index.tsx` — `backdropFilter`를 JSX inline style로 이동 (PostCSS 우회), 외부 `div.fixed` 래퍼 제거 후 `motion.div` 자체에 `position: fixed` 적용 (`left: 50%` + `x: "-50%"` 센터링)
+- **수정 2**: `App.css` import를 `Home.tsx`(lazy) → `main.tsx`(entry)로 이동 — FOUC 방지 및 초기 CSS 번들에 전역 스타일 포함
+- CSS 분리 변경: entry CSS 0 kB → 39.45 kB (App.css 포함), lazy Home CSS 53.14 kB → 13.69 kB
+- 상세 분석: `docs/DEBUG.md` 2026-05-28 섹션 참조
+
+---
+
 ## 2026-05-26 — AI Chat 글래스모피즘 배포 버그 수정
 
 - **증상**: 로컬(dev)에서는 정상, 배포(prod)에서 AI Chat 패널이 완전 투명 — blur 없이 배경이 그대로 비쳐 보임

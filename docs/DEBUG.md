@@ -1,6 +1,7 @@
 # Debug Log
 
-> 배포 환경에서만 재현되는 버그, 원인 분석, 해결 방법 기록
+> 포트폴리오를 개발하며 발생하는 버그를 해결하는 기록
+> **반드시 최근 날짜가 맨 위로 오도록 작성. 날짜 내림차순으로 작성**
 
 ---
 
@@ -74,4 +75,81 @@ dev 모드에서는 Framer Motion의 `will-change` 최적화가 덜 공격적으
 | 커밋 | 내용 |
 |---|---|
 | `0755b57` | 원인 도입 — `React.lazy + Suspense` |
-| 수정 커밋 | `src/components/AiChat/index.tsx` — motion.div 통합 |
+| `30e7b1f` | `src/components/AiChat/index.tsx` — motion.div 통합 (부분 수정) |
+
+---
+
+## 2026-05-28 — AI Chat backdrop-filter 재발 (실제 원인 완전 규명)
+
+### 증상
+
+- 로컬(dev), 모바일 Safari(배포): 정상
+- PC Chrome(배포) + `npm run preview`: `backdrop-filter` 효과 없음 — 패널 배경만 표시
+
+2026-05-26 수정 후에도 배포 환경 Chrome에서 지속 재발.
+
+### 원인 1 — Tailwind v4 PostCSS가 `backdrop-filter`를 CSS class에서 제거
+
+**가장 근본적인 원인.**
+
+Tailwind CSS v4의 PostCSS 플러그인이 빌드 시 `.ai-panel { backdrop-filter: blur(18px) }`의 **비벤더 접두사 `backdrop-filter`를 제거**한다. `-webkit-backdrop-filter`는 그대로 남음.
+
+Tailwind v4는 `backdrop-filter`를 자체 utility 시스템(`--tw-backdrop-blur` CSS 변수)으로 관리하며, universal selector로 아래를 모든 요소에 적용한다:
+
+```css
+* { backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) ... }
+```
+
+`.ai-panel`에 별도로 `--tw-backdrop-blur`가 설정되지 않으므로 computed value는 `none`이 된다.
+
+**확인**: DevTools Computed 탭에서 `backdropFilter: "none"` / 빌드된 CSS에서 `.ai-panel` 규칙에 `backdrop-filter` 누락 확인.
+
+**해결**: `backdrop-filter`를 JSX inline style로 이동 — PostCSS 처리 대상에서 제외됨.
+
+```jsx
+style={{
+  backdropFilter: "blur(18px)",
+  WebkitBackdropFilter: "blur(18px)",
+  // ...
+}}
+```
+
+### 원인 2 — `position: fixed` 래퍼가 compositing layer를 생성해 backdrop-filter 차단
+
+Chrome은 스크롤 가능한 뷰에서 `position: fixed` 요소를 별도의 GPU compositing layer로 분리한다. `backdrop-filter`가 이 레이어 안의 자식 요소에 있으면, compositor는 레이어 아래 실제 페이지 콘텐츠가 아닌 **레이어 자체의 투명 배경**만 블러한다.
+
+```
+[페이지 콘텐츠] ─────────────────── Compositor Layer 0
+[div.fixed] ←─ position:fixed ───── Compositor Layer 1 (Chrome 자동 분리)
+  └─ [motion.div.ai-panel]
+       backdrop-filter: blur(18px) → Layer 1 내부(투명)만 블러 → 효과 없음
+```
+
+**확인**: DevTools Layers 패널 — `div.fixed`의 Compositing Reasons: "Is fixed position in a scrollable view." 외부 div에 직접 `backdrop-filter` 추가 시 정상 동작 확인.
+
+**해결**: 외부 `div.fixed` 래퍼를 제거하고 `motion.div` 자체에 `position: fixed` 부여. compositor layer 루트가 곧 `backdrop-filter`를 가진 요소가 되어, 그 아래 레이어(페이지 콘텐츠)를 정상 샘플링한다.
+
+```jsx
+// Before: div.fixed(compositor layer) → motion.div(backdrop-filter 차단)
+// After:  motion.div.fixed(compositor layer = backdrop-filter 요소 자체)
+<motion.div
+  className="ai-panel fixed z-50 ..."
+  style={{ left: "50%", ... }}
+  initial={{ x: "-50%", ... }}
+  animate={{ x: "-50%", ... }}
+>
+```
+
+### 원인 3 (보조) — App.css가 lazy chunk에 포함되어 CSS 타이밍 문제
+
+`App.css`가 `Home.tsx`(lazy)에서 import되어, CSS가 컴포넌트 렌더 후 비동기 주입됐다. 원인 1·2 해결 후에도 초기 렌더 시 `.ai-panel`의 background/border/box-shadow 스타일이 잠시 없다가 나타나는 FOUC가 발생할 수 있었다.
+
+**해결**: `App.css` import를 `main.tsx`로 이동 → 초기 entry CSS 번들에 포함.
+
+### 수정 파일 요약
+
+| 파일 | 변경 내용 |
+|---|---|
+| `src/components/AiChat/index.tsx` | 외부 `div.fixed` 제거, `motion.div`를 `fixed`로 변경, `backdropFilter` inline style 추가 |
+| `src/main.tsx` | `App.css` import 추가 |
+| `src/components/Home.tsx` | `App.css` import 제거 |

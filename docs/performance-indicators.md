@@ -126,6 +126,42 @@
 
 ---
 
+### 3-3. framer-motion 번들 통합 + App.css 초기 번들 이동 (2026-05-28)
+
+> 적용 내용 ①: `manualChunks`에서 `motion` 제거 → framer-motion을 `Home.js`에 통합
+> 적용 내용 ②: `App.css` import를 `Home.tsx`(lazy) → `main.tsx`(entry)로 이동
+> 측정일: 2026-05-28
+
+**청크별 산출물**
+
+| 청크 | 크기 | gzip | 로드 시점 |
+|---|---:|---:|---|
+| `index.js` (entry) | 4.29 kB | 1.90 kB | 즉시 |
+| `index.css` (entry) | 39.45 kB | 8.24 kB | 즉시 (App.css 포함) |
+| `react-vendor.js` | 44.55 kB | 15.94 kB | 즉시 |
+| `Home.js` | 213.73 kB | 68.95 kB | `/` 진입 시 (framer-motion 포함) |
+| `Home.css` | 13.69 kB | 3.96 kB | `/` 진입 시 |
+| 공유 deps (2개) | 46.79 kB | 15.12 kB | `/` 진입 시 |
+| `ProjectDetail.js` | 42.54 kB | 14.55 kB | `/project/:id` 진입 시 (lazy) |
+| remark/markdown (2개) | 291.84 kB | 91.57 kB | AI 채팅 첫 응답 수신 시 (lazy) |
+
+**3-2 대비 변경 사항**
+
+| 지표 | 3-2 (최적화 후) | 3-3 (현재) | 비고 |
+|---|---:|---:|---|
+| `motion.js` | 116.09 kB | **없음** | Home.js에 흡수 |
+| `Home.js` | 98.24 kB | **213.73 kB** | framer-motion 통합 |
+| entry CSS | 0.00 kB | **39.45 kB** | App.css 이동 |
+| lazy Home CSS | 53.14 kB | **13.69 kB** | Home 전용 CSS만 |
+| 홈 초기 JS 로드 | 309.96 kB | **309.38 kB** | 실질 동일 |
+| 홈 초기 CSS 로드 | 53.14 kB | **53.14 kB** | 동일 (split만 변경) |
+
+**변경 이유**:
+- framer-motion 분리 청크: 배포 환경 Chrome `backdrop-filter` 렌더링 오류 원인 조사 과정에서 제거
+- App.css 이동: 전역 스타일(`backdrop-filter` 포함)을 lazy chunk에 두면 컴포넌트 렌더 후 CSS가 비동기 주입되어 FOUC 발생 → entry bundle로 이동하여 렌더 전 로드 보장
+
+---
+
 ## 4. 안정성 지표
 
 ### TypeScript 타입 안정성 향상
@@ -162,15 +198,15 @@
 | 신규 프로젝트 추가 작업 (라인) | ~300 | **~100~160** | **↓ 50~67%** |
 | TypeScript 오류 | 0 | **0** | — |
 
-### 번들 최적화 (2026-05-21)
+### 번들 최적화 (2026-05-21 + 2026-05-28)
 
-| 지표 | Before | After | 개선율 |
-|---|---|---|---|
-| 홈 초기 JS 로드 | 638.92 kB | **309.96 kB** | **↓ 51%** |
-| 홈 초기 gzip | 203.85 kB | **102.29 kB** | **↓ 50%** |
-| 최대 단일 청크 | 638.92 kB | **176.65 kB** | **↓ 72%** |
-| Vite 500 kB 경고 | 발생 | **없음** | — |
-| 수정 파일 수 | — | **3개** (`App.tsx`, `ChatMessage.tsx`, `vite.config.ts`) | — |
+| 지표 | Before (단일 청크) | 2026-05-21 (motion 분리) | 2026-05-28 (motion 통합) |
+|---|---:|---:|---:|
+| 홈 초기 JS 로드 | 638.92 kB | 309.96 kB | **309.38 kB** |
+| 홈 초기 gzip | 203.85 kB | 102.29 kB | **101.88 kB** |
+| 최대 단일 청크 | 638.92 kB | 176.65 kB | **213.75 kB** |
+| 홈 초기 JS 청크 수 | 1개 | 5개 | **4개** |
+| Vite 500 kB 경고 | 발생 | 없음 | **없음** |
 
 ---
 

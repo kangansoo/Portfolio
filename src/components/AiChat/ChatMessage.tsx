@@ -7,7 +7,7 @@ interface ChatMessageProps {
 }
 
 const userBubbleStyle = {
-  background: "linear-gradient(135deg, #3560d4 0%, #5e7ee8 100%)",
+  background: "linear-gradient(135deg, rgba(84, 122, 227, 1), rgba(102, 131, 227, 1))",
 }
 
 // import type only — compile-time, no runtime bundle impact
@@ -55,7 +55,7 @@ const markdownComponents: Components = {
   h2: ({ children }) => <h2 className="text-sm font-bold mb-1.5 font-pretendard">{children}</h2>,
   h3: ({ children }) => <h3 className="text-sm font-semibold mb-1 font-pretendard">{children}</h3>,
   a: ({ href, children }) => (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="text-[#4875eb] dark:text-[#8baaff] underline underline-offset-2 hover:text-[#ae86ff] dark:hover:text-[#c4a8ff] transition-colors">
+    <a href={href} target="_blank" rel="noopener noreferrer" className="text-point dark:text-brand-blue underline underline-offset-2 hover:text-brand-purple dark:hover:text-brand-purple transition-colors">
       {children}
     </a>
   ),

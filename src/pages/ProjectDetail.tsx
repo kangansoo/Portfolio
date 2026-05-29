@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 import ProjectFooter from "@/components/ProjectFooter"
+import ScrollToTopButton from "@/components/ScrollToTopButton"
 import type { ProjectDetailData, RoleProps } from "@/types"
 import { layupData } from "@/data/projectDetails/layup"
 import { newkizData } from "@/data/projectDetails/newkiz"
@@ -36,17 +37,14 @@ const ProjectDetail = () => {
     }
   }, [data, navigate])
 
-  // 스크롤 앵커: 자기소개에서 넘어와 특정 역할 섹션으로 이동
-  const anchorRef = useRef<HTMLElement>(null)
   const scrollAnchor = data?.scrollAnchor
 
+  // hash(#section-id)로 진입 시 해당 섹션으로 스크롤
   useEffect(() => {
-    if (!scrollAnchor) return
-    if (location.state?.scrollTo === scrollAnchor.stateKey && anchorRef.current) {
-      anchorRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
-      window.history.replaceState({}, document.title)
-    }
-  }, [location, scrollAnchor])
+    if (!location.hash) return
+    const el = document.querySelector(location.hash)
+    if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 100)
+  }, [location.hash])
 
   if (!data) return null
 
@@ -181,7 +179,7 @@ const ProjectDetail = () => {
           {data.roles.map((role, i) => {
             const isAnchor = scrollAnchor?.roleTitle === role.title
             return (
-              <article key={i} className={`mb-20 ${isAnchor ? "scroll-mt-8" : ""}`} ref={isAnchor ? anchorRef : null}>
+              <article key={i} id={isAnchor ? scrollAnchor?.stateKey : undefined} className={`mb-20 ${isAnchor ? "scroll-mt-20" : ""}`}>
                 <h2 className="font-nanumsquare text-xl font-extrabold text-font-title mb-2">{role.title}</h2>
                 <p className="text-sm text-font-body mb-4 font-nexon">{role.desc}</p>
 
@@ -244,6 +242,7 @@ const ProjectDetail = () => {
       </main>
 
       <ProjectFooter id={data.footerId} />
+      <ScrollToTopButton />
     </div>
   )
 }
