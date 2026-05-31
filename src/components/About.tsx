@@ -1,53 +1,47 @@
-import Strong from "@/components/Strong";
-import { forwardRef } from "react";
-import { useNavigate } from "react-router-dom";
+import Strong from "@/components/Strong"
+import { forwardRef } from "react"
+import { useNavigate } from "react-router-dom"
 
 const About = forwardRef<HTMLElement>((_, ref) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const handlePwaClick = () => navigate("/project/layup#pwa-section");
-  const handleAlgorithmClick = () => navigate("/project/newkiz#algorithm-section");
-  const handleInterviewClick = () => navigate("/project/konciar");
+  const handlePwaClick = () => navigate("/project/layup#pwa-section")
+  const handleAlgorithmClick = () => navigate("/project/newkiz#algorithm-section")
+  const handleInterviewClick = () => navigate("/project/konciar")
 
   return (
-    <section
-      className="w-full flex justify-center items-center pt-20 pb-10"
-      ref={ref}
-      aria-labelledby="about-heading"
-    >
+    <section className="w-full flex justify-center items-center pt-20 pb-10" ref={ref} aria-labelledby="about-heading">
       <h2 id="about-heading" className="sr-only">
         About My Values
       </h2>
       <div className="w-[92%] md:w-[60%] h-[80%] flex flex-col justify-center">
-        <h2 className="font-nanumsquare text-2xl font-bold text-font-title">
-          About
-        </h2>
+        <h2 className="font-nanumsquare text-2xl font-bold text-font-title">About</h2>
         <div className="w-full flex flex-col font-nexon text-font-body text-sm mt-5">
           <p>
-            사용자 경험을 가장 중요한 가치로 여기며, 기술 자체보다 "왜 이 기능이 필요한가", "어떻게 하면 더 나은 경험을 만들 수 있나"를 고민하는 개발자입니다.
-            {" "}
-            <br />
-            <br />그 과정에서 사용자 편의성 개선을 위한{" "}
+            사용자 경험을 최우선 가치로 여기며, "왜 이 기능이 필요한가", "어떻게 하면 더 나은 경험을 만들 수 있나"를 고민하고 그에 맞는 기술적 해결책을 찾아가는 개발자입니다. <br />
+            <br />그 과정에서 사용자 편의성 향상을 위해{" "}
             <Strong fontSize="md" onClick={handlePwaClick}>
               PWA 도입
             </Strong>
-              , 다양한 기기 해상도 환경에서 발생한 실시간 게임 캐릭터 좌표 불일치 문제 해결을 위한{" "}
+            를 도입하여 접근성을 개선하고, 다양한 기기 환경에서 발생한 실시간 게임 캐릭터 좌표 불일치 문제를{" "}
             <Strong fontSize="md" onClick={handleAlgorithmClick}>
               Min-Max Scaling
-            </Strong>
-              {" "}알고리즘 채택, 비즈니스 검증과 사용자 중심의 UX 설계를 위한{" "}
+            </Strong>{" "}
+            알고리즘으로 해결했습니다. 또한 사용자 중심의 UX 설계와 비즈니스 검증을 위해{" "}
             <Strong fontSize="md" onClick={handleInterviewClick}>
               길거리 인터뷰
             </Strong>
-              를 진행하는 등 사용자 경험 개선을 위한 문제 해결에 집중해왔습니다. <br />
-            <br />최근에는 AI 에이전트를 개발 워크 플로우에 적극적으로 활용하며 코드 구현을 넘어 제품 전체의 가치를 함께 고민하고 만들어가는 개발자로 성장하고자 합니다.
+            를 진행하는 등 사용자 경험 개선을 위한 문제 해결에 집중해왔습니다. <br />
+            <br />
+            최근에는 AI 에이전트를 개발 워크플로우에 적극적으로 활용하며 문제 해결 속도와 생산성을 높이고 있습니다. 이를 바탕으로 코드 구현을 넘어 제품 전체의 가치를 함께 고민하고 만들어가는 개발자로
+            성장하고자 합니다.
           </p>
         </div>
       </div>
     </section>
-  );
-});
+  )
+})
 
-About.displayName = "About"; // 디버깅 및 개발자 도구에서 컴포넌트 이름 확인 용이
+About.displayName = "About" // 디버깅 및 개발자 도구에서 컴포넌트 이름 확인 용이
 
-export default About;
+export default About
