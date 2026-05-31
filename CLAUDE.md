@@ -15,6 +15,7 @@
 3. **WORK.md 확인**: 구현 시작 전 `docs/WORK.md`를 읽고 계획대로 진행한다
 4. **완료 처리**: 작업 완료 후 해당 항목을 `docs/WORK.md`에서
    `docs/HISTORY.md`로 이동한다
+5. **디버깅**: 버그 수정 작업 시 `docs/DEBUG.md`에 분석과 해결 과정을 기록한다
 
 ---
 
@@ -189,11 +190,11 @@ public/
 
 ```ts
 {
-  id: number; // 고유 ID
-  title: string; // 프로젝트명
-  image: string; // S3 경로 (예: "/pading.png") — VITE_S3_URL과 결합
-  description: string; // 한 줄 설명 (한국어)
-  route: string; // 상세 페이지 경로 (예: "/layup")
+  id: number // 고유 ID
+  title: string // 프로젝트명
+  image: string // S3 경로 (예: "/pading.png") — VITE_S3_URL과 결합
+  description: string // 한 줄 설명 (한국어)
+  route: string // 상세 페이지 경로 (예: "/layup")
 }
 ```
 
