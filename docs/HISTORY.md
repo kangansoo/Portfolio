@@ -4,6 +4,16 @@
 
 ---
 
+## 2026-06-21 — Konciar 프로젝트 소개 및 스택 수정
+
+- `src/data/projectDetails/konciar.tsx`의 프로젝트 소개 문구 수정
+  - AI 도구 활용으로 개발 생산성을 높인 경험 반영
+  - 길거리 인터뷰, 숏폼 콘텐츠 제작, 바이럴 마케팅을 통해 사용자 니즈·시장성·성장 가능성을 고민한 내용 반영
+- Konciar 프로젝트 정보 `스택` 항목에 `Antigravity` 추가
+- `.gitignore`에 `docs/` 포함 확인 (`.gitignore:28`)
+
+---
+
 ## 2026-05-29 — 프로젝트 상세 페이지 위로가기 버튼 추가
 
 - `src/components/ScrollToTopButton.tsx` 신규 생성
