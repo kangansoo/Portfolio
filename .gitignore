@@ -25,4 +25,6 @@ dist-ssr
 .env
 .playwright-mcp/
 
-.docs/
+docs/
+
+local/

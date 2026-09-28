@@ -33,6 +33,8 @@ export interface RoleProps {
   img?: string // 단일 이미지 파일명
   imgs?: string[] // 다중 이미지 파일명 배열
   videoSrc?: string // 비디오 파일명
+  videos?: string[] // 다중 비디오 파일명 배열
+  embedUrl?: string // 외부 임베드 URL
   hasVideo?: boolean // 비디오 존재 여부
   isMultiImg?: boolean // 다중 이미지 모드 여부
   isMobile?: boolean // 모바일 레이아웃 적용 여부

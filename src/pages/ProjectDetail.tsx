@@ -7,6 +7,7 @@ import { layupData } from "@/data/projectDetails/layup"
 import { newkizData } from "@/data/projectDetails/newkiz"
 import { padingData } from "@/data/projectDetails/pading"
 import { konciarData } from "@/data/projectDetails/konciar"
+import { seulgiLivingData } from "@/data/projectDetails/seulgiLiving"
 
 // id → 데이터 매핑. 새 프로젝트 추가 시 이 객체에만 등록한다.
 const dataMap: Record<string, ProjectDetailData> = {
@@ -14,6 +15,7 @@ const dataMap: Record<string, ProjectDetailData> = {
   newkiz: newkizData,
   pading: padingData,
   konciar: konciarData,
+  "seulgi-living": seulgiLivingData,
 }
 
 // **...** 마크다운 볼드를 <strong>으로 변환
@@ -58,6 +60,30 @@ const ProjectDetail = () => {
 
   // 역할별 미디어 영역(비디오/다중 이미지/단일 이미지) 렌더링
   const renderRoleMedia = (role: RoleProps) => {
+    if (role.embedUrl) {
+      return (
+        <div className="relative w-full overflow-hidden rounded-sm border border-gray-200 dark:border-gray-900 bg-white dark:bg-black/20">
+          <iframe src={role.embedUrl} width="100%" height="600" frameBorder="0" allowFullScreen title={`${role.title} 첨부 자료`} />
+        </div>
+      )
+    }
+
+    if (role.videos) {
+      return (
+        <div className={`grid gap-3 w-full ${role.videos.length > 1 ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1"}`}>
+          {role.videos.map((video, idx) => (
+            <div key={video} className={`relative w-full ${role.isMobile ? "max-w-[70%] md:max-w-[40%]" : ""}`}>
+              <video controls muted loop playsInline className="w-full rounded-sm border border-gray-200 dark:border-gray-900">
+                <source src={`${url}/${video}`} type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-black/0 dark:bg-black/10 pointer-events-none transition-colors duration-300" />
+              {role.videos && role.videos.length > 1 && <p className="mt-2 text-xs text-font-caption font-nexon">시연 영상 {idx + 1}</p>}
+            </div>
+          ))}
+        </div>
+      )
+    }
+
     // 1) 비디오 + 이미지 사이드 바이 사이드
     if (role.hasVideo) {
       return (

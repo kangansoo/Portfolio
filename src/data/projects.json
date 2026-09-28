@@ -26,5 +26,12 @@
     "image": "/konciarBackground.png",
     "description": "한국 방문 외국인을 위한 로컬 예약 및 대리 문의 컨시어지 서비스",
     "route": "/project/konciar"
+  },
+  {
+    "id": 5,
+    "title": "슬기로운 자취생활",
+    "image": "/seulgi-preview.png",
+    "description": "자취 요리, 청년 정책 탐색, 생활 편의시설 파악까지 하나의 앱으로 독립 청년의 생활을 지원하는 서비스",
+    "route": "/project/seulgi-living"
   }
 ]
