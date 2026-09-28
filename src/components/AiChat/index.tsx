@@ -58,10 +58,10 @@ const AiChat = ({ showLanding = false }: { showLanding?: boolean }) => {
 
   const handleSend = (text: string) => {
     if (!text.trim() || isActive) return
-    alert("AI 채팅 기능은 현재 잠시 점검 중입니다.")
-    // setInputValue("")
-    // if (chatState === "default") setChatState("expanded")
-    // sendMessage(text)
+    // alert("AI 채팅 기능은 현재 잠시 점검 중입니다.")
+    setInputValue("")
+    if (chatState === "default") setChatState("expanded")
+    sendMessage(text)
   }
 
   if (showLanding) return null
