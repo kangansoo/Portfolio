@@ -88,7 +88,7 @@ export const seulgiLivingData: ProjectDetailData = {
     },
     {
       title: "Gemini API 기반 이미지 분석",
-      videos: ["grocery-camera.mp4", "receipt-camera.mp4"],
+      videos: ["grocery-camera_muted.mp4", "receipt-camera_muted.mp4"],
       desc: "식재료와 영수증 이미지를 분석해 가계부와 My 냉장고 기능에서 활용할 수 있는 데이터로 저장하는 기능",
       problem: ["초기에는 이미지를 Base64로 변환해 API로 바로 전송", "인코딩 과정에서 데이터 용량이 증가하며 Next.js 요청 한도 4MB를 초과"],
       solution: ["**이미지 리사이즈 적용**: 전송 전에 이미지 크기를 줄여 요청 데이터 크기 감소", "**최대 80% 압축 적용**: Gemini API 전달 전 압축 과정을 추가해 업로드 안정성 개선"],
@@ -97,7 +97,7 @@ export const seulgiLivingData: ProjectDetailData = {
     {
       title: "GCP 기반 RAG 채팅",
       isMobile: true,
-      videos: ["chatting.mp4"],
+      videos: ["chatting_muted.mp4"],
       desc: "청년 정책과 레시피 정보를 자연어로 검색하고 추천받을 수 있는 RAG 기반 채팅 기능",
       problem: [
         "청년 정책과 레시피 정보가 여러 곳에 흩어져 있어 자연어 기반 탐색 흐름이 필요했음",
